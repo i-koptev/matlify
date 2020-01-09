@@ -1,0 +1,16 @@
+{
+    "navigation.main": "Home",
+    "navigation.works": "Works",
+    "navigation.projects": "Projects",
+    "navigation.blog": "Blog",
+    "hero.slogan": "Websites with Gatsby",
+    "hero.title": "Web Development",
+    "hero.call-to-action-text": "Contact me",
+    "hero.features-1": "design creaton",
+    "hero.features-2": "stucture development",
+    "hero.features-3": "markup and programming",
+    "hero.features-4": "deployment to production",
+    "whygatsby.title": "Why do I use Gatsby?",
+    "whygatsby.text": "The answer is simple - using Gatsby you have all the power of the latest web technologies – React.js , Webpack , modern JavaScript and CSS and more — all set up and waiting for you to start building.<br/> You build sites with the data you want — from one or many sources: pull data from headless CMSs, SaaS services, APIs, databases, your file system, and more directly into your pages using GraphQL.",
+    "whygatsby.button": "Learn more about Gatsby on the official site"
+}

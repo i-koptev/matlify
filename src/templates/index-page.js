@@ -5,7 +5,7 @@ import { Link, graphql } from "gatsby"
 export const IndexPageTemplate = ({ image, title, heading, subheading }) => (
     <div
         style={{
-            maxWidth: "800px",
+            maxWidth: "1140px",
             margin: "0 auto",
         }}
     >

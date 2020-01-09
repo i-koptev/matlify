@@ -28,7 +28,8 @@ collections:
               default: "index-page",
             }
           - { label: Identifier, name: identifier, widget: string }
-          - { label: Title, name: title, widget: object, fields: [
+          - { label: Title, name: title, widget: object, fields: 
+          [
             { label: Ru, name: ru, widget: string },
             { label: En, name: en, widget: string }
           ] }

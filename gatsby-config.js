@@ -73,15 +73,15 @@ module.exports = {
         },
         // If you want to use styled components you should add the plugin here.
         // 'gatsby-plugin-styled-components',
-        /* 
+
         {
             resolve: "gatsby-plugin-netlify-cms",
             options: {
                 modulePath: `${__dirname}/src/cms/cms.js`,
             },
         },
-         */
-        "gatsby-plugin-netlify-cms",
+
+        // "gatsby-plugin-netlify-cms",
         "gatsby-plugin-netlify", // make sure to keep it last in the array
     ],
 }

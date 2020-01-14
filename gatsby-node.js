@@ -49,7 +49,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     )
 
     result.data.allMarkdownRemark.edges.forEach(edge => {
-        if (edge.node.frontmatter.title) {
+        if (edge.node.frontmatter.titlez) {
             ru[`${edge.node.id}.titlez`] = edge.node.frontmatter.titlez.ru
             en[`${edge.node.id}.titlez`] = edge.node.frontmatter.titlez.en
         }

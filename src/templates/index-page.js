@@ -42,7 +42,7 @@ const IndexPage = ({ data }) => {
     return (
         <IndexPageTemplate
             image={frontmatter.image}
-            title={frontmatter.title}
+            title={frontmatter.titlez.ru}
             heading={frontmatter.heading}
             subheading={frontmatter.subheading}
         />
@@ -64,6 +64,10 @@ export const pageQuery = graphql`
         markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
             frontmatter {
                 title
+                titlez {
+                    ru
+                    en
+                }
                 image {
                     childImageSharp {
                         fluid(maxWidth: 1200, quality: 100) {

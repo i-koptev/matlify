@@ -27,21 +27,22 @@ collections:
                       widget: "hidden",
                       default: "index-page",
                   }
-                - { label: Title, name: title, widget: string }
-                - { label: Image, name: image, widget: image }
-                - { label: Heading, name: heading, widget: string }
-                - { label: Subheading, name: subheading, widget: string }
+
                 - {
-                      label: Test,
-                      name: test,
+                      label: Title / Заголовок,
+                      name: titlez,
                       widget: object,
                       fields:
                           [
-                              { label: Ru, name: ru, widget: string },
-                              { label: En, name: en, widget: string },
-                              { label: Lv, name: lv, widget: string },
+                              { label: ru, name: ru, widget: string },
+                              { label: en, name: en, widget: string },
                           ],
                   }
+
+                - { label: Image, name: image, widget: image }
+                - { label: Heading, name: heading, widget: string }
+                - { label: Subheading, name: subheading, widget: string }
+                - { label: :-), name: title, widget: string }
           - file: "src/pages/about/index.md"
             label: "About"
             name: "about"

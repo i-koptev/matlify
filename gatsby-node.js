@@ -17,6 +17,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                         }
                         frontmatter {
                             templateKey
+                            titlez {
+                                ru
+                                en
+                            }
                         }
                     }
                 }
@@ -29,6 +33,57 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         reporter.panic("Error while running GraphQL query.", result.errors)
         return
     }
+
+    // ----------------------------
+    var ru = {}
+    var en = {}
+
+    const ruStatic = await fs.readFile(
+        path.join(__dirname, "./src/intl/ru-static.json"),
+        "utf8"
+    )
+
+    const enStatic = await fs.readFile(
+        path.join(__dirname, "./src/intl/en-static.json"),
+        "utf8"
+    )
+
+    result.data.allMarkdownRemark.edges.forEach(edge => {
+        if (edge.node.frontmatter.title) {
+            ru[`${edge.node.id}.titlez`] = edge.node.frontmatter.titlez.ru
+            en[`${edge.node.id}.titlez`] = edge.node.frontmatter.titlez.en
+        }
+
+        /* if (edge.node.frontmatter.bodyText) {
+          ru[`${edge.node.id}.bodyText`] =
+            edge.node.frontmatter.bodyText.bodyTextRu;
+          en[`${edge.node.id}.bodyText`] =
+            edge.node.frontmatter.bodyText.bodyTextEn;
+        } */
+
+        /* 
+        en[`${edge.node.slug}.title`] = edge.node.postTranslations.title
+          ? edge.node.postTranslations.title
+          : edge.node.title;
+        en[`${edge.node.slug}.content`] = edge.node.postTranslations.content
+          ? edge.node.postTranslations.content
+          : edge.node.content; */
+    })
+
+    const ruRes = { ...ru, ...JSON.parse(ruStatic) }
+    const enRes = { ...en, ...JSON.parse(enStatic) }
+
+    await fs.writeFile(
+        path.join(__dirname, "./src/intl/ru.json"),
+        JSON.stringify(ruRes, null, 4),
+        "utf8"
+    )
+    await fs.writeFile(
+        path.join(__dirname, "./src/intl/en.json"),
+        JSON.stringify(enRes, null, 4),
+        "utf8"
+    )
+    // ----------------------------
 
     const posts = result.data.allMarkdownRemark.edges
 

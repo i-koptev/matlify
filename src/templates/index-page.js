@@ -1,6 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import {
+    changeLocale,
+    injectIntl,
+    Link,
+    FormattedMessage,
+} from "gatsby-plugin-intl"
 
 export const IndexPageTemplate = ({ image, title, heading, subheading }) => (
     <div
@@ -36,16 +42,22 @@ IndexPageTemplate.propTypes = {
     subheading: PropTypes.string,
 }
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ intl, data }) => {
     const { frontmatter } = data.markdownRemark
 
     return (
-        <IndexPageTemplate
-            image={frontmatter.image}
-            title={frontmatter.titlez.ru}
-            heading={frontmatter.heading}
-            subheading={frontmatter.subheading}
-        />
+        <>
+            <IndexPageTemplate
+                image={frontmatter.image}
+                // title={frontmatter.titlez.ru}
+                title={intl.formatMessage({
+                    id: `${data.markdownRemark.id}.title`,
+                })}
+                heading={frontmatter.heading}
+                subheading={frontmatter.subheading}
+            />
+            <pre>{JSON.stringify(data, null, 4)}</pre>
+        </>
     )
 }
 
@@ -57,11 +69,12 @@ IndexPage.propTypes = {
     }),
 }
 
-export default IndexPage
+export default injectIntl(IndexPage)
 
 export const pageQuery = graphql`
     query IndexPageTemplate {
         markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+            id
             frontmatter {
                 title
                 titlez {

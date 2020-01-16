@@ -14,9 +14,9 @@ subheading:
   ru: |-
     ### Подзаголовок 
 
-    1. first
-    2. second
-    3. third
+    1. первый
+    2. второй
+    3. третий
 ---
 
 # Heading 1

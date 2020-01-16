@@ -1,13 +1,22 @@
 ---
-title: about
 templateKey: about-page
-image: /img/home-jumbotron.jpg
+title: about
 heading:
-    ru: Заголовок
-    en: Heading
+  en: Heading
+  ru: Заголовок
 subheading:
-    ru: Подзаголовок
-    en: Subheading
+  en: |-
+    ### Subheading
+
+    1. first
+    2. second
+    3.third
+  ru: |-
+    ### Подзаголовок 
+
+    1. first
+    2. second
+    3. third
 ---
 
 # Heading 1

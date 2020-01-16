@@ -1,11 +1,12 @@
 ---
 title: Home
 templateKey: index-page
-image: /img/home-jumbotron.jpg
 heading:
-    ru: Заголовок
-    en: Heading
+  en: Heading en
+  ru: Заголовок ru
 subheading:
-    ru: Подзаголовок
-    en: Subheading
+  en: Subheading
+  ru: Подзаголовок
+image: /img/home-jumbotron.jpg
 ---
+

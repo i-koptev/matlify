@@ -1,8 +1,8 @@
 {
-    "60b255a9-da7a-5966-97db-a97c98b2dabc.heading": "Заголовок",
-    "60b255a9-da7a-5966-97db-a97c98b2dabc.subheading": "Подзаголовок",
     "542c78a4-cd92-52fc-90b5-a4c949d65241.heading": "Заголовок ru sdfsdfsdf 1234",
-    "542c78a4-cd92-52fc-90b5-a4c949d65241.subheading": "Подзаголовок sdfsdf 123",
+    "542c78a4-cd92-52fc-90b5-a4c949d65241.subheading": "<p>Подзаголовок sdfsdf 123</p>",
+    "60b255a9-da7a-5966-97db-a97c98b2dabc.heading": "Заголовок",
+    "60b255a9-da7a-5966-97db-a97c98b2dabc.subheading": "<h3 id=\"\">Подзаголовок</h3>\n<ol>\n<li>первый</li>\n<li>второй</li>\n<li>третий</li>\n</ol>",
     "navigation.main": "Главная",
     "navigation.works": "Работы",
     "navigation.projects": "Проекты",

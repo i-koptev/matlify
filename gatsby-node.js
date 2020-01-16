@@ -1,5 +1,6 @@
 const _ = require("lodash")
 const path = require("path")
+const showdown = require("showdown")
 const { createFilePath } = require("gatsby-source-filesystem")
 const { fmImagesToRelative } = require("gatsby-remark-relative-images")
 // const fs = require("fs");
@@ -53,16 +54,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         "utf8"
     )
 
+    const converter = new showdown.Converter()
+
     result.data.allMarkdownRemark.edges.forEach(edge => {
         if (edge.node.frontmatter.heading) {
             ru[`${edge.node.id}.heading`] = edge.node.frontmatter.heading.ru
             en[`${edge.node.id}.heading`] = edge.node.frontmatter.heading.en
         }
         if (edge.node.frontmatter.subheading) {
-            ru[`${edge.node.id}.subheading`] =
+            ru[`${edge.node.id}.subheading`] = converter.makeHtml(
                 edge.node.frontmatter.subheading.ru
-            en[`${edge.node.id}.subheading`] =
+            )
+            en[`${edge.node.id}.subheading`] = converter.makeHtml(
                 edge.node.frontmatter.subheading.en
+            )
         }
 
         /* if (edge.node.frontmatter.bodyText) {

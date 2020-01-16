@@ -34,27 +34,127 @@ collections:
               widget: "hidden",
               default: "index-page",
             }
+
           - {
-              label: "Заголовок / Heading",
-              name: "heading",
+              label: "Раздел Hero / Hero Section",
+              name: "hero",
               widget: "object",
               fields:
                 [
-                  { label: ru, name: ru, widget: string },
-                  { label: en, name: en, widget: string },
+                  { label: Image, name: image, widget: image },
+                  {
+                    label: "Заголовок / Heading",
+                    name: "heading",
+                    widget: "object",
+                    fields:
+                      [
+                        { label: ru, name: ru, widget: string },
+                        { label: en, name: en, widget: string },
+                      ],
+                  },
+                  {
+                    label: "Подзаголовок / Subheading",
+                    name: subheading,
+                    widget: object,
+                    fields:
+                      [
+                        { label: ru, name: ru, widget: string },
+                        { label: en, name: en, widget: string },
+                      ],
+                  },
+                  {
+                    label: "Преимущества / Features",
+                    name: features,
+                    widget: object,
+                    fields:
+                      [
+                        {
+                          label: "Преимущество #1 / Feature #1",
+                          name: "feature1",
+                          widget: object,
+                          fields:
+                            [
+                              { label: ru, name: ru, widget: string },
+                              { label: en, name: en, widget: string },
+                            ],
+                        },
+                        {
+                          label: "Преимущество #2 / Feature #2",
+                          name: "feature2",
+                          widget: object,
+                          fields:
+                            [
+                              { label: ru, name: ru, widget: string },
+                              { label: en, name: en, widget: string },
+                            ],
+                        },
+                        {
+                          label: "Преимущество #3 / Feature #3",
+                          name: "feature3",
+                          widget: object,
+                          fields:
+                            [
+                              { label: ru, name: ru, widget: string },
+                              { label: en, name: en, widget: string },
+                            ],
+                        },
+                        {
+                          label: "Преимущество #4 / Feature #4",
+                          name: "feature4",
+                          widget: object,
+                          fields:
+                            [
+                              { label: ru, name: ru, widget: string },
+                              { label: en, name: en, widget: string },
+                            ],
+                        },
+                      ],
+                  },
                 ],
             }
+
           - {
-              label: "Подзаголовок / Subheading",
-              name: subheading,
-              widget: object,
+              label: "Раздел Преимущества Продукта / Product Features Section",
+              name: "productFeatures",
+              widget: "object",
               fields:
                 [
-                  { label: ru, name: ru, widget: string },
-                  { label: en, name: en, widget: string },
+                  { label: Image, name: image, widget: image },
+                  {
+                    label: "Заголовок / Heading",
+                    name: "productFeaturesHeading",
+                    widget: "object",
+                    fields:
+                      [
+                        { label: "RU", name: ru, widget: string },
+                        { label: "EN", name: en, widget: string },
+                      ],
+                  },
+                  {
+                    label: "Описание Продукта / Product description",
+                    name: "productDescriptionText",
+                    widget: object,
+                    fields:
+                      [
+                        { label: "RU", name: ru, widget: markdown },
+                        { label: "EN", name: en, widget: markdown },
+                      ],
+                  },
+                  {
+                    label: "Кнопка / Button",
+                    name: "productDescriptionButton",
+                    widget: object,
+                    fields:
+                      [
+                        { label: "RU", name: ru, widget: string },
+                        { label: "EN", name: en, widget: string },
+                      ],
+                  },
                 ],
             }
-          - { label: Image, name: image, widget: image }
+
+      # ------------------- ABOUT PAGE -----------------------------------
+
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
@@ -87,8 +187,8 @@ collections:
               widget: object,
               fields:
                 [
-                  { label: ru, name: ru, widget: string },
-                  { label: en, name: en, widget: string },
+                  { label: ru, name: ru, widget: markdown },
+                  { label: en, name: en, widget: markdown },
                 ],
             }
           - { label: "Body", name: "body", widget: "markdown" }

@@ -50,11 +50,13 @@ const IndexPage = ({ intl, data }) => {
             <IndexPageTemplate
                 image={frontmatter.image}
                 // title={frontmatter.titlez.ru}
-                title={intl.formatMessage({
-                    id: `${data.markdownRemark.id}.title`,
+                title={frontmatter.title}
+                heading={intl.formatMessage({
+                    id: `${data.markdownRemark.id}.heading`,
                 })}
-                heading={frontmatter.heading}
-                subheading={frontmatter.subheading}
+                subheading={intl.formatMessage({
+                    id: `${data.markdownRemark.id}.subheading`,
+                })}
             />
             <pre>{JSON.stringify(data, null, 4)}</pre>
         </>
@@ -77,7 +79,11 @@ export const pageQuery = graphql`
             id
             frontmatter {
                 title
-                titlez {
+                heading {
+                    ru
+                    en
+                }
+                subheading {
                     ru
                     en
                 }
@@ -88,8 +94,6 @@ export const pageQuery = graphql`
                         }
                     }
                 }
-                heading
-                subheading
             }
         }
     }

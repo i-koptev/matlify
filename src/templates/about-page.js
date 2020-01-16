@@ -46,6 +46,14 @@ export const pageQuery = graphql`
         markdownRemark(frontmatter: { templateKey: { eq: "about-page" } }) {
             frontmatter {
                 title
+                heading {
+                    ru
+                    en
+                }
+                subheading {
+                    ru
+                    en
+                }
             }
             html
         }

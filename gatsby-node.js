@@ -17,7 +17,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                         }
                         frontmatter {
                             templateKey
-                            titlez {
+                            title
+                            heading {
+                                ru
+                                en
+                            }
+                            subheading {
                                 ru
                                 en
                             }
@@ -49,9 +54,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     )
 
     result.data.allMarkdownRemark.edges.forEach(edge => {
-        if (edge.node.frontmatter.titlez) {
-            ru[`${edge.node.id}.titlez`] = edge.node.frontmatter.titlez.ru
-            en[`${edge.node.id}.titlez`] = edge.node.frontmatter.titlez.en
+        if (edge.node.frontmatter.heading) {
+            ru[`${edge.node.id}.heading`] = edge.node.frontmatter.heading.ru
+            en[`${edge.node.id}.heading`] = edge.node.frontmatter.heading.en
+        }
+        if (edge.node.frontmatter.subheading) {
+            ru[`${edge.node.id}.subheading`] =
+                edge.node.frontmatter.subheading.ru
+            en[`${edge.node.id}.subheading`] =
+                edge.node.frontmatter.subheading.en
         }
 
         /* if (edge.node.frontmatter.bodyText) {

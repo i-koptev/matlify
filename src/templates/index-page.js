@@ -64,7 +64,6 @@ const IndexPage = ({ intl, data }) => {
         <>
             <IndexPageTemplate
                 image={frontmatter.indexSectionHero.heroImage}
-                // title={frontmatter.titlez.ru}
                 title={frontmatter.title}
                 heading={intl.formatMessage({
                     id: `${data.markdownRemark.id}.indexSectionHero.heading`,

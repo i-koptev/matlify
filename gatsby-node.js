@@ -19,13 +19,55 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                         frontmatter {
                             templateKey
                             title
-                            heading {
+                            aboutHeading {
                                 ru
                                 en
                             }
-                            subheading {
+                            aboutSubheading {
                                 ru
                                 en
+                            }
+                            indexSectionHero {
+                                heading {
+                                    en
+                                    ru
+                                }
+                                subheading {
+                                    en
+                                    ru
+                                }
+                                features {
+                                    feature1 {
+                                        en
+                                        ru
+                                    }
+                                    feature2 {
+                                        en
+                                        ru
+                                    }
+                                    feature3 {
+                                        en
+                                        ru
+                                    }
+                                    feature4 {
+                                        en
+                                        ru
+                                    }
+                                }
+                            }
+                            indexSectionIntro {
+                                text {
+                                    en
+                                    ru
+                                }
+                                heading {
+                                    en
+                                    ru
+                                }
+                                button {
+                                    en
+                                    ru
+                                }
                             }
                         }
                     }
@@ -56,34 +98,85 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     const converter = new showdown.Converter()
 
+    // const pushIntoLangArray = function(){}
+    // const pushIntoLangArrayHTML = function(){}
+
     result.data.allMarkdownRemark.edges.forEach(edge => {
-        if (edge.node.frontmatter.heading) {
-            ru[`${edge.node.id}.heading`] = edge.node.frontmatter.heading.ru
-            en[`${edge.node.id}.heading`] = edge.node.frontmatter.heading.en
+        if (edge.node.frontmatter.aboutHeading) {
+            ru[`${edge.node.id}.aboutHeading`] =
+                edge.node.frontmatter.aboutHeading.ru
+            en[`${edge.node.id}.aboutHeading`] =
+                edge.node.frontmatter.aboutHeading.en
         }
-        if (edge.node.frontmatter.subheading) {
-            ru[`${edge.node.id}.subheading`] = converter.makeHtml(
-                edge.node.frontmatter.subheading.ru
+
+        if (edge.node.frontmatter.aboutSubheading) {
+            ru[`${edge.node.id}.aboutSubheading`] = converter.makeHtml(
+                edge.node.frontmatter.aboutSubheading.ru
             )
-            en[`${edge.node.id}.subheading`] = converter.makeHtml(
-                edge.node.frontmatter.subheading.en
+            en[`${edge.node.id}.aboutSubheading`] = converter.makeHtml(
+                edge.node.frontmatter.aboutSubheading.en
             )
         }
 
-        /* if (edge.node.frontmatter.bodyText) {
-          ru[`${edge.node.id}.bodyText`] =
-            edge.node.frontmatter.bodyText.bodyTextRu;
-          en[`${edge.node.id}.bodyText`] =
-            edge.node.frontmatter.bodyText.bodyTextEn;
-        } */
+        if (edge.node.frontmatter.indexSectionHero) {
+            ru[`${edge.node.id}.indexSectionHero.features.feature1`] =
+                edge.node.frontmatter.indexSectionHero.features.feature1.ru
+            en[`${edge.node.id}.indexSectionHero.features.feature1`] =
+                edge.node.frontmatter.indexSectionHero.features.feature1.en
+        }
+        if (edge.node.frontmatter.indexSectionHero) {
+            ru[`${edge.node.id}.indexSectionHero.features.feature2`] =
+                edge.node.frontmatter.indexSectionHero.features.feature2.ru
+            en[`${edge.node.id}.indexSectionHero.features.feature2`] =
+                edge.node.frontmatter.indexSectionHero.features.feature2.en
+        }
+        if (edge.node.frontmatter.indexSectionHero) {
+            ru[`${edge.node.id}.indexSectionHero.features.feature3`] =
+                edge.node.frontmatter.indexSectionHero.features.feature3.ru
+            en[`${edge.node.id}.indexSectionHero.features.feature3`] =
+                edge.node.frontmatter.indexSectionHero.features.feature3.en
+        }
+        if (edge.node.frontmatter.indexSectionHero) {
+            ru[`${edge.node.id}.indexSectionHero.features.feature4`] =
+                edge.node.frontmatter.indexSectionHero.features.feature4.ru
+            en[`${edge.node.id}.indexSectionHero.features.feature4`] =
+                edge.node.frontmatter.indexSectionHero.features.feature4.en
+        }
 
-        /* 
-        en[`${edge.node.slug}.title`] = edge.node.postTranslations.title
-          ? edge.node.postTranslations.title
-          : edge.node.title;
-        en[`${edge.node.slug}.content`] = edge.node.postTranslations.content
-          ? edge.node.postTranslations.content
-          : edge.node.content; */
+        if (edge.node.frontmatter.indexSectionHero) {
+            ru[`${edge.node.id}.indexSectionHero.heading`] =
+                edge.node.frontmatter.indexSectionHero.heading.ru
+            en[`${edge.node.id}.indexSectionHero.heading`] =
+                edge.node.frontmatter.indexSectionHero.heading.en
+        }
+
+        if (edge.node.frontmatter.indexSectionHero) {
+            ru[`${edge.node.id}.indexSectionHero.subheading`] =
+                edge.node.frontmatter.indexSectionHero.subheading.ru
+            en[`${edge.node.id}.indexSectionHero.subheading`] =
+                edge.node.frontmatter.indexSectionHero.subheading.en
+        }
+
+        if (edge.node.frontmatter.indexSectionIntro) {
+            ru[`${edge.node.id}.indexSectionIntro.heading`] =
+                edge.node.frontmatter.indexSectionIntro.heading.ru
+            en[`${edge.node.id}.indexSectionIntro.heading`] =
+                edge.node.frontmatter.indexSectionIntro.heading.en
+        }
+
+        if (edge.node.frontmatter.indexSectionIntro) {
+            ru[`${edge.node.id}.indexSectionIntro.text`] =
+                edge.node.frontmatter.indexSectionIntro.text.ru
+            en[`${edge.node.id}.indexSectionIntro.text`] =
+                edge.node.frontmatter.indexSectionIntro.text.en
+        }
+
+        if (edge.node.frontmatter.indexSectionIntro) {
+            ru[`${edge.node.id}.indexSectionIntro.button`] =
+                edge.node.frontmatter.indexSectionIntro.button.ru
+            en[`${edge.node.id}.indexSectionIntro.button`] =
+                edge.node.frontmatter.indexSectionIntro.button.en
+        }
     })
 
     const ruRes = { ...ru, ...JSON.parse(ruStatic) }

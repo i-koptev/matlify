@@ -8,7 +8,16 @@ import {
     FormattedMessage,
 } from "gatsby-plugin-intl"
 
-export const IndexPageTemplate = ({ image, title, heading, subheading }) => (
+export const IndexPageTemplate = ({
+    image,
+    title,
+    heading,
+    subheading,
+    feature1,
+    feature2,
+    feature3,
+    feature4,
+}) => (
     <div
         style={{
             maxWidth: "1140px",
@@ -31,6 +40,12 @@ export const IndexPageTemplate = ({ image, title, heading, subheading }) => (
             <h1>{title}</h1>
             <h3>{heading}</h3>
             <h3>{subheading}</h3>
+            <ul>
+                <li>{feature1}</li>
+                <li>{feature2}</li>
+                <li>{feature3}</li>
+                <li>{feature4}</li>
+            </ul>
         </div>
     </div>
 )
@@ -48,14 +63,26 @@ const IndexPage = ({ intl, data }) => {
     return (
         <>
             <IndexPageTemplate
-                image={frontmatter.image}
+                image={frontmatter.indexSectionHero.heroImage}
                 // title={frontmatter.titlez.ru}
                 title={frontmatter.title}
                 heading={intl.formatMessage({
-                    id: `${data.markdownRemark.id}.heading`,
+                    id: `${data.markdownRemark.id}.indexSectionHero.heading`,
                 })}
                 subheading={intl.formatMessage({
-                    id: `${data.markdownRemark.id}.subheading`,
+                    id: `${data.markdownRemark.id}.indexSectionHero.subheading`,
+                })}
+                feature1={intl.formatMessage({
+                    id: `${data.markdownRemark.id}.indexSectionHero.features.feature1`,
+                })}
+                feature2={intl.formatMessage({
+                    id: `${data.markdownRemark.id}.indexSectionHero.features.feature2`,
+                })}
+                feature3={intl.formatMessage({
+                    id: `${data.markdownRemark.id}.indexSectionHero.features.feature3`,
+                })}
+                feature4={intl.formatMessage({
+                    id: `${data.markdownRemark.id}.indexSectionHero.features.feature4`,
                 })}
             />
             <pre>{JSON.stringify(data, null, 4)}</pre>
@@ -78,22 +105,26 @@ export const pageQuery = graphql`
         markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
             id
             frontmatter {
-                title
-                heading {
-                    ru
-                    en
-                }
-                subheading {
-                    ru
-                    en
-                }
-                image {
-                    childImageSharp {
-                        fluid(maxWidth: 1200, quality: 100) {
-                            ...GatsbyImageSharpFluid
+                indexSectionHero {
+                    heroImage {
+                        childImageSharp {
+                            fluid(maxWidth: 1200, quality: 100) {
+                                ...GatsbyImageSharpFluid
+                            }
                         }
                     }
                 }
+                indexSectionIntro {
+                    introImage {
+                        childImageSharp {
+                            fluid(maxWidth: 1200, quality: 100) {
+                                ...GatsbyImageSharpFluid
+                            }
+                        }
+                    }
+                }
+
+                title
             }
         }
     }

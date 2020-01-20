@@ -1,22 +1,22 @@
 ---
 templateKey: about-page
 title: about
-heading:
-  en: Heading
-  ru: Заголовок
-subheading:
-  en: |-
-    ### Subheading
+aboutHeading:
+    en: Heading
+    ru: Заголовок
+aboutSubheading:
+    en: |-
+        ### Subheading
 
-    1. first
-    2. second
-    3.third
-  ru: |-
-    ### Подзаголовок 
+        1. first
+        2. second
+        3.third
+    ru: |-
+        ### Подзаголовок 
 
-    1. первый
-    2. второй
-    3. третий
+        1. первый
+        2. второй
+        3. третий
 ---
 
 # Heading 1

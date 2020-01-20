@@ -37,11 +37,11 @@ collections:
 
           - {
               label: "Раздел Hero / Hero Section",
-              name: "hero",
+              name: "indexSectionHero",
               widget: "object",
               fields:
                 [
-                  { label: Image, name: image, widget: image },
+                  { label: Image, name: heroImage, widget: image },
                   {
                     label: "Заголовок / Heading",
                     name: "heading",
@@ -114,15 +114,15 @@ collections:
             }
 
           - {
-              label: "Раздел Преимущества Продукта / Product Features Section",
-              name: "productFeatures",
+              label: "Раздел Intro / Intro Section",
+              name: "indexSectionIntro",
               widget: "object",
               fields:
                 [
-                  { label: Image, name: image, widget: image },
+                  { label: Image, name: introImage, widget: image },
                   {
                     label: "Заголовок / Heading",
-                    name: "productFeaturesHeading",
+                    name: "heading",
                     widget: "object",
                     fields:
                       [
@@ -131,8 +131,8 @@ collections:
                       ],
                   },
                   {
-                    label: "Описание Продукта / Product description",
-                    name: "productDescriptionText",
+                    label: "Описание Проекта / Project description",
+                    name: "text",
                     widget: object,
                     fields:
                       [
@@ -142,7 +142,7 @@ collections:
                   },
                   {
                     label: "Кнопка / Button",
-                    name: "productDescriptionButton",
+                    name: "button",
                     widget: object,
                     fields:
                       [
@@ -156,7 +156,7 @@ collections:
       # ------------------- ABOUT PAGE -----------------------------------
 
       - file: "src/pages/about/index.md"
-        label: "About"
+        label: "Страница О нас / About Page"
         name: "about"
         fields:
           - {
@@ -173,7 +173,7 @@ collections:
             }
           - {
               label: "Заголовок / Heading",
-              name: heading,
+              name: aboutHeading,
               widget: object,
               fields:
                 [
@@ -183,7 +183,7 @@ collections:
             }
           - {
               label: "Подзаголовок / Subheading",
-              name: subheading,
+              name: aboutSubheading,
               widget: object,
               fields:
                 [

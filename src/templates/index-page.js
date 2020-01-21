@@ -20,7 +20,7 @@ export const IndexPageTemplate = ({
 }) => (
     <div
         style={{
-            maxWidth: "1140px",
+            maxWidth: "840px",
             margin: "0 auto",
         }}
     >
@@ -34,9 +34,10 @@ export const IndexPageTemplate = ({
                 })`,
                 backgroundPosition: `top left`,
                 backgroundAttachment: `fixed`,
+                color: "white",
+                padding: " 0 2rem",
             }}
-        ></div>
-        <div>
+        >
             <h1>{title}</h1>
             <h3>{heading}</h3>
             <h3>{subheading}</h3>
@@ -47,6 +48,7 @@ export const IndexPageTemplate = ({
                 <li>{feature4}</li>
             </ul>
         </div>
+        <div></div>
     </div>
 )
 

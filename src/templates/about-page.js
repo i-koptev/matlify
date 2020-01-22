@@ -2,6 +2,14 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, graphql } from "gatsby"
 
+/* 
+<SEO
+        title={title ? title - data.site.siteMetadata.title : data.site.siteMetadata.title}
+        description={description ? description : data.site.siteMetadata.description}
+        lang="ru"
+      />
+*/
+
 export const AboutPageTemplate = ({ title, html }) => (
     <div
         style={{

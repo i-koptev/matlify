@@ -18,7 +18,7 @@ indexSectionHero:
   heading:
     en: Web Development
     ru: Веб разработка
-  heroImage: /img/home-jumbotron.jpg
+  heroImage: /img/hero.jpg
   subheading:
     en: Websites with Gatsby
     ru: Сайты на Gatsby

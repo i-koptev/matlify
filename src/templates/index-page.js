@@ -7,6 +7,7 @@ import {
     Link,
     FormattedMessage,
 } from "gatsby-plugin-intl"
+import Layout from "../components/Layout"
 
 export const IndexPageTemplate = ({
     image,
@@ -63,7 +64,15 @@ const IndexPage = ({ intl, data }) => {
     const { frontmatter } = data.markdownRemark
 
     return (
-        <>
+        <Layout
+            title={intl.formatMessage({
+                id: `seoSiteTitle`,
+            })}
+            description={intl.formatMessage({
+                id: `seoSiteDescription`,
+            })}
+            lang={intl.locale}
+        >
             <IndexPageTemplate
                 image={frontmatter.indexSectionHero.heroImage}
                 title={frontmatter.title}
@@ -86,8 +95,8 @@ const IndexPage = ({ intl, data }) => {
                     id: `${data.markdownRemark.id}.indexSectionHero.features.feature4`,
                 })}
             />
-            <pre>{JSON.stringify(data, null, 4)}</pre>
-        </>
+            {/* <pre>{JSON.stringify(intl, null, 4)}</pre> */}
+        </Layout>
     )
 }
 

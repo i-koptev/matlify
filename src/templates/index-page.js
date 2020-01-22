@@ -8,6 +8,7 @@ import {
     FormattedMessage,
 } from "gatsby-plugin-intl"
 import Layout from "../components/Layout"
+import Hero from "../components/Hero"
 
 export const IndexPageTemplate = ({
     image,
@@ -19,12 +20,8 @@ export const IndexPageTemplate = ({
     feature3,
     feature4,
 }) => (
-    <div
-        style={{
-            maxWidth: "840px",
-            margin: "0 auto",
-        }}
-    >
+    <>
+        <Hero />
         <div
             style={{
                 height: "50vh",
@@ -50,7 +47,7 @@ export const IndexPageTemplate = ({
             </ul>
         </div>
         <div></div>
-    </div>
+    </>
 )
 
 IndexPageTemplate.propTypes = {
@@ -77,22 +74,22 @@ const IndexPage = ({ intl, data }) => {
                 image={frontmatter.indexSectionHero.heroImage}
                 title={frontmatter.title}
                 heading={intl.formatMessage({
-                    id: `${data.markdownRemark.id}.indexSectionHero.heading`,
+                    id: `indexSectionHero.heading`,
                 })}
                 subheading={intl.formatMessage({
-                    id: `${data.markdownRemark.id}.indexSectionHero.subheading`,
+                    id: `indexSectionHero.subheading`,
                 })}
                 feature1={intl.formatMessage({
-                    id: `${data.markdownRemark.id}.indexSectionHero.features.feature1`,
+                    id: `indexSectionHero.features.feature1`,
                 })}
                 feature2={intl.formatMessage({
-                    id: `${data.markdownRemark.id}.indexSectionHero.features.feature2`,
+                    id: `indexSectionHero.features.feature2`,
                 })}
                 feature3={intl.formatMessage({
-                    id: `${data.markdownRemark.id}.indexSectionHero.features.feature3`,
+                    id: `indexSectionHero.features.feature3`,
                 })}
                 feature4={intl.formatMessage({
-                    id: `${data.markdownRemark.id}.indexSectionHero.features.feature4`,
+                    id: `indexSectionHero.features.feature4`,
                 })}
             />
             {/* <pre>{JSON.stringify(intl, null, 4)}</pre> */}

@@ -140,48 +140,48 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
 
         if (edge.node.frontmatter.indexSectionHero) {
-            ru[`${edge.node.id}.indexSectionHero.features.feature1`] =
+            ru[`indexSectionHero.features.feature1`] =
                 edge.node.frontmatter.indexSectionHero.features.feature1.ru
-            en[`${edge.node.id}.indexSectionHero.features.feature1`] =
+            en[`indexSectionHero.features.feature1`] =
                 edge.node.frontmatter.indexSectionHero.features.feature1.en
         }
         if (edge.node.frontmatter.indexSectionHero) {
-            ru[`${edge.node.id}.indexSectionHero.features.feature2`] =
+            ru[`indexSectionHero.features.feature2`] =
                 edge.node.frontmatter.indexSectionHero.features.feature2.ru
-            en[`${edge.node.id}.indexSectionHero.features.feature2`] =
+            en[`indexSectionHero.features.feature2`] =
                 edge.node.frontmatter.indexSectionHero.features.feature2.en
         }
         if (edge.node.frontmatter.indexSectionHero) {
-            ru[`${edge.node.id}.indexSectionHero.features.feature3`] =
+            ru[`indexSectionHero.features.feature3`] =
                 edge.node.frontmatter.indexSectionHero.features.feature3.ru
-            en[`${edge.node.id}.indexSectionHero.features.feature3`] =
+            en[`indexSectionHero.features.feature3`] =
                 edge.node.frontmatter.indexSectionHero.features.feature3.en
         }
         if (edge.node.frontmatter.indexSectionHero) {
-            ru[`${edge.node.id}.indexSectionHero.features.feature4`] =
+            ru[`indexSectionHero.features.feature4`] =
                 edge.node.frontmatter.indexSectionHero.features.feature4.ru
-            en[`${edge.node.id}.indexSectionHero.features.feature4`] =
+            en[`indexSectionHero.features.feature4`] =
                 edge.node.frontmatter.indexSectionHero.features.feature4.en
         }
 
         if (edge.node.frontmatter.indexSectionHero) {
-            ru[`${edge.node.id}.indexSectionHero.heading`] =
+            ru[`indexSectionHero.heading`] =
                 edge.node.frontmatter.indexSectionHero.heading.ru
-            en[`${edge.node.id}.indexSectionHero.heading`] =
+            en[`indexSectionHero.heading`] =
                 edge.node.frontmatter.indexSectionHero.heading.en
         }
 
         if (edge.node.frontmatter.indexSectionHero) {
-            ru[`${edge.node.id}.indexSectionHero.subheading`] =
+            ru[`indexSectionHero.subheading`] =
                 edge.node.frontmatter.indexSectionHero.subheading.ru
-            en[`${edge.node.id}.indexSectionHero.subheading`] =
+            en[`indexSectionHero.subheading`] =
                 edge.node.frontmatter.indexSectionHero.subheading.en
         }
 
         if (edge.node.frontmatter.indexSectionIntro) {
-            ru[`${edge.node.id}.indexSectionIntro.heading`] =
+            ru[`indexSectionIntro.heading`] =
                 edge.node.frontmatter.indexSectionIntro.heading.ru
-            en[`${edge.node.id}.indexSectionIntro.heading`] =
+            en[`indexSectionIntro.heading`] =
                 edge.node.frontmatter.indexSectionIntro.heading.en
         }
 

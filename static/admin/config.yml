@@ -14,8 +14,41 @@ public_folder: /img
 display_url: https://matlify.netlify.com
 
 collections:
+  - name: "settings"
+    label: "Настройки сайта / Site settings"
+    files:
+      - file: "src/siteMetadata.md"
+        label: "Глобальные настройки / Global settings"
+        name: "sitemetadata"
+        fields:
+          - { name: "title", widget: "hidden", default: "string" }
+          - { name: "templateKey", widget: "hidden", default: "meta-page" }
+
+          - {
+              label: "Название сайта / Site name",
+              name: "seoSiteTitle",
+              widget: "object",
+              hint: "Используется для брэндинга и как имя закладки",
+              fields:
+                [
+                  { label: ru, name: ru, widget: string },
+                  { label: en, name: en, widget: string },
+                ],
+            }
+          - {
+              label: "SEO - Описание сайта / SEO - Site description",
+              name: "seoSiteDescription",
+              widget: "object",
+              hint: "Используется для поля 'description' тэга 'meta'",
+              fields:
+                [
+                  { label: ru, name: ru, widget: string },
+                  { label: en, name: en, widget: string },
+                ],
+            }
+
   - name: "pages"
-    label: "Pages"
+    label: "Страницы сайта / Pages "
     files:
       - file: "src/pages/index.md"
         label: "Главная страница / Landing Page"
@@ -156,7 +189,7 @@ collections:
       # ------------------- ABOUT PAGE -----------------------------------
 
       - file: "src/pages/about/index.md"
-        label: "Страница О нас / About Page"
+        label: "Страница 'О нас' / About Page"
         name: "about"
         fields:
           - {

@@ -1,16 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-import {
-    changeLocale,
-    injectIntl,
-    Link,
-    FormattedMessage,
-} from "gatsby-plugin-intl"
+import { injectIntl } from "gatsby-plugin-intl"
 import Layout from "../components/Layout"
 import Hero from "../components/Hero"
 
 export const IndexPageTemplate = ({
+    heroImage,
     image,
     title,
     heading,
@@ -21,32 +17,8 @@ export const IndexPageTemplate = ({
     feature4,
 }) => (
     <>
-        <Hero />
-        <div
-            style={{
-                height: "50vh",
-                backgroundImage: `url(${
-                    !!image.childImageSharp
-                        ? image.childImageSharp.fluid.src
-                        : image
-                })`,
-                backgroundPosition: `top left`,
-                backgroundAttachment: `fixed`,
-                color: "white",
-                padding: " 0 2rem",
-            }}
-        >
-            <h1>{title}</h1>
-            <h3>{heading}</h3>
-            <h3>{subheading}</h3>
-            <ul>
-                <li>{feature1}</li>
-                <li>{feature2}</li>
-                <li>{feature3}</li>
-                <li>{feature4}</li>
-            </ul>
-        </div>
-        <div></div>
+        <Hero heroImage = {heroImage} subheading = {subheading} heading = {heading} feature1 = {feature1} feature2 = {feature2} feature3 = {feature3} feature4 = {feature4}/>
+        
     </>
 )
 
@@ -55,6 +27,10 @@ IndexPageTemplate.propTypes = {
     title: PropTypes.string,
     heading: PropTypes.string,
     subheading: PropTypes.string,
+    feature1: PropTypes.string,
+    feature2: PropTypes.string,
+    feature3: PropTypes.string,
+    feature4: PropTypes.string,
 }
 
 const IndexPage = ({ intl, data }) => {
@@ -91,6 +67,7 @@ const IndexPage = ({ intl, data }) => {
                 feature4={intl.formatMessage({
                     id: `indexSectionHero.features.feature4`,
                 })}
+                heroImage={frontmatter.indexSectionHero.heroImage}
             />
             {/* <pre>{JSON.stringify(intl, null, 4)}</pre> */}
         </Layout>
@@ -116,7 +93,7 @@ export const pageQuery = graphql`
                     heroImage {
                         childImageSharp {
                             fluid(maxWidth: 1200, quality: 100) {
-                                ...GatsbyImageSharpFluid
+                                ...GatsbyImageSharpFluid_withWebp
                             }
                         }
                     }
@@ -125,7 +102,7 @@ export const pageQuery = graphql`
                     introImage {
                         childImageSharp {
                             fluid(maxWidth: 1200, quality: 100) {
-                                ...GatsbyImageSharpFluid
+                                ...GatsbyImageSharpFluid_withWebp
                             }
                         }
                     }

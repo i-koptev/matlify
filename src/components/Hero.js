@@ -1,12 +1,5 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
-import {
-    changeLocale,
-    injectIntl,
-    Link,
-    FormattedMessage,
-} from "gatsby-plugin-intl"
 import { useTransition, useSpring, animated } from "react-spring"
 
 import { makeStyles, useTheme } from "@material-ui/core/styles"
@@ -143,38 +136,15 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-const Hero = ({ intl }) => {
-    // const { image } = useStaticQuery(graphql`
-    //     query {
-    //         image: file(relativePath: { eq: "hero.jpg" }) {
-    //             sharp: childImageSharp {
-    //                 fluid(quality: 100, maxWidth: 1200) {
-    //                     ...GatsbyImageSharpFluid_withWebp
-    //                 }
-    //             }
-    //         }
-    //     }
-    // `)
-
-    const imageQuery = useStaticQuery(graphql`
-        query {
-            markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
-                frontmatter {
-                    indexSectionHero {
-                        heroImage {
-                            childImageSharp {
-                                fluid(maxWidth: 1200, quality: 100) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `)
-    const heroImage =
-        imageQuery.markdownRemark.frontmatter.indexSectionHero.heroImage
+const Hero = ({
+    heroImage,
+    heading,
+    subheading,
+    feature1,
+    feature2,
+    feature3,
+    feature4,
+}) => {
 
     const classes = useStyles()
     const theme = useTheme()
@@ -246,45 +216,28 @@ const Hero = ({ intl }) => {
                             style={propsSlogan}
                             className={classes.slogan}
                         >
-                            {intl.formatMessage({
-                                id: "indexSectionHero.subheading",
-                            })}
+                            {subheading}
                         </animated.h2>
                         <animated.h1
                             trail="5000"
                             style={propsTitle}
                             className={classes.title}
                         >
-                            {" "}
-                            {intl.formatMessage({
-                                id: "indexSectionHero.heading",
-                            })}
+                            {heading}
                         </animated.h1>
                         <div className={classes.features}>
                             <ul>
                                 <animated.li style={propsFeature1}>
-                                    {intl.formatMessage({
-                                        id:
-                                            "indexSectionHero.features.feature1",
-                                    })}
+                                    {feature1}
                                 </animated.li>
                                 <animated.li style={propsFeature2}>
-                                    {intl.formatMessage({
-                                        id:
-                                            "indexSectionHero.features.feature2",
-                                    })}
-                                </animated.li>
-                                <animated.li style={propsFeature2}>
-                                    {intl.formatMessage({
-                                        id:
-                                            "indexSectionHero.features.feature3",
-                                    })}
+                                    {feature2}
                                 </animated.li>
                                 <animated.li style={propsFeature3}>
-                                    {intl.formatMessage({
-                                        id:
-                                            "indexSectionHero.features.feature4",
-                                    })}
+                                    {feature3}
+                                </animated.li>
+                                <animated.li style={propsFeature4}>
+                                    {feature4}
                                 </animated.li>
                             </ul>
                         </div>
@@ -295,4 +248,4 @@ const Hero = ({ intl }) => {
     )
 }
 
-export default injectIntl(Hero)
+export default Hero

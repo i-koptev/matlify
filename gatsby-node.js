@@ -13,9 +13,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 edges {
                     node {
                         id
-                        fields {
-                            slug
-                        }
                         frontmatter {
                             templateKey
                             title
@@ -69,6 +66,30 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                                     ru
                                 }
                             }
+                            seoSiteDescription {
+                                en
+                                ru
+                            }
+                            seoSiteTitle {
+                                en
+                                ru
+                            }
+                        }
+                    }
+                }
+            }
+            pages: allMarkdownRemark(
+                limit: 1000
+                filter: { frontmatter: { templateKey: { ne: "meta-page" } } }
+            ) {
+                edges {
+                    node {
+                        id
+                        fields {
+                            slug
+                        }
+                        frontmatter {
+                            templateKey
                         }
                     }
                 }
@@ -177,6 +198,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             en[`${edge.node.id}.indexSectionIntro.button`] =
                 edge.node.frontmatter.indexSectionIntro.button.en
         }
+
+        if (edge.node.frontmatter.seoSiteDescription) {
+            ru[`seoSiteDescription`] =
+                edge.node.frontmatter.seoSiteDescription.ru
+            en[`seoSiteDescription`] =
+                edge.node.frontmatter.seoSiteDescription.en
+        }
+
+        if (edge.node.frontmatter.seoSiteTitle) {
+            ru[`seoSiteTitle`] = edge.node.frontmatter.seoSiteTitle.ru
+            en[`seoSiteTitle`] = edge.node.frontmatter.seoSiteTitle.en
+        }
     })
 
     const ruRes = { ...ru, ...JSON.parse(ruStatic) }
@@ -194,7 +227,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     )
     // ----------------------------
 
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.pages.edges
 
     posts.forEach(edge => {
         const id = edge.node.id

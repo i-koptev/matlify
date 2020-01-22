@@ -10,8 +10,8 @@ indexSectionHero:
       en: stucture development
       ru: проектирование структуры
     feature3:
-      en: markup and programming
-      ru: разметка и программирование
+      en: design and programming
+      ru: дизайн и программирование
     feature4:
       en: deployment to production
       ru: размещение в Интернете

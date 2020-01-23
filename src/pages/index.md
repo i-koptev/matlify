@@ -20,8 +20,8 @@ indexSectionHero:
     ru: Веб разработка
   heroImage: /img/hero.jpg
   subheading:
-    en: Websites with Gatsby
-    ru: Сайты на Gatsby
+    en: Gatsby & Netlify CMS
+    ru: Gatsby и Netlify CMS
 indexSectionIntro:
   button:
     en: EN Button

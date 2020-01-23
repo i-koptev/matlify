@@ -21,7 +21,7 @@ indexSectionHero:
   heroImage: /img/hero.jpg
   subheading:
     en: Gatsby & Netlify CMS
-    ru: Gatsby и Netlify CMS
+    ru: Gatsby & Netlify CMS
 indexSectionIntro:
   button:
     en: EN Button

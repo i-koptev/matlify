@@ -1,5 +1,7 @@
 import React from "react"
 // import { Link } from 'gatsby';
+import hat from "../img/hat.svg"
+
 import {
     changeLocale,
     injectIntl,
@@ -198,7 +200,15 @@ const Navigation = ({ intl }) => {
                                 onClick={toggleDrawer(true)}
                                 onKeyDown={toggleDrawer(true)}
                             >
-                                <MenuIcon />
+                                <img
+                                    style={{
+                                        height: "25px",
+                                        width: "auto",
+                                    }}
+                                    src={hat}
+                                    alt="Logo"
+                                />
+                                {/* <MenuIcon /> */}
                             </IconButton>
                             <SwipeableDrawer
                                 classes={{

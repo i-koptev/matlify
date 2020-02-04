@@ -2,8 +2,5 @@
     "navigation.main": "Home",
     "navigation.works": "Works",
     "navigation.projects": "Projects",
-    "navigation.blog": "Blog",
-    "intro.title": "Why do I use Gatsby?",
-    "intro.text": "The answer is simple - using Gatsby you have all the power of the latest web technologies – React.js , Webpack , modern JavaScript and CSS and more — all set up and waiting for you to start building.<br/> You build sites with the data you want — from one or many sources: pull data from headless CMSs, SaaS services, APIs, databases, your file system, and more directly into your pages using GraphQL.",
-    "intro.button": "Learn more about Gatsby on the official site"
+    "navigation.blog": "Blog"
 }

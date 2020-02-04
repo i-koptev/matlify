@@ -24,24 +24,22 @@ indexSectionHero:
     ru: Gatsby & Netlify CMS
 indexSectionIntro:
   button:
-    en: EN Button
-    ru: RU Button
+    en: Learn more about Gatsby on the official site
+    ru: Узнать больше о Gatsby на официальном сайте
   heading:
-    en: EN Intro Heading
-    ru: RU Intro Heading
+    en: Why do I use Gatsby?
+    ru: Почему я использую Gatsby?
   introImage: /img/monster_cl.jpg
   text:
-    en: |-
-      ## *EN Intro description*
+    en: >-
+      The answer is simple - using Gatsby you have all the power of the latest
+      web technologies – React.js , Webpack , modern JavaScript and CSS and more
+      — all set up and waiting for you to start building.
 
-      * first
-      * second
-      * third
-    ru: |-
-      ## *RU Intro описание*
 
-      * первый
-      * второй
-      * третий
+      You build sites with the data you want — from one or many sources: pull
+      data from headless CMSs, SaaS services, APIs, databases, your file system,
+      and more directly into your pages using GraphQL.
+    ru: "Ответ прост - используя Gatsby, вы получаете всю силу современных веб технологий – React.js , Webpack , современный JavaScript, CSS. На Gatsby можно создавать веб приложения с любыми источниками данных - одним или несколькими одновременно. Можно получать данные из безбашенных систем управления данными (headless CMSs), сервисов SaaS, из API, баз данных, вашей файловой системы напрямую на страницы приложений используя GraphQL.\n\n### Вот только некоторые из достоинств Gatsby:\n\n* \U0001F680/ &rarr;;/ / сайты построенные с помощью Gatsby быстрые - потому, что статичные.\n* \U0001F4B0/ &rarr;;/ /  сайты на Gatsby можно размещать *бесплатно* на хостингах типа Netlify - они же статичные.\n* \U0001F63E/ &rarr;;/ / они классные."
 ---
 

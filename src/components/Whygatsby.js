@@ -19,9 +19,6 @@ import * as animationRu from "../animations/whygatsby//data_ru"
 import * as animationEn from "../animations/whygatsby//data_en"
 import YellowButton from "./ButtonYellow"
 
-// import workspace from "../img/workspace.svg"
-import workspace from "../img/icon2.svg"
-
 const useStyles = makeStyles(theme => ({
     section: {
         paddingTop: "4rem",

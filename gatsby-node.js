@@ -118,7 +118,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         "utf8"
     )
 
-    const converter = new showdown.Converter()
+    const converter = new showdown.Converter({ noHeaderId: true })
 
     // const pushIntoLangArray = function(){}
     // const pushIntoLangArrayHTML = function(){}
@@ -187,16 +187,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
 
         if (edge.node.frontmatter.indexSectionIntro) {
-            ru[`${edge.node.id}.indexSectionIntro.text`] =
+            ru[`indexSectionIntro.text`] = converter.makeHtml(
                 edge.node.frontmatter.indexSectionIntro.text.ru
-            en[`${edge.node.id}.indexSectionIntro.text`] =
+            )
+            en[`indexSectionIntro.text`] = converter.makeHtml(
                 edge.node.frontmatter.indexSectionIntro.text.en
+            )
         }
 
         if (edge.node.frontmatter.indexSectionIntro) {
-            ru[`${edge.node.id}.indexSectionIntro.button`] =
+            ru[`indexSectionIntro.button`] =
                 edge.node.frontmatter.indexSectionIntro.button.ru
-            en[`${edge.node.id}.indexSectionIntro.button`] =
+            en[`indexSectionIntro.button`] =
                 edge.node.frontmatter.indexSectionIntro.button.en
         }
 

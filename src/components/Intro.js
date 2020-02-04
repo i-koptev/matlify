@@ -15,8 +15,8 @@ import Hidden from "@material-ui/core/Hidden"
 
 import Typography from "@material-ui/core/Typography"
 import Lottie from "react-lottie"
-import * as animationRu from "../animations/whygatsby//data_ru"
-import * as animationEn from "../animations/whygatsby//data_en"
+import * as animationRu from "../animations/intro/data_ru"
+import * as animationEn from "../animations/intro/data_en"
 import YellowButton from "./ButtonYellow"
 
 const useStyles = makeStyles(theme => ({
@@ -182,7 +182,7 @@ const Intro = ({ intl }) => {
         <Container
             maxWidth={theme.siteContainer.maxWidth}
             component="section"
-            className="whyGatsby"
+            className="intro"
             className={classes.section}
         >
             {/* <pre>{JSON.stringify(theme, null, 4)}</pre> */}
@@ -217,13 +217,13 @@ const Intro = ({ intl }) => {
                         component="h2"
                         className={classes.header}
                     >
-                        {intl.formatMessage({ id: "whygatsby.title" })}
+                        {intl.formatMessage({ id: "intro.title" })}
                     </Typography>
                     <div
                         className={classes.text}
                         dangerouslySetInnerHTML={{
                             __html: intl.formatMessage({
-                                id: "whygatsby.text",
+                                id: "intro.text",
                             }),
                         }}
                     ></div>
@@ -232,7 +232,7 @@ const Intro = ({ intl }) => {
                         href="https://www.gatsbyjs.org"
                         component="a"
                     >
-                        {intl.formatMessage({ id: "whygatsby.button" })}
+                        {intl.formatMessage({ id: "intro.button" })}
                     </YellowButton>
                 </Grid>
             </Grid>

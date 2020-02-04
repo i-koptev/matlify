@@ -14,7 +14,13 @@ import Container from "@material-ui/core/Container"
 import Hidden from "@material-ui/core/Hidden"
 
 import Typography from "@material-ui/core/Typography"
+import Lottie from "react-lottie"
+import * as animationRu from "../animations/whygatsby//data_ru"
+import * as animationEn from "../animations/whygatsby//data_en"
 import YellowButton from "./ButtonYellow"
+
+// import workspace from "../img/workspace.svg"
+import workspace from "../img/icon2.svg"
 
 const useStyles = makeStyles(theme => ({
     section: {
@@ -147,10 +153,33 @@ const WhyGatsby = ({ intl }) => {
         }
     `)
 
-    console.log(JSON.stringify(qdata, null, 4))
-
     const classes = useStyles()
     const theme = useTheme()
+
+    function localeToAnimationSource(ruAni, enAni) {
+        let source = ""
+        switch (intl.locale) {
+            case "ru":
+                source = ruAni
+                break
+            case "en":
+                source = enAni
+                break
+        }
+        return {
+            loop: true,
+            autoplay: true,
+            animationData: source.default,
+            rendererSettings: {
+                preserveAspectRatio: "xMidYMid meet",
+            },
+        }
+    }
+
+    const defaultOptions = localeToAnimationSource(animationRu, animationEn)
+
+    console.log(JSON.stringify(defaultOptions.loop, null, 4))
+    console.log(JSON.stringify(intl, null, 4))
 
     return (
         <Container
@@ -163,7 +192,15 @@ const WhyGatsby = ({ intl }) => {
             <Grid container spacing={0}>
                 <Hidden smDown>
                     <Grid item md={6} lg={5}>
-                        <Image
+                        <div
+                            style={{
+                                width: "100%",
+                            }}
+                        >
+                            <Lottie options={defaultOptions} />
+                        </div>
+
+                        {/* <Image
                             fluid={qdata.img1.childImageSharp.fluid}
                             fadein="true"
                             durationFadeIn="1000"
@@ -174,7 +211,7 @@ const WhyGatsby = ({ intl }) => {
                             fadein="true"
                             durationFadeIn="1000"
                             className={classes.secondImage}
-                        />
+                        /> */}
                     </Grid>
                 </Hidden>
                 <Grid item xs={12} md={6} lg={7} className={classes.textbox}>

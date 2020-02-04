@@ -116,7 +116,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-const WhyGatsby = ({ intl }) => {
+const Intro = ({ intl }) => {
     const qdata = useStaticQuery(graphql`
         query {
             img1: file(relativePath: { eq: "square1.jpg" }) {
@@ -240,4 +240,4 @@ const WhyGatsby = ({ intl }) => {
     )
 }
 
-export default injectIntl(WhyGatsby)
+export default injectIntl(Intro)

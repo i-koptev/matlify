@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import { injectIntl } from "gatsby-plugin-intl"
 import Layout from "../components/Layout"
 import Hero from "../components/Hero"
-import Whygatsby from "../components/Whygatsby"
+import Intro from "../components/Intro"
 
 export const IndexPageTemplate = ({
     heroImage,
@@ -27,7 +27,7 @@ export const IndexPageTemplate = ({
             feature3={feature3}
             feature4={feature4}
         />
-        <Whygatsby />
+        <Intro />
     </>
 )
 

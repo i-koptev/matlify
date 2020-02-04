@@ -217,13 +217,15 @@ const Intro = ({ intl }) => {
                         component="h2"
                         className={classes.header}
                     >
-                        {intl.formatMessage({ id: "intro.title" })}
+                        {intl.formatMessage({
+                            id: "indexSectionIntro.heading",
+                        })}
                     </Typography>
                     <div
                         className={classes.text}
                         dangerouslySetInnerHTML={{
                             __html: intl.formatMessage({
-                                id: "intro.text",
+                                id: "indexSectionIntro.text",
                             }),
                         }}
                     ></div>
@@ -232,7 +234,7 @@ const Intro = ({ intl }) => {
                         href="https://www.gatsbyjs.org"
                         component="a"
                     >
-                        {intl.formatMessage({ id: "intro.button" })}
+                        {intl.formatMessage({ id: "indexSectionIntro.button" })}
                     </YellowButton>
                 </Grid>
             </Grid>

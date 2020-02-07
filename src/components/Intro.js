@@ -12,11 +12,12 @@ import Grid from "@material-ui/core/Grid"
 import Paper from "@material-ui/core/Paper"
 import Container from "@material-ui/core/Container"
 import Hidden from "@material-ui/core/Hidden"
-
 import Typography from "@material-ui/core/Typography"
+
 import Lottie from "react-lottie"
 import * as animationRu from "../animations/intro/data_ru"
 import * as animationEn from "../animations/intro/data_en"
+
 import YellowButton from "./ButtonYellow"
 
 const useStyles = makeStyles(theme => ({

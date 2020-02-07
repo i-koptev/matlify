@@ -7,9 +7,15 @@ import { makeStyles, useTheme } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
 import Grid from "@material-ui/core/Grid"
 
+import Lottie from "react-lottie"
+import * as animation from "../animations/hero/data"
+
 const useStyles = makeStyles(theme => ({
+    firstletter: {
+        fill: "red",
+    },
     hero: {
-        height: "70vh",
+        height: "calc(100vh - 64px)",
         minHeight: "400px",
     },
     overlay: {
@@ -145,7 +151,6 @@ const Hero = ({
     feature3,
     feature4,
 }) => {
-
     const classes = useStyles()
     const theme = useTheme()
 
@@ -201,6 +206,14 @@ const Hero = ({
         },
     })
 
+    const defaultOptions = {
+        loop: false,
+        autoplay: true,
+        animationData: animation.default,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid meet",
+        },
+    }
     return (
         <BackgroundImage
             className={classes.hero}
@@ -218,13 +231,31 @@ const Hero = ({
                         >
                             {subheading}
                         </animated.h2>
+
+                        {/* <animated.h1
+                            trail="5000"
+                            style={propsTitle}
+                            className={classes.title}
+                            >
+                            {heading}
+                            </animated.h1>
+                        */}
+
                         <animated.h1
                             trail="5000"
                             style={propsTitle}
                             className={classes.title}
                         >
-                            {heading}
+                            <Lottie
+                                options={defaultOptions}
+                                style={
+                                    {
+                                        // width: "20rem",
+                                    }
+                                }
+                            />
                         </animated.h1>
+
                         <div className={classes.features}>
                             <ul>
                                 <animated.li style={propsFeature1}>

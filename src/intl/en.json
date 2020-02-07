@@ -1,22 +1,19 @@
 {
     "60b255a9-da7a-5966-97db-a97c98b2dabc.aboutHeading": "Heading",
-    "60b255a9-da7a-5966-97db-a97c98b2dabc.aboutSubheading": "<h3 id=\"subheading\">Subheading</h3>\n<ol>\n<li>first</li>\n<li>second\n3.third</li>\n</ol>",
+    "60b255a9-da7a-5966-97db-a97c98b2dabc.aboutSubheading": "<h3>Subheading</h3>\n<ol>\n<li>first</li>\n<li>second\n3.third</li>\n</ol>",
     "indexSectionHero.features.feature1": "design creaton",
     "indexSectionHero.features.feature2": "stucture development",
     "indexSectionHero.features.feature3": "design and programming",
     "indexSectionHero.features.feature4": "deployment to production",
     "indexSectionHero.heading": "Web Development",
     "indexSectionHero.subheading": "Gatsby & Netlify CMS",
-    "indexSectionIntro.heading": "EN Intro Heading",
-    "542c78a4-cd92-52fc-90b5-a4c949d65241.indexSectionIntro.text": "*RU Intro description*",
-    "542c78a4-cd92-52fc-90b5-a4c949d65241.indexSectionIntro.button": "EN Button",
+    "indexSectionIntro.heading": "Why do I use Gatsby?",
+    "indexSectionIntro.text": "<p>The answer is simple - using Gatsby you have all the power of the latest web technologies – React.js , Webpack , modern JavaScript and CSS and more — all set up and waiting for you to start building.</p>\n<p>You build sites with the data you want — from one or many sources: pull data from headless CMSs, SaaS services, APIs, databases, your file system, and more directly into your pages using GraphQL.</p>",
+    "indexSectionIntro.button": "Learn more about Gatsby on the official site",
     "seoSiteDescription": "EN SEO Site Description",
     "seoSiteTitle": "KOPTEFF",
     "navigation.main": "Home",
     "navigation.works": "Works",
     "navigation.projects": "Projects",
-    "navigation.blog": "Blog",
-    "whygatsby.title": "Why do I use Gatsby?",
-    "whygatsby.text": "The answer is simple - using Gatsby you have all the power of the latest web technologies – React.js , Webpack , modern JavaScript and CSS and more — all set up and waiting for you to start building.<br/> You build sites with the data you want — from one or many sources: pull data from headless CMSs, SaaS services, APIs, databases, your file system, and more directly into your pages using GraphQL.",
-    "whygatsby.button": "Learn more about Gatsby on the official site"
+    "navigation.blog": "Blog"
 }

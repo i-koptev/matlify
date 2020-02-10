@@ -7,6 +7,9 @@ description: >-
   tasters, has been revised for the first time this year.
 featuredpost: false
 featuredimage: /img/flavor_wheel.jpg
+text:
+  en: sdf
+  ru: sdf
 tags:
   - flavor
   - tasting

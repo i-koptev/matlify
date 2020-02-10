@@ -236,7 +236,31 @@ collections:
           widget: "hidden",
           default: "blog-post",
         }
-      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Название страницы (Слаг) / Page Title (Slug)",
+          name: "title",
+          widget: "string",
+        }
+      - {
+          label: "Заголовок статьи / Post Title",
+          name: "postTitle",
+          widget: object,
+          fields:
+            [
+              { label: ru, name: ru, widget: string },
+              { label: en, name: en, widget: string },
+            ],
+        }
+      - {
+          label: "Описание статьи / Post Description",
+          name: "postDescription",
+          widget: object,
+          fields:
+            [
+              { label: ru, name: ru, widget: string },
+              { label: en, name: en, widget: string },
+            ],
+        }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Featured Post", name: "featuredpost", widget: "boolean" }

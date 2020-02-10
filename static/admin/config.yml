@@ -251,5 +251,4 @@ collections:
               { label: "EN", name: en, widget: markdown },
             ],
         }
-      - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }

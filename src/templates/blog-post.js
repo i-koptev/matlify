@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import { kebabCase } from "lodash"
 import Helmet from "react-helmet"
 import { graphql, Link } from "gatsby"
+import { injectIntl } from "gatsby-plugin-intl"
+
 import Layout from "../components/Layout"
 import Content, { HTMLContent } from "../components/Content"
 
@@ -49,13 +51,15 @@ BlogPostTemplate.propTypes = {
     helmet: PropTypes.object,
 }
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ intl, data }) => {
     const { markdownRemark: post } = data
 
     return (
         <Layout>
             <BlogPostTemplate
-                content={post.html}
+                content={intl.formatMessage({
+                    id: `${post.id}.postBody`,
+                })}
                 contentComponent={HTMLContent}
                 description={post.frontmatter.description}
                 helmet={
@@ -80,13 +84,12 @@ BlogPost.propTypes = {
     }),
 }
 
-export default BlogPost
+export default injectIntl(BlogPost)
 
 export const pageQuery = graphql`
     query BlogPostByID($id: String!) {
         markdownRemark(id: { eq: $id }) {
             id
-            html
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 title

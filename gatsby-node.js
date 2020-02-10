@@ -16,6 +16,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                         frontmatter {
                             templateKey
                             title
+                            postBody {
+                                ru
+                                en
+                            }
                             aboutHeading {
                                 ru
                                 en
@@ -124,6 +128,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     // const pushIntoLangArrayHTML = function(){}
 
     result.data.allMarkdownRemark.edges.forEach(edge => {
+        if (edge.node.frontmatter.postBody) {
+            ru[`${edge.node.id}.postBody`] = converter.makeHtml(
+                edge.node.frontmatter.postBody.ru
+            )
+            en[`${edge.node.id}.postBody`] = converter.makeHtml(
+                edge.node.frontmatter.postBody.en
+            )
+        }
+
         if (edge.node.frontmatter.aboutHeading) {
             ru[`${edge.node.id}.aboutHeading`] =
                 edge.node.frontmatter.aboutHeading.ru

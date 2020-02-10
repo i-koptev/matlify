@@ -164,7 +164,7 @@ collections:
                   },
                   {
                     label: "Описание Проекта / Project description",
-                    name: "article",
+                    name: "text",
                     widget: object,
                     fields:
                       [
@@ -243,7 +243,7 @@ collections:
       - { label: "Featured Image", name: "featuredimage", widget: image }
       - {
           label: "Текст статьи / Post text",
-          name: "text",
+          name: "article",
           widget: object,
           fields:
             [

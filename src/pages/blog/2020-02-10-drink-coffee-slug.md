@@ -86,6 +86,7 @@ postBody:
 
     ![Кофеёк...](/img/blog-index.jpg)
 tags:
-  - coffee кофеёк
+  - coffee
+  - кофеёк
 ---
 

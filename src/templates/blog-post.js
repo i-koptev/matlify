@@ -61,18 +61,28 @@ const BlogPost = ({ intl, data }) => {
                     id: `${post.id}.postBody`,
                 })}
                 contentComponent={HTMLContent}
-                description={post.frontmatter.description}
+                description={intl.formatMessage({
+                    id: `${post.id}.postDescription`,
+                })}
                 helmet={
                     <Helmet titleTemplate="%s | Blog">
-                        <title>{`${post.frontmatter.title}`}</title>
+                        <title>
+                            {intl.formatMessage({
+                                id: `${post.id}.postTitle`,
+                            })}
+                        </title>
                         <meta
                             name="description"
-                            content={`${post.frontmatter.description}`}
+                            content={intl.formatMessage({
+                                id: `${post.id}.postDescription`,
+                            })}
                         />
                     </Helmet>
                 }
                 tags={post.frontmatter.tags}
-                title={post.frontmatter.title}
+                title={intl.formatMessage({
+                    id: `${post.id}.postTitle`,
+                })}
             />
         </Layout>
     )

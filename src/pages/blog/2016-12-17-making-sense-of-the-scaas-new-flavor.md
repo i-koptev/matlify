@@ -10,7 +10,7 @@ featuredimage: /img/flavor_wheel.jpg
 tags:
     - flavor
     - tasting
-article:
+postBody:
     en: ""
     ru: ""
 ---

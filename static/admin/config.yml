@@ -164,7 +164,7 @@ collections:
                   },
                   {
                     label: "Описание Проекта / Project description",
-                    name: "text",
+                    name: "article",
                     widget: object,
                     fields:
                       [
@@ -241,5 +241,15 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
       - { label: "Featured Image", name: "featuredimage", widget: image }
+      - {
+          label: "Текст статьи / Post text",
+          name: "text",
+          widget: object,
+          fields:
+            [
+              { label: "RU", name: ru, widget: markdown },
+              { label: "EN", name: en, widget: markdown },
+            ],
+        }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }

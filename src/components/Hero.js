@@ -15,7 +15,8 @@ const useStyles = makeStyles(theme => ({
         fill: "red",
     },
     hero: {
-        height: "calc(100vh - 64px)",
+        height: "calc(80vh - 64px)",
+        // height: "calc(100vh - 64px)",
         minHeight: "400px",
     },
     overlay: {
@@ -95,7 +96,9 @@ const useStyles = makeStyles(theme => ({
         // }
     },
     slogan: {
-        fontFamily: '"Playfair Display", serif',
+        fontFamily: '"PT Sans Narrow", sans-serif',
+        fontWeight: "normal",
+        // fontFamily: '"Playfair Display", serif',
         color: "#ffbf55", //TODO change to theme
         fontSize: "1.25rem",
 
@@ -232,30 +235,22 @@ const Hero = ({
                             {subheading}
                         </animated.h2>
 
-                        {/* <animated.h1
-                            trail="5000"
-                            style={propsTitle}
-                            className={classes.title}
-                            >
-                            {heading}
-                            </animated.h1>
-                        */}
-
                         <animated.h1
                             trail="5000"
                             style={propsTitle}
                             className={classes.title}
                         >
-                            <Lottie
-                                options={defaultOptions}
-                                style={
-                                    {
-                                        // width: "20rem",
-                                    }
-                                }
-                            />
+                            {heading}
                         </animated.h1>
-
+                        {/* 
+                        <animated.h1
+                            trail="5000"
+                            style={propsTitle}
+                            className={classes.title}
+                        >
+                            <Lottie options={defaultOptions} />
+                        </animated.h1>
+ */}
                         <div className={classes.features}>
                             <ul>
                                 <animated.li style={propsFeature1}>

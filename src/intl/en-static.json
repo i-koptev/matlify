@@ -2,5 +2,6 @@
     "navigation.main": "Home",
     "navigation.works": "Works",
     "navigation.projects": "Projects",
-    "navigation.blog": "Blog"
+    "navigation.blog": "Blog",
+    "blogRollHeader": "My Blog"
 }

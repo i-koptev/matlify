@@ -2,5 +2,6 @@
     "navigation.main": "Главная",
     "navigation.works": "Работы",
     "navigation.projects": "Проекты",
-    "navigation.blog": "Блог"
+    "navigation.blog": "Блог",
+    "blogRollHeader": "Мой блог"
 }

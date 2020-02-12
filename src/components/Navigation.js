@@ -24,9 +24,11 @@ import Container from "@material-ui/core/Container"
 const useStyles = makeStyles(theme => ({
     appBarHeader: {
         backgroundColor: "transparent", // need to be transparent in favor of Headroom colors
-        //padding: '0.1em 0', // navbar height --> TODO: realize responsiveness
         boxShadow: "none",
         fontFamily: "PT Sans Narrow",
+        [theme.breakpoints.up("md")]: {
+            padding: "0.8rem 0", // navbar height
+        },
     },
 
     headroom: {
@@ -62,6 +64,9 @@ const useStyles = makeStyles(theme => ({
         textTransform: "uppercase",
         fontSize: "1em",
         letterSpacing: "0.1em",
+        [theme.breakpoints.up("lg")]: {
+            letterSpacing: "0.2em",
+        },
         "&::after": {
             content: '""',
             width: "100%",
@@ -181,7 +186,7 @@ const Navigation = ({ intl }) => {
     }
 
     return (
-        <Headroom className={classes.headroom}>
+        <Headroom variant="header" className={classes.headroom}>
             <AppBar className={classes.appBarHeader} position="static">
                 <Container maxWidth={theme.siteContainer.maxWidth}>
                     <Toolbar component="nav" disableGutters>

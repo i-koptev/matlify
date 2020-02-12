@@ -31,8 +31,8 @@ collections:
               hint: "Используется для брэндинга и как имя закладки",
               fields:
                 [
-                  { label: ru, name: ru, widget: string },
-                  { label: en, name: en, widget: string },
+                  { label: "ru", name: "ru", widget: "string" },
+                  { label: "en", name: "en", widget: "string" },
                 ],
             }
           - {
@@ -42,10 +42,11 @@ collections:
               hint: "Используется для поля 'description' тэга 'meta'",
               fields:
                 [
-                  { label: ru, name: ru, widget: string },
-                  { label: en, name: en, widget: string },
+                  { label: "ru", name: "ru", widget: "string" },
+                  { label: "en", name: "en", widget: "string" },
                 ],
             }
+          - { label: "Body", name: "body", widget: "hidden" }
   - name: "pages"
     label: "Страницы сайта / Pages "
     files:
@@ -73,41 +74,41 @@ collections:
               widget: "object",
               fields:
                 [
-                  { label: Image, name: heroImage, widget: image },
+                  { label: "Image", name: "heroImage", widget: "image" },
                   {
                     label: "Заголовок / Heading",
                     name: "heading",
                     widget: "object",
                     fields:
                       [
-                        { label: ru, name: ru, widget: string },
-                        { label: en, name: en, widget: string },
+                        { label: "ru", name: "ru", widget: "string" },
+                        { label: "en", name: "en", widget: "string" },
                       ],
                   },
                   {
                     label: "Подзаголовок / Subheading",
-                    name: subheading,
-                    widget: object,
+                    name: "subheading",
+                    widget: "object",
                     fields:
                       [
-                        { label: ru, name: ru, widget: string },
-                        { label: en, name: en, widget: string },
+                        { label: "ru", name: "ru", widget: "string" },
+                        { label: "en", name: "en", widget: "string" },
                       ],
                   },
                   {
                     label: "Преимущества / Features",
-                    name: features,
-                    widget: object,
+                    name: "features",
+                    widget: "object",
                     fields:
                       [
                         {
                           label: "Преимущество #1 / Feature #1",
                           name: "feature1",
-                          widget: object,
+                          widget: "object",
                           fields:
                             [
-                              { label: ru, name: ru, widget: string },
-                              { label: en, name: en, widget: string },
+                              { label: "ru", name: "ru", widget: "string" },
+                              { label: "en", name: "en", widget: "string" },
                             ],
                         },
                         {
@@ -116,8 +117,8 @@ collections:
                           widget: object,
                           fields:
                             [
-                              { label: ru, name: ru, widget: string },
-                              { label: en, name: en, widget: string },
+                              { label: "ru", name: "ru", widget: "string" },
+                              { label: "en", name: "en", widget: "string" },
                             ],
                         },
                         {
@@ -126,18 +127,18 @@ collections:
                           widget: object,
                           fields:
                             [
-                              { label: ru, name: ru, widget: string },
-                              { label: en, name: en, widget: string },
+                              { label: "ru", name: "ru", widget: "string" },
+                              { label: "en", name: "en", widget: "string" },
                             ],
                         },
                         {
                           label: "Преимущество #4 / Feature #4",
                           name: "feature4",
-                          widget: object,
+                          widget: "object",
                           fields:
                             [
-                              { label: ru, name: ru, widget: string },
-                              { label: en, name: en, widget: string },
+                              { label: "ru", name: "ru", widget: "string" },
+                              { label: "en", name: "en", widget: "string" },
                             ],
                         },
                       ],
@@ -151,39 +152,41 @@ collections:
               widget: "object",
               fields:
                 [
-                  { label: Image, name: introImage, widget: image },
+                  { label: "Image", name: "introImage", widget: "image" },
                   {
                     label: "Заголовок / Heading",
                     name: "heading",
                     widget: "object",
                     fields:
                       [
-                        { label: "RU", name: ru, widget: string },
-                        { label: "EN", name: en, widget: string },
+                        { label: "RU", name: "ru", widget: "string" },
+                        { label: "EN", name: "en", widget: "string" },
                       ],
                   },
                   {
                     label: "Описание Проекта / Project description",
                     name: "text",
-                    widget: object,
+                    widget: "object",
                     fields:
                       [
-                        { label: "RU", name: ru, widget: markdown },
-                        { label: "EN", name: en, widget: markdown },
+                        { label: "RU", name: "ru", widget: "markdown" },
+                        { label: "EN", name: "en", widget: "markdown" },
                       ],
                   },
                   {
                     label: "Кнопка / Button",
                     name: "button",
-                    widget: object,
+                    widget: "object",
                     fields:
                       [
-                        { label: "RU", name: ru, widget: string },
-                        { label: "EN", name: en, widget: string },
+                        { label: "RU", name: "ru", widget: "string" },
+                        { label: "EN", name: "en", widget: "string" },
                       ],
                   },
                 ],
             }
+
+          - { label: "Body", name: "body", widget: "hidden" }
 
       # ------------------- ABOUT PAGE -----------------------------------
 
@@ -205,22 +208,22 @@ collections:
             }
           - {
               label: "Заголовок / Heading",
-              name: aboutHeading,
-              widget: object,
+              name: "aboutHeading",
+              widget: "object",
               fields:
                 [
-                  { label: ru, name: ru, widget: string },
-                  { label: en, name: en, widget: string },
+                  { label: "ru", name: "ru", widget: "string" },
+                  { label: "en", name: "en", widget: "string" },
                 ],
             }
           - {
               label: "Подзаголовок / Subheading",
-              name: aboutSubheading,
-              widget: object,
+              name: "aboutSubheading",
+              widget: "object",
               fields:
                 [
-                  { label: ru, name: ru, widget: markdown },
-                  { label: en, name: en, widget: markdown },
+                  { label: "ru", name: "ru", widget: "markdown" },
+                  { label: "en", name: "en", widget: "markdown" },
                 ],
             }
           - { label: "Body", name: "body", widget: "markdown" }
@@ -244,35 +247,36 @@ collections:
       - {
           label: "Заголовок статьи / Post Title",
           name: "postTitle",
-          widget: object,
+          widget: "object",
           fields:
             [
-              { label: ru, name: ru, widget: string },
-              { label: en, name: en, widget: string },
+              { label: "ru", name: "ru", widget: "string" },
+              { label: "en", name: "en", widget: "string" },
             ],
         }
       - {
           label: "Описание статьи / Post Description",
           name: "postDescription",
-          widget: object,
+          widget: "object",
           fields:
             [
-              { label: ru, name: ru, widget: string },
-              { label: en, name: en, widget: string },
+              { label: "ru", name: "ru", widget: "string" },
+              { label: "en", name: "en", widget: "string" },
             ],
         }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
-      - { label: "Featured Image", name: "featuredimage", widget: image }
+      - { label: "Featured Image", name: "featuredimage", widget: "image" }
       - {
           label: "Текст статьи / Post text",
           name: "postBody",
-          widget: object,
+          widget: "object",
           fields:
             [
-              { label: "RU", name: ru, widget: markdown },
-              { label: "EN", name: en, widget: markdown },
+              { label: "RU", name: "ru", widget: "markdown" },
+              { label: "EN", name: "en", widget: "markdown" },
             ],
         }
       - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Body", name: "body", widget: "hidden" }

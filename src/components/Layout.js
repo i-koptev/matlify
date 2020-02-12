@@ -16,7 +16,7 @@ const Layout = ({ title, description, lang, children }) => {
         >
             <SEO title={title} description={description} lang={lang} />
             <Navigation />
-            <div>{children}</div>
+            {children}
             <Footer />
         </div>
     )

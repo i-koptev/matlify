@@ -55,7 +55,7 @@ const IndexPage = ({ intl, data }) => {
             })}
             lang={intl.locale}
         >
-            <IndexPageTemplate
+            {/*  <IndexPageTemplate
                 image={frontmatter.indexSectionHero.heroImage}
                 title={frontmatter.title}
                 heading={intl.formatMessage({
@@ -77,7 +77,7 @@ const IndexPage = ({ intl, data }) => {
                     id: `indexSectionHero.features.feature4`,
                 })}
                 heroImage={frontmatter.indexSectionHero.heroImage}
-            />
+            /> */}
             {/* <pre>{JSON.stringify(intl, null, 4)}</pre> */}
         </Layout>
     )

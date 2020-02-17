@@ -1,10 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import {
     changeLocale,
     injectIntl,
-    // Link,
+    Link,
     FormattedMessage,
 } from "gatsby-plugin-intl"
 import { makeStyles, useTheme } from "@material-ui/core/styles"

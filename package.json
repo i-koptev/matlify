@@ -16,6 +16,7 @@
   "dependencies": {
     "@material-ui/core": "^4.8.3",
     "@material-ui/icons": "^4.5.1",
+    "@researchgate/react-intersection-observer": "^1.0.5",
     "gatsby": "^2.18.12",
     "gatsby-background-image": "^0.9.12",
     "gatsby-image": "^2.2.37",
@@ -42,8 +43,11 @@
     "react-dom": "^16.12.0",
     "react-headroom": "^3.0.0",
     "react-helmet": "^5.2.1",
+    "react-intersection-observer": "^8.26.0",
     "react-lottie": "^1.2.3",
     "react-spring": "^8.0.27",
+    "react-transition-group": "^4.3.0",
+    "react-use": "^13.26.1",
     "showdown": "^1.9.1"
   },
   "devDependencies": {

@@ -3,5 +3,11 @@
     "navigation.works": "Works",
     "navigation.projects": "Projects",
     "navigation.blog": "Blog",
-    "blogRollHeader": "My Blog"
+    "blogRollHeader": "My Blog",
+    "svgClassComponent.sectionHeader": "Section Header",
+    "svgClassComponent.description.gatsbyHeader": "Why Gatsby",
+    "svgClassComponent.description.netlifyHeader": "Why Netlify",
+    "svgClassComponent.description.netlifycmsHeader": "Why Netlifycms",
+    "svgClassComponent.description.materialuiHeader": "Why Material UI",
+    "svgClassComponent.description.githubHeader": "Why Github"
 }

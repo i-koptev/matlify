@@ -1,0 +1,5 @@
+<svg id="test" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 173 192">
+  <rect id="rectBlue" x="1.5" y="1.5" width="170" height="51" rx="9.08" ry="9.08" stroke="#f7931e" fill="none" stroke-miterlimit="10" stroke-width="3"/>
+  <rect id="rectRed" x="1.5" y="70.5" width="170" height="51" rx="9.08" ry="9.08" stroke="#d4145a" fill="none" stroke-miterlimit="10" stroke-width="3"/>
+  <rect id="rectYellow" x="1.5" y="139.5" width="170" height="51" rx="9.08" ry="9.08" stroke="#0071bc" fill="none" stroke-miterlimit="10" stroke-width="3"/>
+</svg>

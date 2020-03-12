@@ -1,0 +1,27 @@
+<svg id="test" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 173 192">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-1 {
+        stroke: #f7931e;
+      }
+
+      .cls-2 {
+        stroke: #d4145a;
+      }
+
+      .cls-3 {
+        stroke: #0071bc;
+      }
+    </style>
+  </defs>
+  <title>sectionIntro</title>
+  <rect id="rectBlue" class="cls-1" x="1.5" y="1.5" width="170" height="51" rx="9.08" ry="9.08"/>
+  <rect id="rectRed" class="cls-2" x="1.5" y="70.5" width="170" height="51" rx="9.08" ry="9.08"/>
+  <rect id="rectYellow" class="cls-3" x="1.5" y="139.5" width="170" height="51" rx="9.08" ry="9.08"/>
+</svg>

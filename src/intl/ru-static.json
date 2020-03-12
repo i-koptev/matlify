@@ -3,5 +3,11 @@
     "navigation.works": "Работы",
     "navigation.projects": "Проекты",
     "navigation.blog": "Блог",
-    "blogRollHeader": "Мой блог"
+    "blogRollHeader": "Мой блог",
+    "svgClassComponent.sectionHeader": "Заголовок раздела",
+    "svgClassComponent.description.gatsbyHeader": "Почему Gatsby",
+    "svgClassComponent.description.netlifyHeader": "Почему Netlify",
+    "svgClassComponent.description.netlifycmsHeader": "Почему Netlifycms",
+    "svgClassComponent.description.materialuiHeader": "Почему Material UI",
+    "svgClassComponent.description.githubHeader": "Почему Github"
 }

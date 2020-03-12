@@ -2,5 +2,11 @@
     "navigation.main": "Главная",
     "navigation.works": "Работы",
     "navigation.projects": "Проекты",
-    "navigation.blog": "Блог"
+    "navigation.blog": "Блог",
+    "svgClassComponent.sectionHeader": "Заголовок раздела",
+    "svgClassComponent.description.gatsbyHeader": "Почему Gatsby",
+    "svgClassComponent.description.netlifyHeader": "Почему Netlify",
+    "svgClassComponent.description.netlifycmsHeader": "Почему Netlifycms",
+    "svgClassComponent.description.materialuiHeader": "Почему Material UI",
+    "svgClassComponent.description.githubHeader": "Почему Github"
 }

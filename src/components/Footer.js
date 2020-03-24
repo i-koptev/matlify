@@ -1,12 +1,84 @@
 import React from "react"
 
-import { makeStyles, useTheme } from "@material-ui/core/styles"
+import { withStyles, makeStyles, useTheme } from "@material-ui/core/styles"
 
 import Container from "@material-ui/core/Container"
-import SvgClassComponent from "./SvgClassComponent"
+import TextField from "@material-ui/core/TextField"
+import Slider from "@material-ui/core/Slider"
+
+const useStyles = makeStyles(theme => ({
+    textField: {
+        //color: "red",
+    },
+}))
+
+const handleChange = (e, v) => {
+    console.log(v)
+}
+
+const PrettoSlider = withStyles({
+    root: {
+        // color: "#52af77",
+        color: "tomato",
+        height: 8,
+    },
+    thumb: {
+        height: 24,
+        width: 24,
+        backgroundColor: "transparent",
+        border: "2px solid currentColor",
+        marginTop: -8,
+        marginLeft: -12,
+        "&:focus, &:hover, &$active": {
+            boxShadow: "inherit",
+        },
+    },
+    active: {},
+    valueLabel: {
+        left: "calc(-50% + 4px)",
+    },
+    track: {
+        height: 8,
+        borderRadius: 4,
+    },
+    rail: {
+        height: 8,
+        borderRadius: 4,
+    },
+})(Slider)
+
+const MyTextField = withStyles(theme => ({
+    root: {
+        "& input": { color: "#639" },
+        "& label": { color: "#008a80" },
+        // label focused styles
+        "& label.Mui-focused": {
+            color: "#639",
+        },
+        "& .MuiInput-underline:after": {
+            borderBottomColor: "lime",
+        },
+        "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+                borderColor: "#db8a32",
+            },
+            //border hover styles
+            "&:hover fieldset": {
+                borderColor: "red",
+            },
+            // border focused styles
+            "&.Mui-focused fieldset": {
+                borderColor: "#639",
+                color: "white",
+                // backgroundColor: "#eee2",
+            },
+        },
+    },
+}))(TextField)
 
 const Footer = () => {
     const theme = useTheme()
+    const classes = useStyles()
 
     return (
         <footer
@@ -18,14 +90,32 @@ const Footer = () => {
                 color: "white",
                 // padding: "3rem",
                 fontSize: "1.2rem",
-                height: 1600,
+                height: 300,
             }}
         >
             <Container
                 // disableGutters="true"
                 maxWidth={theme.siteContainer.maxWidth}
             >
-                <SvgClassComponent />
+                <div style={{ padding: "3rem" }}>
+                    <p>Footeris</p>
+                    <PrettoSlider
+                        valueLabelDisplay="auto"
+                        aria-label="pretto slider"
+                        defaultValue={20}
+                        step={0.001}
+                        onChange={handleChange}
+                        valueLabelFormat={x => x.toFixed(0)}
+                    />
+                    <MyTextField
+                        id="outlined-basic"
+                        label="Your EMail"
+                        variant="outlined"
+                        // InputProps={InputProps}
+                        className={classes.textField}
+                        // fullWidth="true"
+                    />
+                </div>
             </Container>
         </footer>
     )

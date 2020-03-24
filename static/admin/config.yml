@@ -269,13 +269,22 @@ collections:
       - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
       - { label: "Featured Image", name: "featuredimage", widget: "image" }
       - {
-          label: "Текст статьи / Post text",
+          label: "Разделы статьи / Post sections",
           name: "postBody",
-          widget: "object",
+          widget: "list",
           fields:
             [
-              { label: "RU", name: "ru", widget: "markdown" },
-              { label: "EN", name: "en", widget: "markdown" },
+              { label: Image, name: image, widget: image },
+              {
+                label: "Раздел статьи / Post section",
+                name: "postSection",
+                widget: "object",
+                fields:
+                  [
+                    { label: "RU", name: "ru", widget: "markdown" },
+                    { label: "EN", name: "en", widget: "markdown" },
+                  ],
+              },
             ],
         }
       - { label: "Tags", name: "tags", widget: "list" }

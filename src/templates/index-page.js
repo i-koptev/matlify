@@ -4,7 +4,8 @@ import { graphql } from "gatsby"
 import { injectIntl } from "gatsby-plugin-intl"
 import Layout from "../components/Layout"
 import Hero from "../components/Hero"
-import Intro from "../components/Intro"
+// import Intro from "../components/Intro"
+import IntroGsap from "../components/IntroGsap"
 
 export const IndexPageTemplate = ({
     heroImage,
@@ -27,7 +28,8 @@ export const IndexPageTemplate = ({
             feature3={feature3}
             feature4={feature4}
         />
-        <Intro />
+        <IntroGsap />
+        {/* <Intro /> */}
     </>
 )
 
@@ -78,7 +80,7 @@ const IndexPage = ({ intl, data }) => {
                 })}
                 heroImage={frontmatter.indexSectionHero.heroImage}
             />
-            {/* <pre>{JSON.stringify(intl, null, 4)}</pre> */}
+            {/* <pre style={{ color: "#eee" }}>{JSON.stringify(data, null, 4)}</pre> */}
         </Layout>
     )
 }

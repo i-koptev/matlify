@@ -280,3 +280,65 @@ collections:
         }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "hidden" }
+  - name: "vlog"
+    label: "Vlog"
+    folder: "src/pages/vlog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "blog-post",
+        }
+      - {
+          label: "Название страницы (Слаг) / Page Title (Slug)",
+          name: "title",
+          widget: "string",
+        }
+      - {
+          label: "Заголовок статьи / Post Title",
+          name: "postTitle",
+          widget: "object",
+          fields:
+            [
+              { label: "ru", name: "ru", widget: "string" },
+              { label: "en", name: "en", widget: "string" },
+            ],
+        }
+      - {
+          label: "Описание статьи / Post Description",
+          name: "postDescription",
+          widget: "object",
+          fields:
+            [
+              { label: "ru", name: "ru", widget: "string" },
+              { label: "en", name: "en", widget: "string" },
+            ],
+        }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
+      - { label: "Featured Image", name: "featuredimage", widget: "image" }
+      - {
+          label: "Разделы статьи / Post sections",
+          name: "postBody",
+          widget: "list",
+          fields:
+            [
+              { label: Image, name: image, widget: image },
+              {
+                label: "Раздел статьи / Post section",
+                name: "postSection",
+                widget: "object",
+                fields:
+                  [
+                    { label: "RU", name: "ru", widget: "markdown" },
+                    { label: "EN", name: "en", widget: "markdown" },
+                  ],
+              },
+            ],
+        }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Body", name: "body", widget: "hidden" }

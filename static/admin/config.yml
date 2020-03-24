@@ -294,7 +294,7 @@ collections:
         }
       - {
           label: "Название страницы (Слаг) / Page Title (Slug)",
-          name: "vlogTitle",
+          name: "title",
           widget: "string",
         }
       - {

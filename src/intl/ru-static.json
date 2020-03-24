@@ -4,10 +4,10 @@
     "navigation.projects": "Проекты",
     "navigation.blog": "Блог",
     "blogRollHeader": "Мой блог",
-    "svgClassComponent.sectionHeader": "Заголовок раздела",
-    "svgClassComponent.description.gatsbyHeader": "Почему Gatsby",
-    "svgClassComponent.description.netlifyHeader": "Почему Netlify",
-    "svgClassComponent.description.netlifycmsHeader": "Почему Netlifycms",
-    "svgClassComponent.description.materialuiHeader": "Почему Material UI",
-    "svgClassComponent.description.githubHeader": "Почему Github"
+    "introGsap.sectionHeader": "Заголовок раздела",
+    "introGsap.description.gatsbyHeader": "Почему Gatsby",
+    "introGsap.description.netlifyHeader": "Почему Netlify",
+    "introGsap.description.netlifycmsHeader": "Почему Netlifycms",
+    "introGsap.description.materialuiHeader": "Почему Material UI",
+    "introGsap.description.githubHeader": "Почему Github"
 }

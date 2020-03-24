@@ -4,10 +4,10 @@
     "navigation.projects": "Projects",
     "navigation.blog": "Blog",
     "blogRollHeader": "My Blog",
-    "svgClassComponent.sectionHeader": "Section Header",
-    "svgClassComponent.description.gatsbyHeader": "Why Gatsby",
-    "svgClassComponent.description.netlifyHeader": "Why Netlify",
-    "svgClassComponent.description.netlifycmsHeader": "Why Netlifycms",
-    "svgClassComponent.description.materialuiHeader": "Why Material UI",
-    "svgClassComponent.description.githubHeader": "Why Github"
+    "introGsap.sectionHeader": "Section Header",
+    "introGsap.description.gatsbyHeader": "Why Gatsby",
+    "introGsap.description.netlifyHeader": "Why Netlify",
+    "introGsap.description.netlifycmsHeader": "Why Netlifycms",
+    "introGsap.description.materialuiHeader": "Why Material UI",
+    "introGsap.description.githubHeader": "Why Github"
 }

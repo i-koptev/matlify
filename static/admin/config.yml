@@ -280,9 +280,9 @@ collections:
         }
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "hidden" }
-  - name: "vlog"
-    label: "Vlog"
-    folder: "src/pages/vlog"
+  - name: "illustratedBlog"
+    label: "Illustrated Blog"
+    folder: "src/pages/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -290,7 +290,7 @@ collections:
           label: "Template Key",
           name: "templateKey",
           widget: "hidden",
-          default: "vlog-post",
+          default: "illustrated-post",
         }
       - {
           label: "Название страницы (Слаг) / Page Title (Slug)",
@@ -299,7 +299,7 @@ collections:
         }
       - {
           label: "Заголовок статьи / Post Title",
-          name: "vlogPostTitle",
+          name: "illustratedPostTitle",
           widget: "object",
           fields:
             [
@@ -309,7 +309,7 @@ collections:
         }
       - {
           label: "Описание статьи / Post Description",
-          name: "vlogPostDescription",
+          name: "illustratedPostDescription",
           widget: "object",
           fields:
             [
@@ -317,20 +317,36 @@ collections:
               { label: "en", name: "en", widget: "string" },
             ],
         }
-      - { label: "Publish Date", name: "vlogDate", widget: "datetime" }
-      - { label: "Description", name: "vlogDescription", widget: "text" }
-      - { label: "Featured Post", name: "vlogFeaturedpost", widget: "boolean" }
-      - { label: "Featured Image", name: "vlogFeaturedimage", widget: "image" }
+      - {
+          label: "Publish Date",
+          name: "illustratedPostDate",
+          widget: "datetime",
+        }
+      - {
+          label: "Description",
+          name: "illustratedPostDescription",
+          widget: "text",
+        }
+      - {
+          label: "Featured Post",
+          name: "illustratedPostFeaturedpost",
+          widget: "boolean",
+        }
+      - {
+          label: "Featured Image",
+          name: "illustratedPostFeaturedimage",
+          widget: "image",
+        }
       - {
           label: "Разделы статьи / Post sections",
-          name: "vlogPostBody",
+          name: "illustratedPostBody",
           widget: "list",
           fields:
             [
               { label: Image, name: image, widget: image },
               {
                 label: "Раздел статьи / Post section",
-                name: "vlogPostSection",
+                name: "illustratedPostSection",
                 widget: "object",
                 fields:
                   [

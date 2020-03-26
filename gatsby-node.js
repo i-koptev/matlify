@@ -14,6 +14,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                     node {
                         id
                         frontmatter {
+                            illustratedPostBody {
+                                illustratedPostSection {
+                                    en
+                                    ru
+                                }
+                                image {
+                                    id
+                                }
+                            }
                             templateKey
                             title
                             postTitle {
@@ -136,6 +145,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     // const pushIntoLangArrayHTML = function(){}
 
     result.data.allMarkdownRemark.edges.forEach(edge => {
+        /////////////////////////////////////
+
+        if (edge.node.frontmatter.illustratedPostBody) {
+            console.log("****************************")
+            edge.node.frontmatter.illustratedPostBody.map(item => {
+                ru[
+                    `${edge.node.id}%${item.image.id}.illustratedPostBody`
+                ] = converter.makeHtml(item.illustratedPostSection.ru)
+                en[
+                    `${edge.node.id}%${item.image.id}.illustratedPostBody`
+                ] = converter.makeHtml(item.illustratedPostSection.en)
+            })
+
+            // ru[`${edge.node.id}.postTitle`] = edge.node.frontmatter.postTitle.ru
+            // en[`${edge.node.id}.postTitle`] = edge.node.frontmatter.postTitle.en
+        }
+
+        //////////////////////////////////////
+
         if (edge.node.frontmatter.postTitle) {
             ru[`${edge.node.id}.postTitle`] = edge.node.frontmatter.postTitle.ru
             en[`${edge.node.id}.postTitle`] = edge.node.frontmatter.postTitle.en

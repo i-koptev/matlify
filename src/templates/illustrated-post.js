@@ -31,7 +31,6 @@ export const IllustratedPostTemplate = ({
         <div style={{ color: "white" }}>
             {helmet || ""}
             <h1>{title}</h1>
-            <p>{description}</p>
             {/* TODO - make it work with preview in admin area*/}
             <div>{contentObject}</div>
 
@@ -72,37 +71,65 @@ export const IllustratedPost = ({ intl, data }) => {
                     title={intl.formatMessage({
                         id: `${post.id}.postTitle`,
                     })}
-                    description={intl.formatMessage({
-                        id: `${post.id}.postDescription`,
-                    })}
+                    helmet={
+                        <Helmet titleTemplate="%s | Blog">
+                            <title>
+                                {intl.formatMessage({
+                                    id: `${post.id}.postTitle`,
+                                })}
+                            </title>
+                            <meta
+                                name="description"
+                                content={intl.formatMessage({
+                                    id: `${post.id}.postDescription`,
+                                })}
+                            />
+                        </Helmet>
+                    }
                     tags={post.frontmatter.tags}
                     contentObject={
-                        <div style={{ color: "#eee" }}>
-                            <div>
-                                {data.markdownRemark.frontmatter.illustratedPostBody.map(
-                                    item => (
-                                        <div>
-                                            <div
+                        <div>
+                            {data.markdownRemark.frontmatter.illustratedPostBody.map(
+                                item => (
+                                    <div
+                                        key={`${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`}
+                                    >
+                                        {/* <div
                                                 dangerouslySetInnerHTML={{
                                                     __html: intl.formatMessage({
                                                         id: `${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`,
                                                     }),
                                                 }}
-                                            ></div>
+                                            ></div> */}
 
-                                            <div>
-                                                <Img
-                                                    fluid={
-                                                        item.image
-                                                            .childImageSharp
-                                                            .fluid
-                                                    }
-                                                />
-                                            </div>
+                                        <div
+                                            style={{
+                                                minWidth: "200px",
+                                                width: "20%",
+                                                float: "left",
+                                                clear: "both",
+                                                marginRight: "2rem",
+                                                marginBottom: "0.5rem",
+                                            }}
+                                        >
+                                            <Img
+                                                style={{
+                                                    maxWidth: "300px",
+                                                }}
+                                                fluid={
+                                                    item.image.childImageSharp
+                                                        .fluid
+                                                }
+                                            />
                                         </div>
-                                    )
-                                )}
-                            </div>
+                                        <HTMLContent
+                                            content={intl.formatMessage({
+                                                id: `${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`,
+                                            })}
+                                        />
+                                    </div>
+                                )
+                            )}
                             {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
                         </div>
                     }

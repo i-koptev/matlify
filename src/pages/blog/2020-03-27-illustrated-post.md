@@ -2,23 +2,55 @@
 templateKey: illustrated-post
 title: illustrated post
 postTitle:
-  en: illustrated post en
-  ru: illustrated post ru
+  en: Post title
+  ru: Заголовок статьи
 postDescription:
-  en: illustrated post
-  ru: illustrated post
+  en: Post description
+  ru: Описание стптьи
 date: 2020-03-27T08:30:58.832Z
-description: illustrated post
+description: Description Standalone
 featuredpost: true
 featuredimage: /img/blog-index.jpg
 illustratedPostBody:
   - illustratedPostSection:
-      en: '## illustrated post'
-      ru: '## illustrated post'
+      en: >-
+        ## Heading 1
+
+
+        Loremipsum dolorsitametconsectet uradipisicing elit.Eoslaudant
+        ium,maioresprae sentiumexpeditaestdese runtmagnamab ,vitaetemporealias
+        aperiammaxime no nobcaecatirepudian daemodirecusandaeverocumitaque!
+      ru: >-
+        ## Заголовок 1
+
+
+        Повседневная практика показывает, что укрепление и развитие структуры
+        позволяет оценить значение позиций, занимаемых участниками в отношении
+        поставленных задач. Разнообразный и богатый опыт дальнейшее развитие
+        различных форм деятельности представляет собой интересный эксперимент
+        проверки соответствующий условий активизации. Таким образом консультация
+        с широким активом влечет за собой процесс внедрения и модернизации
+        дальнейших направлений развития.
     image: /img/flavor_wheel.jpg
   - illustratedPostSection:
-      en: sdfsdfs en
-      ru: dsdfsdfdf ru
+      en: >-
+        ## Heading 2
+
+
+        Loremipsum dolorsitametconsectet uradipisicing elit.Eoslaudant
+        ium,maioresprae sentiumexpeditaestdese runtmagnamab ,vitaetemporealias
+        aperiammaxime no nobcaecatirepudian daemodirecusandaeverocumitaque!
+      ru: >-
+        ## Заголовок 2
+
+
+        Повседневная практика показывает, что укрепление и развитие структуры
+        позволяет оценить значение позиций, занимаемых участниками в отношении
+        поставленных задач. Разнообразный и богатый опыт дальнейшее развитие
+        различных форм деятельности представляет собой интересный эксперимент
+        проверки соответствующий условий активизации. Таким образом консультация
+        с широким активом влечет за собой процесс внедрения и модернизации
+        дальнейших направлений развития.
     image: /img/monster_cl.jpg
 tags:
   - illu

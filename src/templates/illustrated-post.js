@@ -17,7 +17,8 @@ import Content, { HTMLContent } from "../components/Content"
 import Layout from "../components/Layout"
 
 export const IllustratedPostTemplate = ({
-    content,
+    // content,
+    contentObject,
     contentComponent,
     description,
     tags,
@@ -29,10 +30,12 @@ export const IllustratedPostTemplate = ({
     return (
         <div style={{ color: "white" }}>
             {helmet || ""}
-
             <h1>{title}</h1>
             <p>{description}</p>
-            <PostContent content={content} />
+            {/* TODO - make it work with preview in admin area*/}
+            <div>{contentObject}</div>
+
+            {/* <PostContent content={content} /> */}
             {tags && tags.length ? (
                 <div>
                     <h4>Tags</h4>
@@ -65,6 +68,7 @@ export const IllustratedPost = ({ intl, data }) => {
                 // className={classes.section}
             >
                 <IllustratedPostTemplate
+                    contentComponent={HTMLContent}
                     title={intl.formatMessage({
                         id: `${post.id}.postTitle`,
                     })}
@@ -72,34 +76,37 @@ export const IllustratedPost = ({ intl, data }) => {
                         id: `${post.id}.postDescription`,
                     })}
                     tags={post.frontmatter.tags}
+                    contentObject={
+                        <div style={{ color: "#eee" }}>
+                            <div>
+                                {data.markdownRemark.frontmatter.illustratedPostBody.map(
+                                    item => (
+                                        <div>
+                                            <div
+                                                dangerouslySetInnerHTML={{
+                                                    __html: intl.formatMessage({
+                                                        id: `${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`,
+                                                    }),
+                                                }}
+                                            ></div>
+
+                                            <div>
+                                                <Img
+                                                    fluid={
+                                                        item.image
+                                                            .childImageSharp
+                                                            .fluid
+                                                    }
+                                                />
+                                            </div>
+                                        </div>
+                                    )
+                                )}
+                            </div>
+                            {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
+                        </div>
+                    }
                 />
-                <div style={{ color: "#eee" }}>
-                    <div>
-                        {data.markdownRemark.frontmatter.illustratedPostBody.map(
-                            item => (
-                                <div>
-                                    <p>
-                                        Section ID:
-                                        {`${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`}
-                                    </p>
-                                    <p>
-                                        {intl.formatMessage({
-                                            id: `${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`,
-                                        })}
-                                    </p>
-                                    <div>
-                                        <Img
-                                            fluid={
-                                                item.image.childImageSharp.fluid
-                                            }
-                                        />
-                                    </div>
-                                </div>
-                            )
-                        )}
-                    </div>
-                    <pre>{JSON.stringify(data, null, 4)}</pre>
-                </div>
             </Container>
         </Layout>
     )

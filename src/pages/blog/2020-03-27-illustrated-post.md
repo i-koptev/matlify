@@ -16,6 +16,10 @@ illustratedPostBody:
       en: '## illustrated post'
       ru: '## illustrated post'
     image: /img/flavor_wheel.jpg
+  - illustratedPostSection:
+      en: sdfsdfs en
+      ru: dsdfsdfdf ru
+    image: /img/monster_cl.jpg
 tags:
   - illu
   - illupost

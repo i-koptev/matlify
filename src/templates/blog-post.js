@@ -1,16 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { kebabCase } from "lodash"
 import Helmet from "react-helmet"
+
 import { graphql, Link } from "gatsby"
 import { injectIntl } from "gatsby-plugin-intl"
+
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
 import Grid from "@material-ui/core/Grid"
 
-import Layout from "../components/Layout"
+import { kebabCase } from "lodash"
 import Content, { HTMLContent } from "../components/Content"
+
+import Layout from "../components/Layout"
 
 const useStyles = makeStyles(theme => ({
     test: {

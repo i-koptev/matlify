@@ -150,7 +150,7 @@ const BlogRoll = ({ intl }) => {
                                     }}
                                 />
                             ) : null}
-                            <p>
+                            <div>
                                 <div>
                                     Excerpt goes here ... TODO in BlogRoll.js{" "}
                                     <br />
@@ -165,7 +165,7 @@ const BlogRoll = ({ intl }) => {
                                 <Link className="" to={post.fields.slug}>
                                     Keep Reading →
                                 </Link>
-                            </p>
+                            </div>
                         </article>
                     </div>
                 ))}

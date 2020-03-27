@@ -10,7 +10,7 @@ postDescription:
 date: 2020-03-27T08:30:58.832Z
 description: Description Standalone
 featuredpost: true
-featuredimage: /img/blog-index.jpg
+featuredimage: /img/hero.jpg
 illustratedPostBody:
   - illustratedPostSection:
       en: >-

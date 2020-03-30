@@ -228,8 +228,8 @@ collections:
                 ],
             }
           - {
-              label: "Body",
-              name: "body",
+              label: "О нас / About Us",
+              name: "aboutText",
               widget: "object",
               fields:
                 [

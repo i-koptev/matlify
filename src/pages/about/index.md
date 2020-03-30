@@ -2,26 +2,29 @@
 templateKey: about-page
 title: about
 aboutHeading:
-    en: Heading
-    ru: Заголовок
+  en: Heading
+  ru: Заголовок
 aboutSubheading:
-    en: |-
-        ### Subheading
+  en: |-
+    ### Subheading
 
-        1. first
-        2. second
-        3.third
-    ru: |-
-        ### Подзаголовок 
+    1. first
+    2. second
+    3.third
+  ru: |-
+    ### Подзаголовок 
 
-        1. первый
-        2. второй
-        3. третий
+    1. первый
+    2. второй
+    3. третий
+aboutText:
+  en: |-
+    ## About us
+
+    Texr about us
+  ru: |-
+    ## О нас
+
+    Текст о нас
 ---
 
-# Heading 1
-
-And some text with a list:
-
-1. Item 1
-2. Item 2

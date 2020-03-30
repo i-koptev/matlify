@@ -223,8 +223,8 @@ collections:
               widget: "object",
               fields:
                 [
-                  { label: "ru", name: "ru", widget: "markdown" },
-                  { label: "en", name: "en", widget: "markdown" },
+                  { label: "ru", name: "ru", widget: "string" },
+                  { label: "en", name: "en", widget: "string" },
                 ],
             }
           - {

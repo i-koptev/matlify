@@ -203,8 +203,9 @@ collections:
           - {
               label: "Идентификатор страницы / Page identifier",
               name: "title",
-              widget: "string",
-              default: "Страница 'О нас' / 'About' Page",
+              widget: "hidden",
+              default: "string",
+              hint: "Страница 'О нас' / 'About' Page",
             }
           - {
               label: "Заголовок / Heading",
@@ -226,7 +227,16 @@ collections:
                   { label: "en", name: "en", widget: "markdown" },
                 ],
             }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - {
+              label: "Body",
+              name: "body",
+              widget: "object",
+              fields:
+                [
+                  { label: "RU", name: "ru", widget: "markdown" },
+                  { label: "EN", name: "en", widget: "markdown" },
+                ],
+            }
   - name: "blog"
     label: "Блог / Blog"
     folder: "src/pages/blog"

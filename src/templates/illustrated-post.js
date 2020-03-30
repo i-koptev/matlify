@@ -104,17 +104,17 @@ export const IllustratedPost = ({ intl, data }) => {
 
                                         <div
                                             style={{
-                                                minWidth: "200px",
-                                                width: "20%",
+                                                minWidth: "300px",
+                                                width: "30%",
                                                 float: "left",
                                                 clear: "both",
-                                                marginRight: "2rem",
-                                                marginBottom: "0.5rem",
+                                                marginRight: "2.5rem",
+                                                marginBottom: "0.3rem",
                                             }}
                                         >
                                             <Img
                                                 style={{
-                                                    maxWidth: "300px",
+                                                    minWidth: "300px",
                                                 }}
                                                 fluid={
                                                     item.image.childImageSharp

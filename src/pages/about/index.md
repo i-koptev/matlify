@@ -5,18 +5,8 @@ aboutHeading:
   en: Heading
   ru: Заголовок
 aboutSubheading:
-  en: |-
-    ### Subheading
-
-    1. first
-    2. second
-    3.third
-  ru: |-
-    ### Подзаголовок 
-
-    1. первый
-    2. второй
-    3. третий
+  en: Subheading
+  ru: Подзаголовок
 aboutText:
   en: |-
     ## About us

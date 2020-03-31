@@ -18,7 +18,7 @@ indexSectionHero:
   heading:
     en: Web Development
     ru: Веб разработка
-  heroImage: /img/hero.jpg
+  heroImage: /img/bg1.jpg
   subheading:
     en: Gatsby & Netlify CMS
     ru: Gatsby & Netlify CMS

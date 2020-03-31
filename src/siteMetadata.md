@@ -1,10 +1,12 @@
 ---
 title: Meta Page
 templateKey: meta-page
+adminlang: ru
 seoSiteTitle:
-    ru: KOPTEFF
-    en: KOPTEFF
+  en: KOPTEFF
+  ru: KOPTEFF
 seoSiteDescription:
-    ru: RU SEO Site Description
-    en: EN SEO Site Description
+  en: EN SEO Site Description
+  ru: RU SEO Site Description
 ---
+

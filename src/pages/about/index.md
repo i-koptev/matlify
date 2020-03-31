@@ -1,6 +1,7 @@
 ---
 templateKey: about-page
 title: about
+adminlang: ru
 aboutHeading:
   en: Heading
   ru: Заголовок

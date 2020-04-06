@@ -207,6 +207,14 @@ collections:
               default: "string",
               hint: "Страница 'О нас' / 'About' Page",
             }
+
+          - label: "Язык выводимых данных / Output language"
+            name: "adminlang"
+            widget: "select"
+            options:
+              - { label: "По Русски", value: "ru" }
+              - { label: "In English", value: "en" }
+
           - {
               label: "Заголовок / Heading",
               name: "aboutHeading",

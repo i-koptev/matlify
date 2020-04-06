@@ -45,6 +45,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                                 ru
                                 en
                             }
+                            aboutText {
+                                ru
+                                en
+                            }
                             indexSectionHero {
                                 heading {
                                     en
@@ -186,18 +190,21 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
 
         if (edge.node.frontmatter.aboutHeading) {
-            ru[`${edge.node.id}.aboutHeading`] =
-                edge.node.frontmatter.aboutHeading.ru
-            en[`${edge.node.id}.aboutHeading`] =
-                edge.node.frontmatter.aboutHeading.en
+            ru[`aboutHeading`] = edge.node.frontmatter.aboutHeading.ru
+            en[`aboutHeading`] = edge.node.frontmatter.aboutHeading.en
         }
 
         if (edge.node.frontmatter.aboutSubheading) {
-            ru[`${edge.node.id}.aboutSubheading`] = converter.makeHtml(
-                edge.node.frontmatter.aboutSubheading.ru
+            ru[`aboutSubheading`] = edge.node.frontmatter.aboutSubheading.ru
+            en[`aboutSubheading`] = edge.node.frontmatter.aboutSubheading.en
+        }
+
+        if (edge.node.frontmatter.aboutText) {
+            ru[`aboutText`] = converter.makeHtml(
+                edge.node.frontmatter.aboutText.ru
             )
-            en[`${edge.node.id}.aboutSubheading`] = converter.makeHtml(
-                edge.node.frontmatter.aboutSubheading.en
+            en[`aboutText`] = converter.makeHtml(
+                edge.node.frontmatter.aboutText.en
             )
         }
 

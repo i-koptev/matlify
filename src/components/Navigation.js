@@ -280,7 +280,7 @@ const Navigation = ({ intl }) => {
                                                     classes.mainNavigationMobileLink
                                                 }
                                                 activeClassName="active"
-                                                to="/contacts"
+                                                to="/about"
                                             >
                                                 {intl.formatMessage({
                                                     id: "navigation.projects",
@@ -348,7 +348,7 @@ const Navigation = ({ intl }) => {
                             <Link
                                 className={classes.mainNavigationLink}
                                 activeClassName="active"
-                                to="/contacts"
+                                to="/about"
                             >
                                 {intl.formatMessage({
                                     id: "navigation.projects",

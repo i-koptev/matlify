@@ -107,14 +107,31 @@ collections:
                           widget: "object",
                           fields:
                             [
-                              { label: "ru", name: "ru", widget: "string" },
+                              {
+                                label: "ru",
+                                name: "ru",
+                                widget: "object",
+                                fields:
+                                  [
+                                    {
+                                      label: "короткое описание",
+                                      name: "fature1shortdescription",
+                                      widget: "string",
+                                    },
+                                    {
+                                      label: "развёрнутое описание",
+                                      name: "feature1longlongdescription",
+                                      widget: "markdown",
+                                    },
+                                  ],
+                              },
                               { label: "en", name: "en", widget: "string" },
                             ],
                         },
                         {
                           label: "Преимущество #2 / Feature #2",
                           name: "feature2",
-                          widget: object,
+                          widget: "object",
                           fields:
                             [
                               { label: "ru", name: "ru", widget: "string" },
@@ -124,7 +141,7 @@ collections:
                         {
                           label: "Преимущество #3 / Feature #3",
                           name: "feature3",
-                          widget: object,
+                          widget: "object",
                           fields:
                             [
                               { label: "ru", name: "ru", widget: "string" },

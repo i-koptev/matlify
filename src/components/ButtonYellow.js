@@ -8,15 +8,19 @@ import { withStyles } from "@material-ui/core/styles"
 const styles = {
     root: {
         // background: 'linear-gradient(45deg, #FFBF55 20%, #FFBF55 50%, #FFBF55 90%)',
-        backgroundColor: "#EFAF45",
+        // backgroundColor: "#EFAF45",
+        backgroundColor: "transparent",
         borderRadius: 0,
-        border: 0,
-        color: "black",
+        border: "3px solid #ffffff33",
+        // color: "black",
+        color: "#ffffff77",
         // height: 48,
         padding: "0.4em 2em",
         // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
         "&:hover": {
-            backgroundColor: "#FBBB51",
+            // backgroundColor: "#FBBB51",
+            backgroundColor: "#ffffff33",
+            color: "#fff",
         },
     },
 }

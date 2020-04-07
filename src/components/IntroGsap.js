@@ -416,7 +416,10 @@ class IntroGsap extends Component {
             this.isPlaying = false
         } */
         // this.mainTl.progress((intersectionRatio - 0.3) / 0.4)
-        this.mainTl.progress(this.norm(intersectionRatio, 0.3, 0.7))
+
+        // this.mainTl.progress(this.norm(intersectionRatio, 0.3, 0.7))
+        // console.log(intersectionRatio)
+        console.log(this.norm(intersectionRatio, 0.3, 0.7))
     }
 
     handleMouseEnter = e => {
@@ -580,7 +583,6 @@ class IntroGsap extends Component {
         return tl
     }
     lineDisconnectById = id => {
-        console.log("trying to disconnect...")
         var tl = gsap.timeline().to(this.getLineById(id), {
             duration: 0.3,
             attr: this.getLineZeroLengthAttrsById(id),
@@ -646,9 +648,9 @@ class IntroGsap extends Component {
 
         this.mainTl = gsap
             .timeline({ delay: 3, repeat: -1 })
-            .set(".brandBox", {
-                transformOrigin: "0 50%",
-            })
+            // .set(".brandBox", {
+            //     transformOrigin: "0 50%",
+            // })
             // .add(this.brandGroupCrazyRotationInitialEmergence(), "start")
             .add(this.connectById("gatsby"))
             .add(this.disconnectById("gatsby"))
@@ -1279,9 +1281,9 @@ class IntroGsap extends Component {
                             </div>
                         </Grid>
                         <Observer
-                        //onChange={this.handleChange}
-                        //reshold={thresholds}
-                        // threshold="0.5"
+                            onChange={this.handleChange}
+                            threshold={thresholds}
+                            // threshold="0.5"
                         >
                             <Grid item xs={12} md={6} lg={7}>
                                 <div className={classes.descriptionWrapper}>

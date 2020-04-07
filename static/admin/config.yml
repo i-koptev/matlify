@@ -114,13 +114,13 @@ collections:
                                 fields:
                                   [
                                     {
-                                      label: "короткое описание",
-                                      name: "fature1shortdescription",
+                                      label: "Преимущество #1. короткое описание",
+                                      name: "feature1shortdescription",
                                       widget: "string",
                                     },
                                     {
-                                      label: "развёрнутое описание",
-                                      name: "feature1longlongdescription",
+                                      label: "Преимущество #1. развёрнутое описание",
+                                      name: "feature1longdescription",
                                       widget: "markdown",
                                     },
                                   ],

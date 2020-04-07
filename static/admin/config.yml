@@ -108,37 +108,37 @@ collections:
                           fields:
                             [
                               {
-                                label: "ru",
-                                name: "ru",
+                                label: "Преимущество #1. Короткое описание / Feature #1. Short description",
+                                name: "feature1shortdescription",
                                 widget: "object",
                                 fields:
                                   [
                                     {
-                                      label: "Преимущество #1. Короткое описание",
-                                      name: "feature1shortdescription",
+                                      label: "ru",
+                                      name: "ru",
                                       widget: "string",
                                     },
                                     {
-                                      label: "Преимущество #1. Развёрнутое описание",
-                                      name: "feature1detaileddescription",
-                                      widget: "markdown",
+                                      label: "en",
+                                      name: "en",
+                                      widget: "string",
                                     },
                                   ],
                               },
                               {
-                                label: "en",
-                                name: "en",
+                                label: "Преимущество #1. Развёрнутое описание / Feature #1. Detailed description",
+                                name: "feature1detaileddescription",
                                 widget: "object",
                                 fields:
                                   [
                                     {
-                                      label: "Feature #1. Short description",
-                                      name: "feature1shortdescription",
-                                      widget: "string",
+                                      label: "ru",
+                                      name: "ru",
+                                      widget: "markdown",
                                     },
                                     {
-                                      label: "Feature #1. Detailed description",
-                                      name: "feature1detaileddescription",
+                                      label: "en",
+                                      name: "en",
                                       widget: "markdown",
                                     },
                                   ],

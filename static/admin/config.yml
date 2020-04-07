@@ -151,8 +151,42 @@ collections:
                           widget: "object",
                           fields:
                             [
-                              { label: "ru", name: "ru", widget: "string" },
-                              { label: "en", name: "en", widget: "string" },
+                              {
+                                label: "Преимущество #2. Короткое описание / Feature #2. Short description",
+                                name: "feature2shortdescription",
+                                widget: "object",
+                                fields:
+                                  [
+                                    {
+                                      label: "ru",
+                                      name: "ru",
+                                      widget: "string",
+                                    },
+                                    {
+                                      label: "en",
+                                      name: "en",
+                                      widget: "string",
+                                    },
+                                  ],
+                              },
+                              {
+                                label: "Преимущество #2. Развёрнутое описание / Feature #2. Detailed description",
+                                name: "feature2detaileddescription",
+                                widget: "object",
+                                fields:
+                                  [
+                                    {
+                                      label: "ru",
+                                      name: "ru",
+                                      widget: "markdown",
+                                    },
+                                    {
+                                      label: "en",
+                                      name: "en",
+                                      widget: "markdown",
+                                    },
+                                  ],
+                              },
                             ],
                         },
                         {
@@ -161,8 +195,42 @@ collections:
                           widget: "object",
                           fields:
                             [
-                              { label: "ru", name: "ru", widget: "string" },
-                              { label: "en", name: "en", widget: "string" },
+                              {
+                                label: "Преимущество #3. Короткое описание / Feature #3. Short description",
+                                name: "feature3shortdescription",
+                                widget: "object",
+                                fields:
+                                  [
+                                    {
+                                      label: "ru",
+                                      name: "ru",
+                                      widget: "string",
+                                    },
+                                    {
+                                      label: "en",
+                                      name: "en",
+                                      widget: "string",
+                                    },
+                                  ],
+                              },
+                              {
+                                label: "Преимущество #3. Развёрнутое описание / Feature #3. Detailed description",
+                                name: "feature3detaileddescription",
+                                widget: "object",
+                                fields:
+                                  [
+                                    {
+                                      label: "ru",
+                                      name: "ru",
+                                      widget: "markdown",
+                                    },
+                                    {
+                                      label: "en",
+                                      name: "en",
+                                      widget: "markdown",
+                                    },
+                                  ],
+                              },
                             ],
                         },
                         {
@@ -171,8 +239,42 @@ collections:
                           widget: "object",
                           fields:
                             [
-                              { label: "ru", name: "ru", widget: "string" },
-                              { label: "en", name: "en", widget: "string" },
+                              {
+                                label: "Преимущество #4. Короткое описание / Feature #4. Short description",
+                                name: "feature4shortdescription",
+                                widget: "object",
+                                fields:
+                                  [
+                                    {
+                                      label: "ru",
+                                      name: "ru",
+                                      widget: "string",
+                                    },
+                                    {
+                                      label: "en",
+                                      name: "en",
+                                      widget: "string",
+                                    },
+                                  ],
+                              },
+                              {
+                                label: "Преимущество #4. Развёрнутое описание / Feature #4. Detailed description",
+                                name: "feature4detaileddescription",
+                                widget: "object",
+                                fields:
+                                  [
+                                    {
+                                      label: "ru",
+                                      name: "ru",
+                                      widget: "markdown",
+                                    },
+                                    {
+                                      label: "en",
+                                      name: "en",
+                                      widget: "markdown",
+                                    },
+                                  ],
+                              },
                             ],
                         },
                       ],

@@ -1,6 +1,9 @@
 import React from "react"
-import BackgroundImage from "gatsby-background-image"
+import { useStaticQuery, graphql } from "gatsby"
+
 import { useTransition, useSpring, animated } from "react-spring"
+
+import { injectIntl } from "gatsby-plugin-intl"
 
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 
@@ -10,9 +13,8 @@ import Grid from "@material-ui/core/Grid"
 import Lottie from "react-lottie"
 import * as animation from "../animations/hero/data"
 
-import wavybg from "../../static/img/wavybg.svg"
 import Button from "../components/ButtonYellow"
-import Gsap from "../components/IntroGsap"
+import SvgCompatibleBackgroundImage from "../components/SvgCompatibleBackgroundImage"
 
 const useStyles = makeStyles(theme => ({
     firstletter: {
@@ -28,7 +30,7 @@ const useStyles = makeStyles(theme => ({
         // height: "calc(100vh - 64px)",
         // minHeight: "400px",
 
-        backgroundImage: `url(${wavybg})`,
+        // backgroundImage: `url(${wavybg})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -161,15 +163,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-const Hero = ({
-    heroImage,
-    heading,
-    subheading,
-    feature1,
-    feature2,
-    feature3,
-    feature4,
-}) => {
+const Hero = ({ intl }) => {
     const classes = useStyles()
     const theme = useTheme()
 
@@ -233,8 +227,36 @@ const Hero = ({
             preserveAspectRatio: "xMidYMid meet",
         },
     }
+
+    const data = useStaticQuery(graphql`
+        query HeroSectionBackgroundImage {
+            markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+                frontmatter {
+                    indexSectionHero {
+                        heroImage {
+                            childImageSharp {
+                                fluid(maxWidth: 1200, quality: 100) {
+                                    ...GatsbyImageSharpFluid_withWebp
+                                }
+                            }
+                            publicURL
+                        }
+                    }
+                }
+            }
+        }
+    `)
+    const image = data.markdownRemark.frontmatter.indexSectionHero.heroImage
+
     return (
-        <div className={classes.hero}>
+        <SvgCompatibleBackgroundImage image={image} className={classes.hero}>
+            {/* <div
+                className={classes.hero}
+                style={{
+                    // backgroundImage: `url("/static/wavybg-feb688c1c3f71c1dc387cdf172cece34.svg")`,
+                    backgroundImage: `url(${data.markdownRemark.frontmatter.indexSectionHero.heroImage.publicURL})`,
+                }}
+            > */}
             {/* <BackgroundImage
             className={classes.hero}
             Tag="section"
@@ -250,7 +272,9 @@ const Hero = ({
                             style={propsSlogan}
                             className={classes.slogan}
                         >
-                            {subheading}
+                            {intl.formatMessage({
+                                id: `indexSectionHero.subheading`,
+                            })}
                         </animated.h2>
 
                         <animated.h1
@@ -258,7 +282,9 @@ const Hero = ({
                             style={propsTitle}
                             className={classes.title}
                         >
-                            {heading}
+                            {intl.formatMessage({
+                                id: `indexSectionHero.heading`,
+                            })}
                         </animated.h1>
                         {/* 
                         <animated.h1
@@ -270,30 +296,33 @@ const Hero = ({
                         </animated.h1>
  */}
                         <Grid item container direction="row" spacing={3}>
-                            <Grid
-                                item
-                                xs={12}
-                                md={5}
-                                // style={{ outline: "3px solid red" }}
-                            >
+                            <Grid item xs={12} md={5}>
                                 <div className={classes.features}>
                                     <ul>
                                         <animated.li style={propsFeature1}>
-                                            {feature1}
+                                            {intl.formatMessage({
+                                                id: `indexSectionHero.features.feature1`,
+                                            })}
                                         </animated.li>
                                         <animated.li style={propsFeature2}>
-                                            {feature2}
+                                            {intl.formatMessage({
+                                                id: `indexSectionHero.features.feature2`,
+                                            })}
                                         </animated.li>
                                         <animated.li style={propsFeature3}>
-                                            {feature3}
+                                            {intl.formatMessage({
+                                                id: `indexSectionHero.features.feature3`,
+                                            })}
                                         </animated.li>
                                         <animated.li style={propsFeature4}>
-                                            {feature4}
+                                            {intl.formatMessage({
+                                                id: `indexSectionHero.features.feature4`,
+                                            })}
                                         </animated.li>
                                     </ul>
                                 </div>
+
                                 <Button
-                                    variant="outlined"
                                     style={{
                                         marginTop: "2rem",
                                         marginLeft: "2rem",
@@ -307,7 +336,6 @@ const Hero = ({
                                 xs={12}
                                 md={7}
                                 style={{
-                                    // outline: "3px solid red",
                                     marginTop: "1rem",
                                     borderBottom:
                                         "3px solid rgba(128,128,128,0.1)",
@@ -341,8 +369,9 @@ const Hero = ({
                 </Grid>
             </Container>
             {/* </BackgroundImage> */}
-        </div>
+            {/* </div> */}
+        </SvgCompatibleBackgroundImage>
     )
 }
 
-export default Hero
+export default injectIntl(Hero)

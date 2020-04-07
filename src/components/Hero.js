@@ -10,14 +10,28 @@ import Grid from "@material-ui/core/Grid"
 import Lottie from "react-lottie"
 import * as animation from "../animations/hero/data"
 
+import wavybg from "../../static/img/wavybg.svg"
+import Button from "../components/ButtonYellow"
+import Gsap from "../components/IntroGsap"
+
 const useStyles = makeStyles(theme => ({
     firstletter: {
         fill: "red",
     },
     hero: {
-        height: "calc(80vh - 64px)",
+        [theme.breakpoints.up("md")]: {
+            minHeight: "calc(100vh - 64px)",
+        },
+
+        position: "relative",
+        minHeight: "calc(80vh - 64px)",
         // height: "calc(100vh - 64px)",
-        minHeight: "400px",
+        // minHeight: "400px",
+
+        backgroundImage: `url(${wavybg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
     },
     overlay: {
         position: "absolute",
@@ -27,11 +41,13 @@ const useStyles = makeStyles(theme => ({
         left: "0px",
         /* background: #0c0808; */
         backgroundImage:
-            "linear-gradient(to top,rgba(0, 20, 30, 0),rgba(0, 20, 30, 0.7))",
+            "linear-gradient(to top,rgba(0, 20, 30, 0),rgba(0, 20, 30, 0.2))",
         /* opacity: 0.9; */
-        zIndex: "-50",
+        zIndex: "1",
+        overflow: "hidden",
     },
     textbox: {
+        // outline: "3px solid tomato",
         color: "white",
         paddingTop: "7vh",
         paddingBottom: "4vh",
@@ -186,7 +202,7 @@ const Hero = ({
     const propsFeature2 = useSpring({
         from: { opacity: 0, transform: "translate3d(-1000px, 0, 0)" },
         to: { opacity: 1, transform: "translate3d(0, 0px, 0)" },
-        delay: 400,
+        delay: 450,
         config: {
             duration: 700,
         },
@@ -195,7 +211,7 @@ const Hero = ({
     const propsFeature3 = useSpring({
         from: { opacity: 0, transform: "translate3d(-1000px, 0, 0)" },
         to: { opacity: 1, transform: "translate3d(0, 0px, 0)" },
-        delay: 500,
+        delay: 600,
         config: {
             duration: 700,
         },
@@ -203,7 +219,7 @@ const Hero = ({
     const propsFeature4 = useSpring({
         from: { opacity: 0, transform: "translate3d(-1000px, 0, 0)" },
         to: { opacity: 1, transform: "translate3d(0, 0px, 0)" },
-        delay: 600,
+        delay: 750,
         config: {
             duration: 700,
         },
@@ -218,13 +234,15 @@ const Hero = ({
         },
     }
     return (
-        <BackgroundImage
+        <div className={classes.hero}>
+            {/* <BackgroundImage
             className={classes.hero}
             Tag="section"
             fluid={heroImage.childImageSharp.fluid}
             fadeIn="soft"
-        >
-            <div className={classes.overlay}></div>
+        > */}
+            {/* <div className={classes.overlay}></div> */}
+
             <Container maxWidth={theme.siteContainer.maxWidth}>
                 <Grid container className={classes.textbox} spacing={0}>
                     <Grid className={classes.line} item xs={12}>
@@ -251,26 +269,79 @@ const Hero = ({
                             <Lottie options={defaultOptions} />
                         </animated.h1>
  */}
-                        <div className={classes.features}>
-                            <ul>
-                                <animated.li style={propsFeature1}>
-                                    {feature1}
-                                </animated.li>
-                                <animated.li style={propsFeature2}>
-                                    {feature2}
-                                </animated.li>
-                                <animated.li style={propsFeature3}>
-                                    {feature3}
-                                </animated.li>
-                                <animated.li style={propsFeature4}>
-                                    {feature4}
-                                </animated.li>
-                            </ul>
-                        </div>
+                        <Grid item container direction="row" spacing={3}>
+                            <Grid
+                                item
+                                xs={12}
+                                md={5}
+                                // style={{ outline: "3px solid red" }}
+                            >
+                                <div className={classes.features}>
+                                    <ul>
+                                        <animated.li style={propsFeature1}>
+                                            {feature1}
+                                        </animated.li>
+                                        <animated.li style={propsFeature2}>
+                                            {feature2}
+                                        </animated.li>
+                                        <animated.li style={propsFeature3}>
+                                            {feature3}
+                                        </animated.li>
+                                        <animated.li style={propsFeature4}>
+                                            {feature4}
+                                        </animated.li>
+                                    </ul>
+                                </div>
+                                <Button
+                                    variant="outlined"
+                                    style={{
+                                        marginTop: "2rem",
+                                        marginLeft: "2rem",
+                                    }}
+                                >
+                                    Наши контакты
+                                </Button>
+                            </Grid>
+                            <Grid
+                                item
+                                xs={12}
+                                md={7}
+                                style={{
+                                    // outline: "3px solid red",
+                                    marginTop: "1rem",
+                                    borderBottom:
+                                        "3px solid rgba(128,128,128,0.1)",
+                                    paddingTop: "2rem",
+                                    paddingBottom: "2rem",
+                                    color: "rgba(255,255,255,0.7)",
+                                }}
+                            >
+                                <h3>Разработка дизайна</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Enim ut mollitia ducimus,
+                                    nesciunt sequi nam commodi perferendis unde
+                                    deserunt! Unde ipsa voluptatem repudiandae
+                                    ad minima. Nemo sint ea inventore iure.
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Enim ut mollitia ducimus,
+                                    nesciunt sequi nam commodi perferendis unde
+                                    deserunt! Unde ipsa voluptatem repudiandae
+                                    ad minima. Nemo sint ea inventore iure.
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Non nostrum minima
+                                    voluptates accusamus inventore id
+                                    necessitatibus blanditiis nesciunt ut earum?
+                                </p>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Container>
-        </BackgroundImage>
+            {/* </BackgroundImage> */}
+        </div>
     )
 }
 

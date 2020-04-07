@@ -114,18 +114,35 @@ collections:
                                 fields:
                                   [
                                     {
-                                      label: "Преимущество #1. короткое описание",
+                                      label: "Преимущество #1. Короткое описание",
                                       name: "feature1shortdescription",
                                       widget: "string",
                                     },
                                     {
-                                      label: "Преимущество #1. развёрнутое описание",
-                                      name: "feature1longdescription",
+                                      label: "Преимущество #1. Развёрнутое описание",
+                                      name: "feature1detaileddescription",
                                       widget: "markdown",
                                     },
                                   ],
                               },
-                              { label: "en", name: "en", widget: "string" },
+                              {
+                                label: "en",
+                                name: "en",
+                                widget: "object",
+                                fields:
+                                  [
+                                    {
+                                      label: "Feature #1. Short description",
+                                      name: "feature1shortdescription",
+                                      widget: "string",
+                                    },
+                                    {
+                                      label: "Feature #1. Detailed description",
+                                      name: "feature1detaileddescription",
+                                      widget: "markdown",
+                                    },
+                                  ],
+                              },
                             ],
                         },
                         {

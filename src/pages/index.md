@@ -75,7 +75,7 @@ indexSectionHero:
           определения и уточнения позиций, занимаемых участниками в отношении
           поставленных задач.
       feature2shortdescription:
-        en: tucture development
+        en: structure development
         ru: проектирование структуры
     feature3:
       feature3detaileddescription:

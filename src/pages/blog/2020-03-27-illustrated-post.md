@@ -33,7 +33,15 @@ illustratedPostBody:
         дальнейших направлений развития.
 
 
-        ```const var = 5;```
+        ```jsx
+          const postLinks = posts.map(post => (
+                    <li key={post.node.fields.slug}>
+                        <Link to={post.node.fields.slug}>
+                            <h2>{post.node.frontmatter.title}</h2>
+                        </Link>
+                    </li>
+                ))
+        ```
 
 
         Повседневная практика показывает, что укрепление и развитие структуры

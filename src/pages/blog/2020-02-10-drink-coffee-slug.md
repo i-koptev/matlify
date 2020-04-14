@@ -35,7 +35,7 @@ postBody:
     * item three
 
 
-    ```javascript
+    ```jsx
 
     const postLinks = posts.map(post => (
                 <li key={post.node.fields.slug}>
@@ -72,7 +72,7 @@ postBody:
     * третий пункт
 
 
-    ```javascript
+    ```jsx
 
     const postLinks = posts.map(post => (
                 <li key={post.node.fields.slug}>

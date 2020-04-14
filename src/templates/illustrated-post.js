@@ -14,6 +14,9 @@ import { kebabCase } from "lodash"
 
 import Layout from "../components/Layout"
 
+import { useEffect } from "react"
+import Prism from "prismjs"
+
 const useStyles = makeStyles(theme => ({
     header: {
         marginTop: "2rem",
@@ -50,6 +53,11 @@ const IllustratedPost = ({ intl, data }) => {
 
     const theme = useTheme()
     const classes = useStyles()
+
+    useEffect(() => {
+        // call the highlightAll() function to style our code blocks
+        Prism.highlightAll()
+    })
 
     return (
         <Layout>

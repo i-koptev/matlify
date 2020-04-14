@@ -301,22 +301,22 @@ const Hero = ({ intl }) => {
                                     <ul>
                                         <animated.li style={propsFeature1}>
                                             {intl.formatMessage({
-                                                id: `indexSectionHero.features.feature1`,
+                                                id: `indexSectionHero.features.feature1.feature1shortdescription`,
                                             })}
                                         </animated.li>
                                         <animated.li style={propsFeature2}>
                                             {intl.formatMessage({
-                                                id: `indexSectionHero.features.feature2`,
+                                                id: `indexSectionHero.features.feature2.feature2shortdescription`,
                                             })}
                                         </animated.li>
                                         <animated.li style={propsFeature3}>
                                             {intl.formatMessage({
-                                                id: `indexSectionHero.features.feature3`,
+                                                id: `indexSectionHero.features.feature3.feature3shortdescription`,
                                             })}
                                         </animated.li>
                                         <animated.li style={propsFeature4}>
                                             {intl.formatMessage({
-                                                id: `indexSectionHero.features.feature4`,
+                                                id: `indexSectionHero.features.feature4.feature4shortdescription`,
                                             })}
                                         </animated.li>
                                     </ul>
@@ -344,25 +344,13 @@ const Hero = ({ intl }) => {
                                     color: "rgba(255,255,255,0.7)",
                                 }}
                             >
-                                <h3>Разработка дизайна</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Enim ut mollitia ducimus,
-                                    nesciunt sequi nam commodi perferendis unde
-                                    deserunt! Unde ipsa voluptatem repudiandae
-                                    ad minima. Nemo sint ea inventore iure.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Enim ut mollitia ducimus,
-                                    nesciunt sequi nam commodi perferendis unde
-                                    deserunt! Unde ipsa voluptatem repudiandae
-                                    ad minima. Nemo sint ea inventore iure.
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Non nostrum minima
-                                    voluptates accusamus inventore id
-                                    necessitatibus blanditiis nesciunt ut earum?
-                                </p>
+                                <div
+                                    dangerouslySetInnerHTML={{
+                                        __html: intl.formatMessage({
+                                            id: `indexSectionHero.features.feature1.feature1detaileddescription`,
+                                        }),
+                                    }}
+                                ></div>
                             </Grid>
                         </Grid>
                     </Grid>

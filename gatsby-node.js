@@ -60,20 +60,44 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                                 }
                                 features {
                                     feature1 {
-                                        en
-                                        ru
+                                        feature1shortdescription {
+                                            en
+                                            ru
+                                        }
+                                        feature1detaileddescription {
+                                            en
+                                            ru
+                                        }
                                     }
                                     feature2 {
-                                        en
-                                        ru
+                                        feature2shortdescription {
+                                            en
+                                            ru
+                                        }
+                                        feature2detaileddescription {
+                                            en
+                                            ru
+                                        }
                                     }
                                     feature3 {
-                                        en
-                                        ru
+                                        feature3shortdescription {
+                                            en
+                                            ru
+                                        }
+                                        feature3detaileddescription {
+                                            en
+                                            ru
+                                        }
                                     }
                                     feature4 {
-                                        en
-                                        ru
+                                        feature4shortdescription {
+                                            en
+                                            ru
+                                        }
+                                        feature4detaileddescription {
+                                            en
+                                            ru
+                                        }
                                     }
                                 }
                             }
@@ -209,28 +233,90 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
 
         if (edge.node.frontmatter.indexSectionHero) {
-            ru[`indexSectionHero.features.feature1`] =
-                edge.node.frontmatter.indexSectionHero.features.feature1.ru
-            en[`indexSectionHero.features.feature1`] =
-                edge.node.frontmatter.indexSectionHero.features.feature1.en
+            ru[`indexSectionHero.features.feature1.feature1shortdescription`] =
+                edge.node.frontmatter.indexSectionHero.features.feature1.feature1shortdescription.ru
+            en[`indexSectionHero.features.feature1.feature1shortdescription`] =
+                edge.node.frontmatter.indexSectionHero.features.feature1.feature1shortdescription.en
         }
         if (edge.node.frontmatter.indexSectionHero) {
-            ru[`indexSectionHero.features.feature2`] =
-                edge.node.frontmatter.indexSectionHero.features.feature2.ru
-            en[`indexSectionHero.features.feature2`] =
-                edge.node.frontmatter.indexSectionHero.features.feature2.en
+            ru[
+                `indexSectionHero.features.feature1.feature1detaileddescription`
+            ] = converter.makeHtml(
+                edge.node.frontmatter.indexSectionHero.features.feature1
+                    .feature1detaileddescription.ru
+            )
+            en[
+                `indexSectionHero.features.feature1.feature1detaileddescription`
+            ] = converter.makeHtml(
+                edge.node.frontmatter.indexSectionHero.features.feature1
+                    .feature1detaileddescription.en
+            )
         }
+
         if (edge.node.frontmatter.indexSectionHero) {
-            ru[`indexSectionHero.features.feature3`] =
-                edge.node.frontmatter.indexSectionHero.features.feature3.ru
-            en[`indexSectionHero.features.feature3`] =
-                edge.node.frontmatter.indexSectionHero.features.feature3.en
+            ru[`indexSectionHero.features.feature2.feature2shortdescription`] =
+                edge.node.frontmatter.indexSectionHero.features.feature2.feature2shortdescription.ru
+            en[`indexSectionHero.features.feature2.feature2shortdescription`] =
+                edge.node.frontmatter.indexSectionHero.features.feature2.feature2shortdescription.en
         }
+
         if (edge.node.frontmatter.indexSectionHero) {
-            ru[`indexSectionHero.features.feature4`] =
-                edge.node.frontmatter.indexSectionHero.features.feature4.ru
-            en[`indexSectionHero.features.feature4`] =
-                edge.node.frontmatter.indexSectionHero.features.feature4.en
+            ru[
+                `indexSectionHero.features.feature2.feature2detaileddescription`
+            ] = converter.makeHtml(
+                edge.node.frontmatter.indexSectionHero.features.feature2
+                    .feature2detaileddescription.ru
+            )
+            en[
+                `indexSectionHero.features.feature2.feature2detaileddescription`
+            ] = converter.makeHtml(
+                edge.node.frontmatter.indexSectionHero.features.feature2
+                    .feature2detaileddescription.en
+            )
+        }
+
+        if (edge.node.frontmatter.indexSectionHero) {
+            ru[`indexSectionHero.features.feature3.feature3shortdescription`] =
+                edge.node.frontmatter.indexSectionHero.features.feature3.feature3shortdescription.ru
+            en[`indexSectionHero.features.feature3.feature3shortdescription`] =
+                edge.node.frontmatter.indexSectionHero.features.feature3.feature3shortdescription.en
+        }
+
+        if (edge.node.frontmatter.indexSectionHero) {
+            ru[
+                `indexSectionHero.features.feature3.feature1detaileddescription`
+            ] = converter.makeHtml(
+                edge.node.frontmatter.indexSectionHero.features.feature3
+                    .feature3detaileddescription.ru
+            )
+            en[
+                `indexSectionHero.features.feature3.feature3detaileddescription`
+            ] = converter.makeHtml(
+                edge.node.frontmatter.indexSectionHero.features.feature3
+                    .feature3detaileddescription.en
+            )
+        }
+
+        if (edge.node.frontmatter.indexSectionHero) {
+            ru[`indexSectionHero.features.feature4.feature4shortdescription`] =
+                edge.node.frontmatter.indexSectionHero.features.feature4.feature4shortdescription.ru
+            en[`indexSectionHero.features.feature4.feature4shortdescription`] =
+                edge.node.frontmatter.indexSectionHero.features.feature4.feature4shortdescription.en
+        }
+
+        if (edge.node.frontmatter.indexSectionHero) {
+            ru[
+                `indexSectionHero.features.feature4.feature4detaileddescription`
+            ] = converter.makeHtml(
+                edge.node.frontmatter.indexSectionHero.features.feature4
+                    .feature4detaileddescription.ru
+            )
+            en[
+                `indexSectionHero.features.feature4.feature4detaileddescription`
+            ] = converter.makeHtml(
+                edge.node.frontmatter.indexSectionHero.features.feature4
+                    .feature4detaileddescription.en
+            )
         }
 
         if (edge.node.frontmatter.indexSectionHero) {

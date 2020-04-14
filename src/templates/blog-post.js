@@ -2,9 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 
-import { useEffect } from "react"
-import Prism from "prismjs"
-
 import { graphql, Link } from "gatsby"
 import { injectIntl } from "gatsby-plugin-intl"
 
@@ -15,6 +12,9 @@ import Grid from "@material-ui/core/Grid"
 
 import { kebabCase } from "lodash"
 import Content, { HTMLContent } from "../components/Content"
+
+import { useEffect } from "react"
+import Prism from "prismjs"
 
 import Layout from "../components/Layout"
 require("prismjs/components/prism-jsx.min")

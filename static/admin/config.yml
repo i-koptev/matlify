@@ -481,7 +481,7 @@ collections:
           widget: "list",
           fields:
             [
-              { label: Image, name: image, widget: image },
+              { label: Image, name: image, widget: image, required: false },
               {
                 label: "Раздел статьи / Post section",
                 name: "illustratedPostSection",

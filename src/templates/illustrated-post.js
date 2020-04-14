@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 
 import { graphql, Link } from "gatsby"
@@ -12,51 +11,45 @@ import Grid from "@material-ui/core/Grid"
 import Container from "@material-ui/core/Container"
 
 import { kebabCase } from "lodash"
-import Content, { HTMLContent } from "../components/Content"
 
 import Layout from "../components/Layout"
 
-export const IllustratedPostTemplate = ({
-    // content,
-    contentObject,
-    contentComponent,
-    description,
-    tags,
-    title,
-    helmet,
-}) => {
-    const PostContent = contentComponent || Content
+const useStyles = makeStyles(theme => ({
+    header: {
+        marginTop: "2rem",
+        marginBottom: "3.5rem",
+        color: "#fffc",
+    },
 
-    return (
-        <div style={{ color: "white" }}>
-            {helmet || ""}
-            <h1>{title}</h1>
-            {/* TODO - make it work with preview in admin area*/}
-            <div>{contentObject}</div>
+    htmlContent: {
+        color: theme.typography.body1.color,
+        "& h2": {
+            color: theme.typography.h2.color,
+            // color: theme.typography.h2.color,
+            fontFamily: theme.typography.h2.fontFamily,
+            fontWeight: theme.typography.h2.fontWeight,
+            // color: "red",
+            textAlign: "center",
+        },
+    },
+    imageWrapper: {
+        width: "30%",
+        float: "left",
+        marginRight: "2.5rem",
+        marginBottom: "0.3rem",
+        border: "1px solid #fff3",
+        padding: "0.7rem",
+        paddingBottom: "2rem",
+        backgroundColor: "#fff1",
+    },
+}))
 
-            {/* <PostContent content={content} /> */}
-            {tags && tags.length ? (
-                <div>
-                    <h4>Tags</h4>
-                    <ul>
-                        {tags.map(tag => (
-                            <li key={tag + `tag`}>
-                                <Link to={`/tags/${kebabCase(tag)}/`}>
-                                    {tag}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            ) : null}
-        </div>
-    )
-}
-
-export const IllustratedPost = ({ intl, data }) => {
+const IllustratedPost = ({ intl, data }) => {
     const { markdownRemark: post } = data
+    const tags = post.frontmatter.tags
 
     const theme = useTheme()
+    const classes = useStyles()
 
     return (
         <Layout>
@@ -66,74 +59,75 @@ export const IllustratedPost = ({ intl, data }) => {
                 // className="intro"
                 // className={classes.section}
             >
-                <IllustratedPostTemplate
-                    contentComponent={HTMLContent}
-                    title={intl.formatMessage({
-                        id: `${post.id}.postTitle`,
-                    })}
-                    helmet={
-                        <Helmet titleTemplate="%s | Blog">
-                            <title>
-                                {intl.formatMessage({
-                                    id: `${post.id}.postTitle`,
-                                })}
-                            </title>
-                            <meta
-                                name="description"
-                                content={intl.formatMessage({
-                                    id: `${post.id}.postDescription`,
-                                })}
-                            />
-                        </Helmet>
-                    }
-                    tags={post.frontmatter.tags}
-                    contentObject={
-                        <div>
-                            {data.markdownRemark.frontmatter.illustratedPostBody.map(
-                                item => (
-                                    <div
-                                        key={`${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`}
-                                    >
-                                        {/* <div
-                                                dangerouslySetInnerHTML={{
-                                                    __html: intl.formatMessage({
-                                                        id: `${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`,
-                                                    }),
-                                                }}
-                                            ></div> */}
+                <div style={{ color: "white" }}>
+                    <Helmet titleTemplate="%s | Blog">
+                        <title>
+                            {intl.formatMessage({
+                                id: `${post.id}.postTitle`,
+                            })}
+                        </title>
+                        <meta
+                            name="description"
+                            content={intl.formatMessage({
+                                id: `${post.id}.postDescription`,
+                            })}
+                        />
+                    </Helmet>
+                    <Typography
+                        className={classes.header}
+                        variant="h3"
+                        component="h1"
+                        align="center"
+                    >
+                        {intl.formatMessage({
+                            id: `${post.id}.postTitle`,
+                        })}
+                    </Typography>
 
-                                        <div
-                                            style={{
-                                                minWidth: "300px",
-                                                width: "30%",
-                                                float: "left",
-                                                clear: "both",
-                                                marginRight: "2.5rem",
-                                                marginBottom: "0.3rem",
-                                            }}
-                                        >
-                                            <Img
-                                                style={{
-                                                    minWidth: "300px",
-                                                }}
-                                                fluid={
-                                                    item.image.childImageSharp
-                                                        .fluid
-                                                }
-                                            />
-                                        </div>
-                                        <HTMLContent
-                                            content={intl.formatMessage({
-                                                id: `${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`,
-                                            })}
+                    <div>
+                        {data.markdownRemark.frontmatter.illustratedPostBody.map(
+                            item => (
+                                <div
+                                    key={`${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`}
+                                    style={{ clear: "both" }}
+                                >
+                                    <div className={classes.imageWrapper}>
+                                        <Img
+                                            fluid={
+                                                item.image.childImageSharp.fluid
+                                            }
                                         />
                                     </div>
-                                )
-                            )}
-                            {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
+                                    <div
+                                        className={classes.htmlContent}
+                                        dangerouslySetInnerHTML={{
+                                            __html: intl.formatMessage({
+                                                id: `${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`,
+                                            }),
+                                        }}
+                                    />
+                                </div>
+                            )
+                        )}
+                    </div>
+
+                    {/* <pre>{JSON.stringify(tags, null, 4)}</pre> */}
+                    {tags && tags.length ? (
+                        // TODO make norm clear
+                        <div style={{ clear: "both" }}>
+                            <h4>Tags</h4>
+                            <ul>
+                                {tags.map(tag => (
+                                    <li key={tag + `tag`}>
+                                        <Link to={`/tags/${kebabCase(tag)}/`}>
+                                            {tag}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
-                    }
-                />
+                    ) : null}
+                </div>
             </Container>
         </Layout>
     )

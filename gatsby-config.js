@@ -51,13 +51,19 @@ module.exports = {
                 name: "images",
             },
         },
-        "gatsby-remark-prismjs",
         "gatsby-transformer-sharp",
         "gatsby-plugin-sharp",
         {
             resolve: "gatsby-transformer-remark",
             options: {
                 plugins: [
+                    {
+                        resolve: `gatsby-remark-prismjs`,
+                        options: {
+                            inlineCodeMarker: null,
+                            showLineNumbers: true,
+                        },
+                    },
                     {
                         resolve: "gatsby-remark-relative-images",
                         options: {

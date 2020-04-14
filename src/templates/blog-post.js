@@ -2,6 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 
+import { useEffect } from "react"
+import Prism from "prismjs"
+
 import { graphql, Link } from "gatsby"
 import { injectIntl } from "gatsby-plugin-intl"
 
@@ -14,6 +17,7 @@ import { kebabCase } from "lodash"
 import Content, { HTMLContent } from "../components/Content"
 
 import Layout from "../components/Layout"
+require("prismjs/components/prism-jsx.min")
 
 const useStyles = makeStyles(theme => ({
     test: {
@@ -80,6 +84,11 @@ const BlogPost = ({ intl, data }) => {
     const { markdownRemark: post } = data
     const classes = useStyles()
     const theme = useTheme()
+
+    useEffect(() => {
+        // call the highlightAll() function to style our code blocks
+        Prism.highlightAll()
+    })
 
     return (
         <Layout>

@@ -22,11 +22,11 @@ const sitePaletteAccent = ""
 
 const siteTextFontFamily = ""
 const siteTextFontWeight = ""
-const siteTextColor = ""
+const siteTextColor = "#fffe"
 
 const headingsFontFamily = "Playfair Display" //h1, h2, h3, h4, h5, h6
-const headingsWeight = ""
-const headingsColor = ""
+const headingsWeight = 700
+const headingsColor = "#ffbf55"
 
 // ------------- Site Sections ---------------
 
@@ -108,22 +108,49 @@ let theme = createMuiTheme({
         // htmlFontSize: 10,
         h1: {
             fontFamily: headingsFontFamily,
+            fontWeight: headingsWeight,
+            color: headingsColor,
+            letterSpacing: "0.4rem",
         },
         h2: {
             fontFamily: headingsFontFamily,
+            fontWeight: headingsWeight,
+            color: headingsColor,
+            letterSpacing: "0.4rem",
         },
         h3: {
             fontFamily: headingsFontFamily,
+            fontWeight: headingsWeight,
+            color: headingsColor,
+            letterSpacing: "0.4rem",
         },
         h4: {
             fontFamily: headingsFontFamily,
+            fontWeight: headingsWeight,
+            color: headingsColor,
+            letterSpacing: "0.4rem",
         },
         h5: {
             fontFamily: headingsFontFamily,
+            fontWeight: headingsWeight,
+            color: headingsColor,
+            letterSpacing: "0.4rem",
         },
         h6: {
             fontFamily: headingsFontFamily,
+            fontWeight: headingsWeight,
+            color: headingsColor,
+            letterSpacing: "0.4rem",
         },
+        body1: {
+            // fontFamily: "arial",
+            color: siteTextColor,
+        },
+        body2: {
+            color: siteTextColor,
+            // fontFamily: "arial",
+        },
+        color: "lime",
 
         fontFamily: [
             "PT Sans",

@@ -47,6 +47,8 @@ postBody:
     ```
 
 
+
+
     ![Coffee...](/img/blog-index.jpg)
   ru: >-
     ### Заголовок третьего уровня
@@ -81,6 +83,13 @@ postBody:
                     </Link>
                 </li>
             ))
+    ```
+
+
+    ```jsx
+
+    const test = 5;
+
     ```
 
 

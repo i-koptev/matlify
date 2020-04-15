@@ -514,14 +514,12 @@ collections:
       - { label: "Featured Image", name: "featuredimage", widget: "image" }
       - {
           label: "Категория статьи / Post Category",
-          name: "category",
+          name: "postCategory",
           widget: "relation",
           collection: "categories",
-          searchFields:
-            ["categoryItem.categoryName.ru", "categoryItem.categoryName.en"],
+          searchFields: ["categoryItem.categoryId", "categoryItem.categoryId"],
           valueField: "categoryItem.categoryId",
-          displayFields:
-            ["categoryItem.categoryName.ru", "categoryItem.categoryName.en"],
+          displayFields: ["categoryItem.categoryId", "categoryItem.categoryId"],
         }
       - {
           label: "Разделы статьи / Post sections",

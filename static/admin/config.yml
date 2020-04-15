@@ -51,6 +51,7 @@ collections:
     label: "Категории статей / Post Categories"
     folder: "src/pages/categories"
     create: true
+    slug: "{{slug}}"
     fields:
       - { name: "title", widget: "hidden", default: "string" }
       - { name: "templateKey", widget: "hidden", default: "categories-page" }

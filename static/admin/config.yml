@@ -50,7 +50,7 @@ collections:
   - name: "categories"
     label: "Категории статей / Post Categories"
     files:
-      - file: "src/post/categories.md"
+      - file: "src/pages/categories.md"
         label: "C/K"
         name: "category"
         fields:

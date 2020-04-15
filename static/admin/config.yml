@@ -49,40 +49,27 @@ collections:
           - { label: "Body", name: "body", widget: "hidden" }
   - name: "categories"
     label: "Категории статей / Post Categories"
+    folder: "src/pages/categories"
+    create: true
     files:
-      - file: "src/pages/categories.md"
-        label: "C/K"
-        name: "category"
-        fields:
-          - { name: "title", widget: "hidden", default: "string" }
-          - {
-              name: "templateKey",
-              widget: "hidden",
-              default: "categories-page",
-            }
-          - {
-              label: "Кат / Cat",
-              name: "categoryItem",
-              widget: "list",
-              fields:
-                [
-                  {
-                    label: "Идентификатор категории / Category identifier",
-                    name: "categoryId",
-                    widget: "string",
-                  },
-                  {
-                    label: "Наименование категории / Category name",
-                    name: "categoryName",
-                    widget: "object",
-                    fields:
-                      [
-                        { label: "RU", name: "ru", widget: "string" },
-                        { label: "EN", name: "en", widget: "string" },
-                      ],
-                  },
-                ],
-            }
+    fields:
+      - { name: "title", widget: "hidden", default: "string" }
+      - { name: "templateKey", widget: "hidden", default: "categories-page" }
+      - {
+          label: "Идентификатор категории / Category identifier",
+          name: "categoryId",
+          widget: "string",
+        }
+      - {
+          label: "Наименование категории / Category name",
+          name: "categoryName",
+          widget: "object",
+          fields:
+            [
+              { label: "RU", name: "ru", widget: "string" },
+              { label: "EN", name: "en", widget: "string" },
+            ],
+        }
 
   - name: "pages"
     label: "Страницы сайта / Pages "

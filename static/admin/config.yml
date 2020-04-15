@@ -53,8 +53,8 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { name: "title", widget: "hidden", default: "string" }
       - { name: "templateKey", widget: "hidden", default: "categories-page" }
+      - { name: "title", widget: "hidden", default: "string" }
       - {
           label: "Идентификатор категории / Category identifier",
           name: "categoryId",

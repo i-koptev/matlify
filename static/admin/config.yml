@@ -54,7 +54,7 @@ collections:
         label: "C/K"
         name: "category"
         widget: "list"
-        field: { label: "Кат / Cat", name: "category", widget: "string" }
+        fields: { label: "Кат / Cat", name: "category", widget: "string" }
   - name: "pages"
     label: "Страницы сайта / Pages "
     files:

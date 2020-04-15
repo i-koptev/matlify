@@ -436,7 +436,7 @@ collections:
       - { label: "Body", name: "body", widget: "hidden" }
   - name: "illustratedBlog"
     label: "Иллюстрированный блог / Illustrated Blog"
-    folder: "src/pages/blog"
+    folder: "src/pages/illublog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:

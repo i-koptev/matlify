@@ -523,6 +523,11 @@ collections:
               "category.categories.categoryName.en",
             ],
           valueField: "category.categories.categoryId",
+          displayFields:
+            [
+              "category.categories.categoryName.ru",
+              "category.categories.categoryName.en",
+            ],
         }
       - {
           label: "Разделы статьи / Post sections",

@@ -5,5 +5,9 @@ categories:
     categoryName:
       en: Programing
       ru: Программирование
+  - categoryId: webdesign
+    categoryName:
+      en: Web Design
+      ru: Веб дизайн
 ---
 

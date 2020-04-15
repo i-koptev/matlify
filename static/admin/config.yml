@@ -517,9 +517,9 @@ collections:
           name: "postCategory",
           widget: "relation",
           collection: "categories",
-          searchFields: ["categoryId"],
-          valueField: "categoryId",
-          displayFields: ["categoryId"],
+          searchFields: ["templateKey"],
+          valueField: "templateKey",
+          displayFields: ["templateKey"],
         }
       - {
           label: "Разделы статьи / Post sections",

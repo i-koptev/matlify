@@ -14,18 +14,27 @@ featuredimage: /img/hero.jpg
 illustratedPostBody:
   - illustratedPostSection:
       en: >-
-        ### Section Heading
+        ## Section Heading
 
 
-        Loremipsumdolorsitametconsecteturadipisicingelit.Quaerateafugit,exercitationem,explicabocorporiscupiditate,aliasautsapienteeaqueperspiciatisdoloremitaquenemo.Quasnequemagnidignissimosasperioresquialabore.
+        Loremipsumdolors itametcons ecteturadipisic ingelit.Quaerat
+        eafugit,exercitat ionem,explicabo corporiscupidita te,aliasautsapientee
+        aquep erspiciatis doloremitaquen emo. Qua snequ emagn idigniss
+        imosasperior squialabore.
 
 
-        Loremipsumdolorsitametconsecteturadipisicingelit.Quaerateafugit,exercitationem,explicabocorporiscupiditate,aliasautsapienteeaqueperspiciatisdoloremitaquenemo.Quasnequemagnidignissimosasperioresquialabore.
+        Loremipsumd olorsitametconsecteturadipisic ingelit.Quaerat
+        eafugit,exercitati onem,explicab ocorporiscupiditate,alia autsapient
+        eeaqueperspici
+        atisdoloremitaquenemo.Quasnequemagnidignissimosasperioresquialabore.
 
 
-        Loremipsumdolorsitametconsecteturadipisicingelit.Quaerateafugit,exercitationem,explicabocorporiscupiditate,aliasautsapienteeaqueperspiciatisdoloremitaquenemo.Quasnequemagnidignissimosasperioresquialabore
+        Loremips umdolo rsitametconsecte uradipisicing elit.Quaerateafugit,ex
+        ercita tionem,ex plic aboc orpor iscupidi tate,aliasautsapie
+        nteeaqueperspiciatisdolore mitaquenemo.Qua snequema gnidignissi
+        mosasperioresqu ialabore
       ru: >-
-        ### Заголовок раздела
+        ## Заголовок раздела
 
 
         Собственно статья. Таким образом укрепление и развитие структуры

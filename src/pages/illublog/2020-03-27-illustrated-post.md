@@ -11,6 +11,7 @@ date: 2020-03-27T08:30:58.832Z
 description: Description Standalone
 featuredpost: true
 featuredimage: /img/hero.jpg
+postCategory: webDesign
 illustratedPostBody:
   - illustratedPostSection:
       en: >-

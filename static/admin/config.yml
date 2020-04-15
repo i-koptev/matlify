@@ -519,7 +519,6 @@ collections:
           collection: "categories",
           searchFields: ["categoryItem.categoryId"],
           valueField: "categoryItem.categoryId",
-          displayFields: ["categoryItem.categoryId"],
         }
       - {
           label: "Разделы статьи / Post sections",

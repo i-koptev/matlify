@@ -54,7 +54,12 @@ collections:
     slug: "{{slug}}"
     fields:
       - { name: "templateKey", widget: "hidden", default: "categories-page" }
-      - { name: "title", widget: "hidden", default: "string" }
+      - {
+          label: "Имя в файловой системе",
+          name: "title",
+          widget: "string",
+          hint: "Лучше присвоить такое же как у Идентификатора категории",
+        }
       - {
           label: "Идентификатор категории / Category identifier",
           name: "categoryId",

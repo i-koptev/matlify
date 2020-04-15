@@ -509,7 +509,8 @@ collections:
           name: "postCategory",
           widget: "relation",
           collection: "categories",
-          searchFields: ["categoryId"],
+          displayFields: ["categoryName.en", "categoryName.ru"],
+          searchFields: ["categoryName.en", "categoryName.ru"],
           valueField: "categoryId",
         }
       - {

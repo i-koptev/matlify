@@ -513,6 +513,14 @@ collections:
       - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
       - { label: "Featured Image", name: "featuredimage", widget: "image" }
       - {
+          label: "Категория статьи / Post Category",
+          name: "category",
+          widget: "relation",
+          collection: "categories",
+          searchFields: ["category.categories.categoryName.ru","category.categories.categoryName.en"],
+          valueField: "category.categories.categoryId
+        }
+      - {
           label: "Разделы статьи / Post sections",
           name: "illustratedPostBody",
           widget: "list",

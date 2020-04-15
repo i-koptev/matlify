@@ -49,10 +49,10 @@ collections:
           - { label: "Body", name: "body", widget: "hidden" }
   - name: "categories"
     label: "Категории статей / Post Categories"
-    files:
-      - file: "src/categories.md"
     widget: "list"
     field: { label: "Кат / Cat", name: "category", widget: "string" }
+    files:
+      - file: "src/categories.md"
   - name: "pages"
     label: "Страницы сайта / Pages "
     files:

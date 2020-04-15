@@ -11,9 +11,11 @@ date: 2020-03-27T08:30:58.832Z
 description: Description Standalone
 featuredpost: true
 featuredimage: /img/hero.jpg
-postBody:
-  en: в
-  ru: в
+illustratedPostBody:
+  - illustratedPostSection:
+      en: w
+      ru: w
+    image: /img/flavor_wheel.jpg
 tags:
   - illu
   - illupost

@@ -1,6 +1,6 @@
 ---
 templateKey: categories-page
-categories:
+categoryItem:
   - categoryId: programming
     categoryName:
       en: Programing
@@ -9,5 +9,9 @@ categories:
     categoryName:
       en: Web Design
       ru: Веб дизайн
+  - categoryId: wer
+    categoryName:
+      en: wer
+      ru: wer
 ---
 

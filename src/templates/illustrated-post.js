@@ -34,18 +34,18 @@ const useStyles = makeStyles(theme => ({
             fontFamily: theme.typography.h2.fontFamily,
             fontWeight: theme.typography.h2.fontWeight,
             // color: "red",
-            textAlign: "center",
+            // textAlign: "center",
         },
     },
     imageWrapper: {
-        width: "30%",
+        width: "50%",
         float: "left",
-        marginRight: "2.5rem",
-        marginBottom: "0.3rem",
-        border: "1px solid #fff3",
-        padding: "0.7rem",
-        paddingBottom: "2rem",
-        backgroundColor: "#fff1",
+        marginRight: "3vw",
+        marginBottom: "1vw",
+        // border: "1px solid #fff3",
+        padding: "0.7vw",
+        paddingBottom: "2vw",
+        // backgroundColor: "#fff1",
     },
 }))
 
@@ -99,7 +99,7 @@ const IllustratedPost = ({ intl, data }) => {
                             item => (
                                 <div
                                     key={`${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`}
-                                    style={{ clear: "both" }}
+                                    // style={{ clear: "both" }}
                                 >
                                     <div className={classes.imageWrapper}>
                                         <Img

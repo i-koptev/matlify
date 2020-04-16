@@ -1,3 +1,5 @@
 import React from "react"
 
-export default CategoriesPage = () => <div>Categories</div>
+const CategoriesPage = () => <div>Categories</div>
+
+export default CategoriesPage

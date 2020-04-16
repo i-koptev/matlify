@@ -147,7 +147,7 @@ let theme = createMuiTheme({
             color: siteTextColor,
         },
         body2: {
-            color: siteTextColor,
+            // color: siteTextColor,
             // fontFamily: "arial",
         },
         color: "lime",

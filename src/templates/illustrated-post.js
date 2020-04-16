@@ -17,7 +17,7 @@ import Layout from "../components/Layout"
 import { useEffect } from "react"
 import Prism from "prismjs"
 // import "prism-theme-night-owl"
-import "../../src/nightOwlForPrism.css"
+// import "../../src/nightOwlForPrism.css"
 
 const useStyles = makeStyles(theme => ({
     header: {

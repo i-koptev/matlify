@@ -14,6 +14,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                     node {
                         id
                         frontmatter {
+                            categoryId
+                            categoryName {
+                                en
+                                ru
+                            }
                             illustratedPostBody {
                                 illustratedPostSection {
                                     en
@@ -173,10 +178,19 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     // const pushIntoLangArrayHTML = function(){}
 
     result.data.allMarkdownRemark.edges.forEach(edge => {
+        if (
+            edge.node.frontmatter.categoryId &&
+            edge.node.frontmatter.categoryName
+        ) {
+            ru[`${edge.node.frontmatter.categoryId}`] =
+                edge.node.frontmatter.categoryName.ru
+            en[`${edge.node.frontmatter.categoryId}`] =
+                edge.node.frontmatter.categoryName.en
+        }
+
         /////////////////////////////////////
 
         if (edge.node.frontmatter.illustratedPostBody) {
-            console.log("****************************")
             edge.node.frontmatter.illustratedPostBody.map(item => {
                 ru[
                     `${edge.node.id}%${item.image.id}.illustratedPostBody`

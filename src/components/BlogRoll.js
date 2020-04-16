@@ -78,6 +78,7 @@ const BlogRoll = ({ intl }) => {
                             slug
                         }
                         frontmatter {
+                            categoryId
                             title
                             templateKey
                             date(formatString: "DD. MM. YYYY")
@@ -135,7 +136,14 @@ const BlogRoll = ({ intl }) => {
                             >
                                 <span>Posted: {post.frontmatter.date}</span>
                                 <span>Author: Admin</span>
-                                <span>Category: Programming</span>
+                                <span>
+                                    Category:
+                                    {post.categoryId
+                                        ? intl.formatMessage({
+                                              id: `${post.categoryId}`,
+                                          })
+                                        : " Uncategorized"}
+                                </span>
                             </Typography>
 
                             {post.frontmatter.featuredimage ? (

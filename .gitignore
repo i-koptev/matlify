@@ -69,5 +69,5 @@ yarn-error.log
 .yarn-integrity
 
 matlify_journal.md
-src/intl/en.json
-src/intl/ru.json
+./src/intl/en.json
+./src/intl/ru.json

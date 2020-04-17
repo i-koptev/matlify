@@ -13,6 +13,7 @@ import Container from "@material-ui/core/Container"
 import Grid from "@material-ui/core/Grid"
 
 import PreviewCompatibleImage from "./PreviewCompatibleImage"
+const _ = require("lodash")
 
 const useStyles = makeStyles(theme => ({
     article: {
@@ -79,6 +80,7 @@ const BlogRoll = ({ intl }) => {
                         }
                         frontmatter {
                             categoryId
+                            postCategory
                             title
                             templateKey
                             date(formatString: "DD. MM. YYYY")
@@ -135,14 +137,29 @@ const BlogRoll = ({ intl }) => {
                                 gutterBottom
                             >
                                 <span>Posted: {post.frontmatter.date}</span>
-                                <span>Author: Admin</span>
                                 <span>
-                                    Category:
-                                    {post.categoryId
-                                        ? intl.formatMessage({
-                                              id: `${post.categoryId}`,
-                                          })
-                                        : " Uncategorized"}
+                                    {`${intl.formatMessage({
+                                        id: "category",
+                                    })}: `}
+                                    <Link
+                                        to={`/categories/${_.toLower(
+                                            _.trim(
+                                                post.frontmatter.postCategory
+                                            )
+                                        )}`}
+                                    >
+                                        {` ${
+                                            post.frontmatter.postCategory
+                                                ? intl.formatMessage({
+                                                      id:
+                                                          post.frontmatter
+                                                              .postCategory,
+                                                  })
+                                                : intl.formatMessage({
+                                                      id: "nocategory",
+                                                  })
+                                        }`}
+                                    </Link>
                                 </span>
                             </Typography>
 

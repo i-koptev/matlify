@@ -9,5 +9,7 @@
     "introGsap.description.netlifyHeader": "Почему Netlify",
     "introGsap.description.netlifycmsHeader": "Почему Netlifycms",
     "introGsap.description.materialuiHeader": "Почему Material UI",
-    "introGsap.description.githubHeader": "Почему Github"
+    "introGsap.description.githubHeader": "Почему Github",
+    "category": "Категория",
+    "nocategory": "Без категории"
 }

@@ -96,6 +96,10 @@ illustratedPostBody:
         что сложившаяся структура организации играет важную роль в формировании
         модели развития.
     image: /img/flavor_wheel.jpg
+  - illustratedPostSection:
+      en: en
+      ru: ru
+    image: /img/chemex.jpg
 tags:
   - illu
   - illupost

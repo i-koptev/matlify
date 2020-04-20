@@ -98,7 +98,7 @@ const IllustratedPost = ({ intl, data }) => {
                         {data.markdownRemark.frontmatter.illustratedPostBody.map(
                             item => (
                                 <div
-                                    key={`${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`}
+                                    key={`${data.markdownRemark.id}${item.image.id}.illustratedPostBody`}
                                     // style={{ clear: "both" }}
                                 >
                                     <div className={classes.imageWrapper}>
@@ -112,7 +112,7 @@ const IllustratedPost = ({ intl, data }) => {
                                         className={classes.htmlContent}
                                         dangerouslySetInnerHTML={{
                                             __html: intl.formatMessage({
-                                                id: `${data.markdownRemark.id}%${item.image.id}.illustratedPostBody`,
+                                                id: `${data.markdownRemark.id}${item.image.id}.illustratedPostBody`,
                                             }),
                                         }}
                                     />

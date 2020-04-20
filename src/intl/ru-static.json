@@ -11,5 +11,6 @@
     "introGsap.description.materialuiHeader": "Почему Material UI",
     "introGsap.description.githubHeader": "Почему Github",
     "category": "Категория",
-    "nocategory": "Без категории"
+    "nocategory": "Без категории",
+    "posted": "Дата публикации"
 }

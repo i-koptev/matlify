@@ -11,5 +11,6 @@
     "introGsap.description.materialuiHeader": "Why Material UI",
     "introGsap.description.githubHeader": "Why Github",
     "category": "Category",
-    "nocategory": "Uncategorized"
+    "nocategory": "Uncategorized",
+    "posted": "Posted"
 }

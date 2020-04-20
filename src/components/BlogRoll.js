@@ -136,13 +136,18 @@ const BlogRoll = ({ intl }) => {
                                 variant="subtitle2"
                                 gutterBottom
                             >
-                                <span>Posted: {post.frontmatter.date}</span>
+                                <span>
+                                    {`${intl.formatMessage({
+                                        id: "posted",
+                                    })} :`}
+                                    {post.frontmatter.date}
+                                </span>
                                 <span>
                                     {`${intl.formatMessage({
                                         id: "category",
                                     })}: `}
                                     <Link
-                                        to={`/categories/${_.toLower(
+                                        to={`/blog/categories/${_.toLower(
                                             _.trim(
                                                 post.frontmatter.postCategory
                                             )

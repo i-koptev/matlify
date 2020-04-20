@@ -452,59 +452,6 @@ collections:
       - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
       - { label: "Featured Image", name: "featuredimage", widget: "image" }
       - {
-          label: "Текст статьи / Post text",
-          name: "postBody",
-          widget: "object",
-          fields:
-            [
-              { label: "RU", name: "ru", widget: "markdown" },
-              { label: "EN", name: "en", widget: "markdown" },
-            ],
-        }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Body", name: "body", widget: "hidden" }
-  - name: "illustratedBlog"
-    label: "Иллюстрированный блог / Illustrated Blog"
-    folder: "src/pages/illublog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "illustrated-post",
-        }
-      - {
-          label: "Название страницы (Слаг) / Page Title (Slug)",
-          name: "title",
-          widget: "string",
-        }
-      - {
-          label: "Заголовок статьи / Post Title",
-          name: "postTitle",
-          widget: "object",
-          fields:
-            [
-              { label: "ru", name: "ru", widget: "string" },
-              { label: "en", name: "en", widget: "string" },
-            ],
-        }
-      - {
-          label: "Описание статьи / Post Description",
-          name: "postDescription",
-          widget: "object",
-          fields:
-            [
-              { label: "ru", name: "ru", widget: "string" },
-              { label: "en", name: "en", widget: "string" },
-            ],
-        }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
-      - { label: "Featured Image", name: "featuredimage", widget: "image" }
-      - {
           label: "Категория статьи / Post Category",
           name: "postCategory",
           widget: "relation",
@@ -515,14 +462,14 @@ collections:
         }
       - {
           label: "Разделы статьи / Post sections",
-          name: "illustratedPostBody",
+          name: "postBody",
           widget: "list",
           fields:
             [
               { label: Image, name: image, widget: image, required: false },
               {
                 label: "Раздел статьи / Post section",
-                name: "illustratedPostSection",
+                name: "postSection",
                 widget: "object",
                 fields:
                   [

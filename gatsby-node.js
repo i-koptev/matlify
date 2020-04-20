@@ -19,8 +19,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                                 en
                                 ru
                             }
-                            illustratedPostBody {
-                                illustratedPostSection {
+                            postBody {
+                                postSection {
                                     en
                                     ru
                                 }
@@ -35,10 +35,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                                 en
                             }
                             postDescription {
-                                ru
-                                en
-                            }
-                            postBody {
                                 ru
                                 en
                             }
@@ -190,14 +186,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
         /////////////////////////////////////
 
-        if (edge.node.frontmatter.illustratedPostBody) {
-            edge.node.frontmatter.illustratedPostBody.map(item => {
+        if (edge.node.frontmatter.postBody) {
+            edge.node.frontmatter.postBody.map(item => {
                 ru[
-                    `${edge.node.id}${item.image.id}.illustratedPostBody`
-                ] = converter.makeHtml(item.illustratedPostSection.ru)
+                    `${edge.node.id}${item.image.id}.postBody`
+                ] = converter.makeHtml(item.postSection.ru)
                 en[
-                    `${edge.node.id}${item.image.id}.illustratedPostBody`
-                ] = converter.makeHtml(item.illustratedPostSection.en)
+                    `${edge.node.id}${item.image.id}.postBody`
+                ] = converter.makeHtml(item.postSection.en)
             })
 
             // ru[`${edge.node.id}.postTitle`] = edge.node.frontmatter.postTitle.ru
@@ -216,15 +212,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 edge.node.frontmatter.postDescription.ru
             en[`${edge.node.id}.postDescription`] =
                 edge.node.frontmatter.postDescription.en
-        }
-
-        if (edge.node.frontmatter.postBody) {
-            ru[`${edge.node.id}.postBody`] = converter.makeHtml(
-                edge.node.frontmatter.postBody.ru
-            )
-            en[`${edge.node.id}.postBody`] = converter.makeHtml(
-                edge.node.frontmatter.postBody.en
-            )
         }
 
         if (edge.node.frontmatter.aboutHeading) {

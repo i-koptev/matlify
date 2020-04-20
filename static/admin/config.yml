@@ -49,11 +49,11 @@ collections:
           - { label: "Body", name: "body", widget: "hidden" }
   - name: "categories"
     label: "Категории статей / Post Categories"
-    folder: "src/pages/categories"
+    folder: "src/pages/blog/categories"
     create: true
     slug: "{{slug}}"
     fields:
-      - { name: "templateKey", widget: "hidden", default: "categories-page" }
+      - { name: "templateKey", widget: "hidden", default: "category-page" }
       - {
           label: "Имя в файловой системе",
           name: "title",

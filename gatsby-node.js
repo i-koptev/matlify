@@ -193,10 +193,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         if (edge.node.frontmatter.illustratedPostBody) {
             edge.node.frontmatter.illustratedPostBody.map(item => {
                 ru[
-                    `${edge.node.id}%${item.image.id}.illustratedPostBody`
+                    `${edge.node.id}${item.image.id}.illustratedPostBody`
                 ] = converter.makeHtml(item.illustratedPostSection.ru)
                 en[
-                    `${edge.node.id}%${item.image.id}.illustratedPostBody`
+                    `${edge.node.id}${item.image.id}.illustratedPostBody`
                 ] = converter.makeHtml(item.illustratedPostSection.en)
             })
 

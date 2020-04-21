@@ -141,6 +141,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                         frontmatter {
                             tags
                             templateKey
+                            categoryId
                         }
                     }
                 }
@@ -186,7 +187,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
         /////////////////////////////////////
 
-        if (edge.node.frontmatter.postBody) {
+        /*  if (edge.node.frontmatter.postBody) {
             edge.node.frontmatter.postBody.map(item => {
                 ru[
                     `${edge.node.id}${item.image.id}.postBody`
@@ -195,9 +196,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                     `${edge.node.id}${item.image.id}.postBody`
                 ] = converter.makeHtml(item.postSection.en)
             })
+        } */
 
-            // ru[`${edge.node.id}.postTitle`] = edge.node.frontmatter.postTitle.ru
-            // en[`${edge.node.id}.postTitle`] = edge.node.frontmatter.postTitle.en
+        if (edge.node.frontmatter.postBody) {
+            edge.node.frontmatter.postBody.map((item, index) => {
+                ru[`${edge.node.id}${index}.postBody`] = converter.makeHtml(
+                    item.postSection.ru
+                )
+                en[`${edge.node.id}${index}.postBody`] = converter.makeHtml(
+                    item.postSection.en
+                )
+            })
         }
 
         //////////////////////////////////////
@@ -389,6 +398,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     posts.forEach(edge => {
         const id = edge.node.id
+        const category = edge.node.frontmatter.categoryId
+            ? edge.node.frontmatter.categoryId
+            : ""
         actions.createPage({
             path: edge.node.fields.slug,
             tags: edge.node.frontmatter.tags,
@@ -398,6 +410,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             // additional data can be passed via context
             context: {
                 id,
+                category,
             },
         })
     })

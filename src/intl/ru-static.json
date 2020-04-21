@@ -12,5 +12,7 @@
     "introGsap.description.githubHeader": "Почему Github",
     "category": "Категория",
     "nocategory": "Без категории",
-    "posted": "Дата публикации"
+    "posted": "Дата публикации",
+    "latestposts": "Последние публикации",
+    "allcategories": "Все категории"
 }

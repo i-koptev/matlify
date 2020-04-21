@@ -12,5 +12,7 @@
     "introGsap.description.githubHeader": "Why Github",
     "category": "Category",
     "nocategory": "Uncategorized",
-    "posted": "Posted"
+    "posted": "Posted",
+    "latestposts": "Latest Posts",
+    "allcategories": "All Categories"
 }

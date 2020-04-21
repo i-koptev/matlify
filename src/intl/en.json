@@ -12,14 +12,14 @@
     "indexSectionIntro.heading": "Why do I use Gatsby?",
     "indexSectionIntro.text": "<p>The answer is simple - using Gatsby you have all the power of the latest web technologies – React.js , Webpack , modern JavaScript and CSS and more — all set up and waiting for you to start building.</p>\n<p>You build sites with the data you want — from one or many sources: pull data from headless CMSs, SaaS services, APIs, databases, your file system, and more directly into your pages using GraphQL.</p>",
     "indexSectionIntro.button": "Learn more about Gatsby on the official site",
+    "70f8f483-d06e-5f77-be25-d25c0fbfc9710.postBody": "<h2>Section Heading</h2>\n<p>Loremipsumdolors itametcons ecteturadipisic ingelit.Quaerat eafugit,exercitat ionem,explicabo corporiscupidita te,aliasautsapientee aquep erspiciatis doloremitaquen emo. Qua snequ emagn idigniss imosasperior squialabore.</p>\n<p>Loremipsumd olorsitametconsecteturadipisic ingelit.Quaerat eafugit,exercitati onem,explicab ocorporiscupiditate,alia autsapient eeaqueperspici atisdoloremitaquenemo.Quasnequemagnidignissimosasperioresquialabore.</p>\n<p>Loremips umdolo rsitametconsecte uradipisicing elit.Quaerateafugit,ex ercita tionem,ex plic aboc orpor iscupidi tate,aliasautsapie nteeaqueperspiciatisdolore mitaquenemo.Qua snequema gnidignissi mosasperioresqu ialabore</p>",
+    "70f8f483-d06e-5f77-be25-d25c0fbfc9711.postBody": "<p>en</p>",
+    "70f8f483-d06e-5f77-be25-d25c0fbfc971.postTitle": "Post title",
+    "70f8f483-d06e-5f77-be25-d25c0fbfc971.postDescription": "Post description",
+    "webDesign": "WEB Design",
     "aboutHeading": "Heading",
     "aboutSubheading": "Subheading",
     "aboutText": "<h2>About us</h2>\n<p>Texr about us Loremipsum dolorsita etconsectetura dipisicingeli t.Ullamquamsuntearu mexexplicabocon sequaturaspernatur asperio esbeataemagnamquodqua silabor iosam,temporefa cereat,iustofugafugiatvoluptat esdoloremque,quidemips </p>\n<p>amdolore?Quosdelenitivolupt ateneque officiisundeoffic ianostrumnihil,dolorumsitetaperiam,enimea?Rerum,sequiquis?Culpaodiomaioresd oloribusobcaecatiquaeratverounde utadevenietetaliasoptionihilsedinventoreplaceat,r  epellendusteneturquaeaspernaturreprehenderit!Optioa nimiitaqueeareiciendisquaeratquas.Temporibus,molestiae!Qui,beataeautemdignissimosinventoreexercitationemisteillumearumd oloresquisquamnullaipsam.Estdictaquodeleniti.</p>",
-    "webDesign": "WEB Design",
-    "331cf5f2-2be9-5159-b9b6-13513d4628ecfa8f8882-6465-505d-8b4e-68dc7fe131e8.postBody": "<h2>Section Heading</h2>\n<p>Loremipsumdolors itametcons ecteturadipisic ingelit.Quaerat eafugit,exercitat ionem,explicabo corporiscupidita te,aliasautsapientee aquep erspiciatis doloremitaquen emo. Qua snequ emagn idigniss imosasperior squialabore.</p>\n<p>Loremipsumd olorsitametconsecteturadipisic ingelit.Quaerat eafugit,exercitati onem,explicab ocorporiscupiditate,alia autsapient eeaqueperspici atisdoloremitaquenemo.Quasnequemagnidignissimosasperioresquialabore.</p>\n<p>Loremips umdolo rsitametconsecte uradipisicing elit.Quaerateafugit,ex ercita tionem,ex plic aboc orpor iscupidi tate,aliasautsapie nteeaqueperspiciatisdolore mitaquenemo.Qua snequema gnidignissi mosasperioresqu ialabore</p>",
-    "331cf5f2-2be9-5159-b9b6-13513d4628ecca549699-f1ad-56d9-9c8d-c7c054fbfdbf.postBody": "<p>en</p>",
-    "331cf5f2-2be9-5159-b9b6-13513d4628ec.postTitle": "Post title",
-    "331cf5f2-2be9-5159-b9b6-13513d4628ec.postDescription": "Post description",
     "seoSiteDescription": "EN SEO Site Description",
     "seoSiteTitle": "KOPTEFF",
     "navigation.main": "Home",
@@ -35,5 +35,7 @@
     "introGsap.description.githubHeader": "Why Github",
     "category": "Category",
     "nocategory": "Uncategorized",
-    "posted": "Posted"
+    "posted": "Posted",
+    "latestposts": "Latest Posts",
+    "allcategories": "All Categories"
 }

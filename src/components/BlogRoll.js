@@ -1,12 +1,6 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { graphql, useStaticQuery } from "gatsby"
-import {
-    changeLocale,
-    injectIntl,
-    Link,
-    FormattedMessage,
-} from "gatsby-plugin-intl"
+import { injectIntl, Link } from "gatsby-plugin-intl"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
@@ -182,14 +176,11 @@ const BlogRoll = ({ intl }) => {
                             ) : null}
                             <div>
                                 <div>
-                                    Excerpt goes here ... TODO in BlogRoll.js{" "}
-                                    <br />
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Quisquam possimus sint ut
-                                    a sapiente nulla quaerat dolorum earum et
-                                    aperiam! Eos molestias ab eaque. Magnam
-                                    culpa voluptatum adipisci magni itaque.
+                                    {`${intl.formatMessage({
+                                        id: `${post.id}.postDescription`,
+                                    })} `}
                                 </div>
+
                                 <br />
                                 <br />
                                 <Link className="" to={post.fields.slug}>

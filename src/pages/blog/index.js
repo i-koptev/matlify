@@ -12,6 +12,8 @@ import Grid from "@material-ui/core/Grid"
 
 import Layout from "../../components/Layout"
 import BlogRoll from "../../components/BlogRoll"
+import LatestPosts from "../../components/LatestPosts"
+import AllCategoriesList from "../../components/AllCategoriesList"
 
 const useStyles = makeStyles(theme => ({}))
 
@@ -60,25 +62,8 @@ const BlogIndexPage = ({ intl }) => {
                             color: "white",
                         }}
                     >
-                        <h3>Latest Posts /TODO/</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur. <br />
-                            Lorem ipsum dolor sit amet consectetur. <br />
-                            Lorem ipsum dolor sit amet consectetur. <br />
-                            Lorem ipsum dolor sit amet consectetur. <br />
-                            Lorem ipsum dolor sit amet consectetur. <br />
-                            Lorem ipsum dolor sit amet consectetur. <br />
-                        </p>
-                        <h3>Categories /TODO/</h3>
-                        <ol>
-                            <li>Item number #1</li>
-                            <li>Item number #1</li>
-                            <li>Item number #1</li>
-                            <li>Item number #1</li>
-                            <li>Item number #1</li>
-                            <li>Item number #1</li>
-                            <li>Item number #1</li>
-                        </ol>
+                        <LatestPosts />
+                        <AllCategoriesList />
                     </Grid>
                 </Grid>
             </Container>

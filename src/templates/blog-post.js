@@ -95,26 +95,36 @@ const Post = ({ intl, data }) => {
                     </Typography>
 
                     <div>
-                        {data.markdownRemark.frontmatter.postBody.map(item => (
-                            <div
-                                key={`${data.markdownRemark.id}${item.image.id}.postBody`}
-                                // style={{ clear: "both" }}
-                            >
-                                <div className={classes.imageWrapper}>
-                                    <Img
-                                        fluid={item.image.childImageSharp.fluid}
+                        {data.markdownRemark.frontmatter.postBody.map(
+                            (item, index) => (
+                                <div
+                                    key={`${data.markdownRemark.id}${index}.postBody`}
+                                    // style={{ clear: "both" }}
+                                >
+                                    {item.image ? (
+                                        <div className={classes.imageWrapper}>
+                                            <Img
+                                                fluid={
+                                                    item.image.childImageSharp
+                                                        .fluid
+                                                }
+                                            />
+                                        </div>
+                                    ) : (
+                                        ""
+                                    )}
+
+                                    <div
+                                        className={classes.htmlContent}
+                                        dangerouslySetInnerHTML={{
+                                            __html: intl.formatMessage({
+                                                id: `${data.markdownRemark.id}${index}.postBody`,
+                                            }),
+                                        }}
                                     />
                                 </div>
-                                <div
-                                    className={classes.htmlContent}
-                                    dangerouslySetInnerHTML={{
-                                        __html: intl.formatMessage({
-                                            id: `${data.markdownRemark.id}${item.image.id}.postBody`,
-                                        }),
-                                    }}
-                                />
-                            </div>
-                        ))}
+                            )
+                        )}
                     </div>
 
                     {/* <pre>{JSON.stringify(tags, null, 4)}</pre> */}

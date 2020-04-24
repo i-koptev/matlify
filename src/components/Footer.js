@@ -36,6 +36,16 @@ const PrettoSlider = withStyles({
     active: {},
     valueLabel: {
         left: "calc(-50% + 4px)",
+        "&>span": {
+            // каплеобразный всплывающий лэйбл
+            backgroundColor: "transparent",
+            border: "2px solid tomato",
+            "& span": {
+                // надпись на каплеобразном всплывающем лэйбле
+                fontWeight: 700,
+                color: "tomato",
+            },
+        },
     },
     track: {
         height: 8,

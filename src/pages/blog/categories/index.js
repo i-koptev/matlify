@@ -1,13 +1,21 @@
 import React from "react"
 
-import { injectIntl } from "gatsby-plugin-intl"
+import { injectIntl, Link } from "gatsby-plugin-intl"
 
 import Container from "@material-ui/core/Container"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 
 import Layout from "../../../components/Layout"
+const _ = require("lodash")
 
 const useStyles = makeStyles(theme => ({
+    link: {
+        textDecoration: "none",
+        color: theme.mainNavigationLinkColor,
+        "&:hover": {
+            color: theme.mainNavigationLinkActiveColor,
+        },
+    },
     test: {
         color: "tomato",
     },
@@ -15,6 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 const CategoriesPage = ({
     intl,
+    data,
     data: {
         allMarkdownRemark: { group },
     },
@@ -29,13 +38,25 @@ const CategoriesPage = ({
                 // className="intro"
                 // className={classes.section}
             >
-                <div className={classes.test}>All categories</div>
+                <h2 className={classes.test}>
+                    {intl.formatMessage({
+                        id: `allcategories`,
+                    })}{" "}
+                    ({data.allMarkdownRemark.totalCount})
+                </h2>
                 {group.map(category => (
                     <div className={classes.test} key={category.fieldValue}>
-                        {intl.formatMessage({
-                            id: `${category.fieldValue}`,
-                        })}{" "}
-                        - {category.totalCount} статья
+                        <Link
+                            className={classes.link}
+                            to={`/blog/categories/${_.toLower(
+                                _.trim(category.fieldValue)
+                            )}`}
+                        >
+                            {" "}
+                            {intl.formatMessage({
+                                id: `${category.fieldValue}`,
+                            })}
+                        </Link>
                     </div>
                 ))}
             </Container>
@@ -48,11 +69,12 @@ export const allCategoriesPageQuery = graphql`
     query AllCategoriesQuery {
         allMarkdownRemark(
             filter: { frontmatter: { templateKey: { eq: "category-page" } } }
+            sort: { fields: frontmatter___categoryId, order: DESC }
         ) {
             group(field: frontmatter___categoryId) {
-                totalCount
                 fieldValue
             }
+            totalCount
         }
     }
 `

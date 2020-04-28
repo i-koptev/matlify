@@ -12,7 +12,6 @@ import { PrismCode } from "../components/Prism"
 
 import Content, { HTMLContent } from "../components/Content"
 import { Grid, withStyles, Button } from "@material-ui/core"
-import TestCard from "../components/TestCard"
 const styles = {
     root: {
         maxWidth: 345,
@@ -69,7 +68,6 @@ const AboutPage = ({ intl, data }) => {
                 component="section"
                 className={classes.container}
             >
-                <TestCard />
                 {/* <PrismCode
                     code={code}
                     language="jsx"

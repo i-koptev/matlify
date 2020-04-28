@@ -23,18 +23,21 @@ const useStyles = makeStyles(theme => ({
     header: {
         marginTop: "2rem",
         marginBottom: "3.5rem",
-        color: "#fffc",
     },
 
     htmlContent: {
-        color: theme.typography.body1.color,
         "& h2": {
-            color: theme.typography.h2.color,
-            // color: theme.typography.h2.color,
-            fontFamily: theme.typography.h2.fontFamily,
-            fontWeight: theme.typography.h2.fontWeight,
-            // color: "red",
+            ...theme.typography.h5,
+            // paddingBottom: `${theme.siteSpacing.aboutPage * 4}px`,
+            paddingLeft: `${theme.siteSpacing.aboutPage * 8}px`,
+            fontFamily: "PT Sans Narrow",
+            fontWeight: 400,
+            color: "#fffc",
             // textAlign: "center",
+        },
+        "& p": {
+            ...theme.html.paragraph,
+            textIndent: "3%",
         },
     },
     imageWrapper: {

@@ -294,7 +294,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
         if (edge.node.frontmatter.indexSectionHero) {
             ru[
-                `indexSectionHero.features.feature3.feature1detaileddescription`
+                `indexSectionHero.features.feature3.feature3detaileddescription`
             ] = converter.makeHtml(
                 edge.node.frontmatter.indexSectionHero.features.feature3
                     .feature3detaileddescription.ru

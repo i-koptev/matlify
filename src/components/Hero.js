@@ -161,6 +161,22 @@ const useStyles = makeStyles(theme => ({
             fontSize: "1.25rem",
         },
     },
+    htmlContent: {
+        // color: theme.typography.body1.color,
+        "& h3": {
+            ...theme.typography.h6,
+            fontFamily: "PT Sans Narrow",
+            letterSpacing: "0.15em",
+            // paddingBottom: `${theme.siteSpacing.aboutPage * 4}px`,
+            // paddingLeft: `${theme.siteSpacing.aboutPage * 8}px`,
+            // textAlign: "center",
+        },
+        "& p": {
+            ...theme.html.paragraph,
+            // color: "olive",
+            textIndent: "3%",
+        }, //переопределение!!!
+    },
 }))
 
 const Hero = ({ intl }) => {
@@ -341,10 +357,10 @@ const Hero = ({ intl }) => {
                                         "3px solid rgba(128,128,128,0.1)",
                                     paddingTop: "2rem",
                                     paddingBottom: "2rem",
-                                    color: "rgba(255,255,255,0.7)",
                                 }}
                             >
                                 <div
+                                    className={classes.htmlContent}
                                     dangerouslySetInnerHTML={{
                                         __html: intl.formatMessage({
                                             id: `indexSectionHero.features.feature1.feature1detaileddescription`,

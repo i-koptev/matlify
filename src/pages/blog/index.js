@@ -41,14 +41,7 @@ const BlogIndexPage = ({ intl }) => {
                         id: `blogRollHeader`,
                     })}
                 </h1>
-            </Container>
 
-            <Container
-                maxWidth={theme.siteContainer.maxWidth}
-                // disableGutters
-                // component="section"
-                // className={classes.section}
-            >
                 <Grid container spacing={8}>
                     <Grid component="section" item xs={12} md={8}>
                         <BlogRoll />

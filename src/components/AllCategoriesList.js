@@ -14,6 +14,12 @@ const useStyles = makeStyles(theme => ({
             fontSize: "1rem",
         },
     },
+
+    blurred: {
+        color: "#eee7",
+        fontWeight: "normal",
+        fontSize: "1rem",
+    },
 }))
 
 const AllCategoriesList = ({ intl }) => {
@@ -23,6 +29,7 @@ const AllCategoriesList = ({ intl }) => {
                 filter: {
                     frontmatter: { templateKey: { eq: "category-page" } }
                 }
+                sort: { fields: frontmatter___categoryId, order: DESC }
             ) {
                 totalCount
                 edges {
@@ -50,7 +57,12 @@ const AllCategoriesList = ({ intl }) => {
             <h3>
                 {intl.formatMessage({
                     id: `allcategories`,
-                })}
+                })}{" "}
+                <Link to="/blog/categories/" className={classes.link}>
+                    <span className={classes.blurred}>
+                        ( {qdata.allMarkdownRemark.totalCount} )
+                    </span>
+                </Link>
             </h3>
             {categories &&
                 categories.map(({ node: category }) => (

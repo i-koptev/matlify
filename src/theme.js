@@ -22,9 +22,9 @@ const sitePaletteAccent = ""
 
 const siteTextFontFamily = ""
 const siteTextFontWeight = ""
-const siteTextColor = "#fffe"
+const siteTextColor = "#ccca"
 
-const headingsFontFamily = "Playfair Display" //h1, h2, h3, h4, h5, h6
+const headingsFontFamily = "'Playfair Display', Times, serif" //h1, h2, h3, h4, h5, h6
 const headingsWeight = 700
 const headingsColor = "#ffbf55"
 
@@ -66,6 +66,14 @@ const mainNavigationMobileLinkHoverColor = mainNavigationLinkHoverColor
 // A custom theme for this app
 
 let theme = createMuiTheme({
+    props: {
+        // Name of the component ⚛️
+        MuiButtonBase: {
+            //IK- works!
+            // The default props to change
+            disableRipple: false, // if true - No more ripple, on the whole application 💣!
+        },
+    },
     breakpoints: {
         values: {
             xs: 0,
@@ -84,7 +92,15 @@ let theme = createMuiTheme({
             },
         },
         MuiButton: {
-            root: {},
+            root: {
+                // border: "3px solid tomato !important",
+                // borderRadius: "25px !important",
+                // fontSize: "3rem", // differs from defining fz in label
+            },
+            label: {
+                // color: "red",
+                // fontSize: "3rem",
+            },
         },
         MuiAppBar: {
             root: {
@@ -104,53 +120,53 @@ let theme = createMuiTheme({
         },
     },
     typography: {
-        fontSize: 16,
-        // htmlFontSize: 10,
+        root: {
+            color: "tomato",
+        },
+        fontSize: 15,
+        // htmlFontSize: 16,
         h1: {
             fontFamily: headingsFontFamily,
             fontWeight: headingsWeight,
             color: headingsColor,
-            letterSpacing: "0.1rem",
+            letterSpacing: "0.2rem",
         },
         h2: {
             fontFamily: headingsFontFamily,
             fontWeight: headingsWeight,
             color: headingsColor,
-            letterSpacing: "0.1rem",
+            letterSpacing: "0.2rem",
         },
         h3: {
             fontFamily: headingsFontFamily,
             fontWeight: headingsWeight,
             color: headingsColor,
-            letterSpacing: "0.1rem",
+            letterSpacing: "0.2rem",
         },
         h4: {
             fontFamily: headingsFontFamily,
             fontWeight: headingsWeight,
             color: headingsColor,
-            letterSpacing: "0.1rem",
+            letterSpacing: "0.2rem",
         },
         h5: {
             fontFamily: headingsFontFamily,
             fontWeight: headingsWeight,
             color: headingsColor,
-            letterSpacing: "0.1rem",
+            letterSpacing: "0.2rem",
         },
         h6: {
             fontFamily: headingsFontFamily,
             fontWeight: headingsWeight,
             color: headingsColor,
-            letterSpacing: "0.1rem",
+            letterSpacing: "0.2rem",
         },
         body1: {
-            // fontFamily: "arial",
-            // color: siteTextColor,
+            // fontSize: "1rem",
         },
         body2: {
-            // color: siteTextColor,
-            // fontFamily: "arial",
+            // fontSize: "1rem",
         },
-        color: "lime",
 
         fontFamily: [
             "PT Sans",
@@ -192,6 +208,17 @@ let theme = createMuiTheme({
     siteContainer: {
         maxWidth: siteContainerMaxWidth,
     },
+    siteSpacing: {
+        aboutPage: 4,
+    },
+    html: {
+        paragraph: {
+            color: siteTextColor,
+            fontWeight: 400,
+            textIndent: "2em",
+        },
+    },
+
     palette: {
         primary: {
             main: "#556cd6",

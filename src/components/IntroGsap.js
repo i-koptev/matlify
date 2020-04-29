@@ -5,6 +5,7 @@ import Observer from "@researchgate/react-intersection-observer"
 import { Transition } from "react-transition-group"
 import Grid from "@material-ui/core/Grid"
 import { withStyles } from "@material-ui/core/styles"
+import Slider from "@material-ui/core/Slider"
 import classNames from "classnames"
 
 import { ThemeProvider, withTheme } from "@material-ui/styles"
@@ -116,11 +117,53 @@ const styles = theme => ({
     },
 })
 
+const PrettoSlider = withStyles({
+    root: {
+        // color: "#52af77",
+        color: "#eee7",
+        height: 8,
+    },
+    thumb: {
+        height: 24,
+        width: 24,
+        backgroundColor: "transparent",
+        border: "2px solid currentColor",
+        marginTop: -8,
+        marginLeft: -12,
+        "&:focus, &:hover, &$active": {
+            boxShadow: "inherit",
+        },
+    },
+    active: {},
+    valueLabel: {
+        left: "calc(-50% + 4px)",
+        "&>span": {
+            // каплеобразный всплывающий лэйбл
+            backgroundColor: "transparent",
+            border: "2px solid #eee7",
+            "& span": {
+                // надпись на каплеобразном всплывающем лэйбле
+                fontWeight: 700,
+                color: "#ffbf55",
+            },
+        },
+    },
+    track: {
+        height: 4,
+        borderRadius: 2,
+    },
+    rail: {
+        height: 4,
+        borderRadius: 2,
+    },
+})(Slider)
+
 class IntroGsap extends Component {
     constructor(props) {
         super(props)
         this.state = {
             show: true,
+            mainTLProgress: 0,
         }
         this.toggleComponent = this.toggleComponent.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -284,6 +327,10 @@ class IntroGsap extends Component {
         this.blikToBrandEase = Power4.easeOut
     }
 
+    handleSliderChange = (e, v) => {
+        console.log(v)
+        this.mainTl.progress(v / 100)
+    }
     // ------- getter functions -------
     getAllLittleEmptyCircles = () => {
         return [
@@ -636,6 +683,10 @@ class IntroGsap extends Component {
 
         return tl
     }
+    updateMainTLProgress = () =>
+        this.setState(() => {
+            return { mainTLProgress: this.mainTl.progress() }
+        })
     componentDidMount() {
         this.initialTl = gsap
             .timeline()
@@ -647,7 +698,11 @@ class IntroGsap extends Component {
             .to(this.getAllLogos(), { opacity: 0.5 })
 
         this.mainTl = gsap
-            .timeline({ delay: 3, repeat: -1 })
+            .timeline({
+                delay: 3,
+                repeat: -1,
+                onUpdate: this.updateMainTLProgress,
+            })
             // .set(".brandBox", {
             //     transformOrigin: "0 50%",
             // })
@@ -1557,6 +1612,19 @@ class IntroGsap extends Component {
                                 </Transition> */}
                             </Grid>
                         </Observer>
+                    </Grid>
+                    <Grid item>
+                        <PrettoSlider
+                            style={{ marginTop: "3rem" }}
+                            value={this.state.mainTLProgress * 100}
+                            valueLabelDisplay="auto"
+                            aria-label="pretto slider"
+                            // defaultValue={20}
+                            step={0.001}
+                            onChange={this.handleSliderChange}
+                            valueLabelDisplay="on"
+                            valueLabelFormat={x => x.toFixed(0)}
+                        />
                     </Grid>
                 </Grid>
             </Container>

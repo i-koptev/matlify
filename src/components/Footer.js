@@ -11,52 +11,6 @@ const useStyles = makeStyles(theme => ({
         //color: "red",
     },
 }))
-
-const handleChange = (e, v) => {
-    console.log(v)
-}
-
-const PrettoSlider = withStyles({
-    root: {
-        // color: "#52af77",
-        color: "tomato",
-        height: 8,
-    },
-    thumb: {
-        height: 24,
-        width: 24,
-        backgroundColor: "transparent",
-        border: "2px solid currentColor",
-        marginTop: -8,
-        marginLeft: -12,
-        "&:focus, &:hover, &$active": {
-            boxShadow: "inherit",
-        },
-    },
-    active: {},
-    valueLabel: {
-        left: "calc(-50% + 4px)",
-        "&>span": {
-            // каплеобразный всплывающий лэйбл
-            backgroundColor: "transparent",
-            border: "2px solid tomato",
-            "& span": {
-                // надпись на каплеобразном всплывающем лэйбле
-                fontWeight: 700,
-                color: "tomato",
-            },
-        },
-    },
-    track: {
-        height: 8,
-        borderRadius: 4,
-    },
-    rail: {
-        height: 8,
-        borderRadius: 4,
-    },
-})(Slider)
-
 const MyTextField = withStyles(theme => ({
     root: {
         "& input": { color: "#639" },
@@ -109,14 +63,14 @@ const Footer = () => {
             >
                 <div style={{ padding: "3rem" }}>
                     <p>Footeris</p>
-                    <PrettoSlider
+                    {/* <PrettoSlider
                         valueLabelDisplay="auto"
                         aria-label="pretto slider"
                         defaultValue={20}
                         step={0.001}
                         onChange={handleChange}
                         valueLabelFormat={x => x.toFixed(0)}
-                    />
+                    /> */}
                     <MyTextField
                         id="outlined-basic"
                         label="Your EMail"

@@ -2,6 +2,8 @@ import React from "react"
 import { injectIntl } from "gatsby-plugin-intl"
 import Layout from "../components/Layout"
 import Hero from "../components/Hero"
+import IntersectionComponent from "../components/IntersectionComponent"
+
 // import Intro from "../components/Intro"
 import IntroGsap from "../components/IntroGsap"
 
@@ -17,6 +19,7 @@ const IndexPage = ({ intl }) => {
             lang={intl.locale}
         >
             <Hero />
+            <IntersectionComponent />
             <IntroGsap />
             {/* <Intro /> */}
         </Layout>

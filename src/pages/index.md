@@ -172,5 +172,16 @@ indexSectionIntro:
           ### Привет
 
           Тестовый контент
+    - imagePosition: right
+      introBlockImage: /img/home-jumbotron.jpg
+      introBlockText:
+        en: |-
+          ### Hello 2
+
+          lkkwlkj lkwjerlwk
+        ru: |-
+          ### Привет 2
+
+          вываы ываыва ываы
 ---
 

@@ -103,17 +103,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                                 }
                             }
                             indexSectionIntro {
-                                text {
-                                    en
-                                    ru
-                                }
-                                heading {
-                                    en
-                                    ru
-                                }
-                                button {
-                                    en
-                                    ru
+                                introBlock {
+                                    introBlockText {
+                                        en
+                                        ru
+                                    }
                                 }
                             }
                             seoSiteDescription {
@@ -344,26 +338,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
 
         if (edge.node.frontmatter.indexSectionIntro) {
-            ru[`indexSectionIntro.heading`] =
-                edge.node.frontmatter.indexSectionIntro.heading.ru
-            en[`indexSectionIntro.heading`] =
-                edge.node.frontmatter.indexSectionIntro.heading.en
-        }
-
-        if (edge.node.frontmatter.indexSectionIntro) {
-            ru[`indexSectionIntro.text`] = converter.makeHtml(
-                edge.node.frontmatter.indexSectionIntro.text.ru
+            edge.node.frontmatter.indexSectionIntro.introBlock.map(
+                (item, index) => {
+                    ru[`${index}indexSectionIntro.text`] = converter.makeHtml(
+                        item.introBlockText.ru
+                    )
+                    en[`${index}indexSectionIntro.text`] = converter.makeHtml(
+                        item.introBlockText.en
+                    )
+                }
             )
-            en[`indexSectionIntro.text`] = converter.makeHtml(
-                edge.node.frontmatter.indexSectionIntro.text.en
-            )
-        }
-
-        if (edge.node.frontmatter.indexSectionIntro) {
-            ru[`indexSectionIntro.button`] =
-                edge.node.frontmatter.indexSectionIntro.button.ru
-            en[`indexSectionIntro.button`] =
-                edge.node.frontmatter.indexSectionIntro.button.en
         }
 
         if (edge.node.frontmatter.seoSiteDescription) {

@@ -128,7 +128,7 @@ const IntersectionComponent = ({ intl }) => {
     `)
     // const image = data.markdownRemark.frontmatter.indexSectionHero.heroImage
     const image =
-        data.allMarkdownRemark.edges[2].node.frontmatter.featuredimage
+        data.allMarkdownRemark.edges[4].node.frontmatter.featuredimage
             .childImageSharp.fluid
 
     return (

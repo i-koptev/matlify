@@ -108,15 +108,23 @@ const IntersectionComponent = ({ intl }) => {
     }
 
     const data = useStaticQuery(graphql`
-        query Test {
-            allMarkdownRemark {
+        query SectionIntro {
+            allMarkdownRemark(
+                filter: { frontmatter: { templateKey: { eq: "index-page" } } }
+            ) {
                 edges {
                     node {
                         frontmatter {
-                            featuredimage {
-                                childImageSharp {
-                                    fluid(maxWidth: 1600) {
-                                        ...GatsbyImageSharpFluid_withWebp
+                            indexSectionIntro {
+                                introBlock {
+                                    imagePosition
+                                    introBlockImage {
+                                        publicURL
+                                        childImageSharp {
+                                            fluid(maxWidth: 800, quality: 100) {
+                                                ...GatsbyImageSharpFluid_withWebp
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -128,8 +136,8 @@ const IntersectionComponent = ({ intl }) => {
     `)
     // const image = data.markdownRemark.frontmatter.indexSectionHero.heroImage
     const image =
-        data.allMarkdownRemark.edges[4].node.frontmatter.featuredimage
-            .childImageSharp.fluid
+        data.allMarkdownRemark.edges[0].node.frontmatter.indexSectionIntro
+            .introBlock[0].introBlockImage.childImageSharp.fluid
 
     return (
         <Container

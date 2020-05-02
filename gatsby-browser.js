@@ -1,3 +1,4 @@
+import "prism-theme-night-owl"
 // require("./src/nightOwlForPrism.css")
 // require("prismjs/themes/prism-solarizedlight.css")
 // require("prismjs/themes/prism-okaidia.css")

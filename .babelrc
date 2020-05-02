@@ -7,8 +7,8 @@
             {
                 "languages": ["javascript", "css", "html", "jsx", "markup"],
                 "plugins": ["line-numbers", "show-language"],
-                "theme": "night-owl",
                 // "theme": "okaidia",
+                // "theme": "twilight",
                 "css": true
             }
         ]

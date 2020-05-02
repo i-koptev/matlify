@@ -61,8 +61,8 @@ const Post = ({ intl, data }) => {
 
     useEffect(() => {
         // call the highlightAll() function to style our code blocks
-        Prism.highlightAll()
-        // setTimeout(() => Prism.highlightAll(), 0)
+        // Prism.highlightAll()
+        setTimeout(() => Prism.highlightAll(), 0)
     })
 
     return (

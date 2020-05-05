@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
         border: "5px solid rgba(0, 20, 30)",
     },
     cardContent: {
-        height: 250,
+        minHeight: 250,
         // backgroundColor: "rgba(0, 20, 30)",
         color: "#eeea",
         // backgroundImage: "url(/img/wavybg.svg)",

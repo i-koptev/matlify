@@ -183,5 +183,16 @@ indexSectionIntro:
           ### Привет 2
 
           вываы ываыва ываы
+    - imagePosition: left
+      introBlockImage: /img/wavybg.svg
+      introBlockText:
+        en: |-
+          ### Heading
+
+          Test Text
+        ru: |-
+          ### Заголовок
+
+          Тестовый текст
 ---
 

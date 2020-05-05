@@ -1362,7 +1362,21 @@ class IntroGsap extends Component {
                                                 ),
                                             }}
                                         ></h2>
-                                        <p
+                                        <p className={classes.descriptionText}>
+                                            Gatsby text. Lorem ipsum dolor sit
+                                            amet consectetur adipisicing elit.
+                                            Deleniti, maxime harum ipsa
+                                            reprehenderit nesciunt numquam
+                                            molestias delectus itaque temporibus
+                                            pariatur officia, quidem deserunt
+                                            nostrum! Iste fugit rem porro illo
+                                            error dolor quo harum neque quos
+                                            aspernatur esse, tenetur at sequi
+                                            voluptate facere quod maxime
+                                            cupiditate, magni aliquid nam in
+                                            sint.
+                                        </p>
+                                        {/* <p
                                             className={classes.descriptionText}
                                             dangerouslySetInnerHTML={{
                                                 __html: this.props.intl.formatMessage(
@@ -1372,7 +1386,7 @@ class IntroGsap extends Component {
                                                     }
                                                 ),
                                             }}
-                                        ></p>
+                                        ></p> */}
                                     </div>
                                     <div
                                         className={classes.description}

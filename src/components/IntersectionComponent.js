@@ -12,7 +12,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery"
 
 import { injectIntl } from "gatsby-plugin-intl"
 
-import SvgCompatibleBackgroundImage from "../components/SvgCompatibleBackgroundImage"
+import SvgCompatibleImage from "../components/SvgCompatibleImage"
 
 const useStyles = makeStyles(theme => ({
     htmlContent: {
@@ -161,13 +161,19 @@ const IntersectionComponent = ({ intl }) => {
                                                     classes.observableImage
                                                 }
                                             >
-                                                <Img
+                                                <SvgCompatibleImage
+                                                    image={
+                                                        block.introBlockImage
+                                                    }
+                                                    alt="testALT"
+                                                />
+                                                {/* <Img
                                                     fluid={
                                                         block.introBlockImage
                                                             .childImageSharp
                                                             .fluid
                                                     }
-                                                />
+                                                /> */}
                                             </div>
                                         </Observer>
                                     </Grid>
@@ -219,13 +225,19 @@ const IntersectionComponent = ({ intl }) => {
                                                     classes.observableImage
                                                 }
                                             >
-                                                <Img
+                                                <SvgCompatibleImage
+                                                    image={
+                                                        block.introBlockImage
+                                                    }
+                                                    alt="testALT"
+                                                />
+                                                {/* <Img
                                                     fluid={
                                                         block.introBlockImage
                                                             .childImageSharp
                                                             .fluid
                                                     }
-                                                />
+                                                /> */}
                                             </div>
                                         </Observer>
                                     </Grid>

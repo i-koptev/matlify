@@ -2,34 +2,50 @@ import React from "react"
 import PropTypes from "prop-types"
 import Img from "gatsby-image"
 
-const SvgCompatibleImage = ({ imageInfo }) => {
-    const imageStyle = {}
+const SvgCompatibleImage = props => {
+    const imageStyle = {
+        width: "100%",
+        height: "100%",
+    }
     //   const imageStyle = { borderRadius: '5px' }
-    const { alt = "", childImageSharp, image } = imageInfo
+    // const { childImageSharp, image } = imageInfo
+    // const { alt = "", childImageSharp, image } = imageInfo
 
-    if (!!image && !!image.childImageSharp) {
+    if (!!props.image && !!props.image.childImageSharp) {
         return (
             <Img
                 style={imageStyle}
-                fluid={image.childImageSharp.fluid}
-                alt={alt}
+                fluid={props.image.childImageSharp.fluid}
+                alt={props.alt}
             />
         )
     }
 
-    if (!!childImageSharp) {
+    if (!!props.childImageSharp) {
         return (
-            <Img style={imageStyle} fluid={childImageSharp.fluid} alt={alt} />
+            <Img
+                style={imageStyle}
+                fluid={props.childImageSharp.fluid}
+                alt={props.alt}
+            />
+            // <Img style={imageStyle} fluid={childImageSharp.fluid} alt={alt} />
         )
     }
 
-    if (!!image && typeof image === "string")
-        return <img style={imageStyle} src={image} alt={alt} />
+    if (!!props.image && typeof props.image.publicURL === "string")
+        return (
+            <img
+                style={imageStyle}
+                src={props.image.publicURL}
+                alt={props.alt}
+            />
+        )
+    // return <img style={imageStyle} src={image} alt={alt} />
 
     return null
 }
 
-SvgCompatibleImage.propTypes = {
+/* SvgCompatibleImage.propTypes = {
     imageInfo: PropTypes.shape({
         alt: PropTypes.string,
         childImageSharp: PropTypes.object,
@@ -38,5 +54,5 @@ SvgCompatibleImage.propTypes = {
         style: PropTypes.object,
     }).isRequired,
 }
-
+ */
 export default SvgCompatibleImage

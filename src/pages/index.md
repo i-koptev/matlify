@@ -184,7 +184,7 @@ indexSectionIntro:
 
           вываы ываыва ываы
     - imagePosition: left
-      introBlockImage: /img/wavybg.svg
+      introBlockImage: /img/workspace.svg
       introBlockText:
         en: |-
           ### Heading

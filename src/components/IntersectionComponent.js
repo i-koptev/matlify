@@ -8,41 +8,39 @@ import gsap, { Power1, Power2, Power3, Power4 } from "gsap"
 import Container from "@material-ui/core/Container"
 import Grid from "@material-ui/core/Grid"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
+import useMediaQuery from "@material-ui/core/useMediaQuery"
 
 import { injectIntl } from "gatsby-plugin-intl"
 
 import SvgCompatibleBackgroundImage from "../components/SvgCompatibleBackgroundImage"
 
 const useStyles = makeStyles(theme => ({
-    hero: {
-        position: "relative",
-        minHeight: 300,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-    },
-    tomato: {
+    htmlContent: {
         // backgroundColor: "tomato",
-        minHeight: 300,
-        // outline: "1px solid black",
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    violet: {
-        // backgroundColor: "violet",
-        minHeight: 300,
-        // outline: "1px solid black",
-        justifyContent: "center",
-        alignItems: "center",
+        width: "100%",
+        height: "100%",
+        opacity: 0,
+        "& h3": {
+            ...theme.typography.h5,
+            // paddingBottom: `${theme.siteSpacing.aboutPage * 4}px`,
+            paddingLeft: `${theme.siteSpacing.aboutPage * 8}px`,
+            fontFamily: "PT Sans Narrow",
+            fontWeight: 400,
+            color: "#fffc",
+            // textAlign: "center",
+        },
+        "& p": {
+            ...theme.html.paragraph,
+            textIndent: "3%",
+        },
     },
 
-    div4ik: {
-        // backgroundColor: "teal",
-        // outline: "1px solid tomato",
-        color: "white",
+    observableImage: {
         width: "100%",
         height: "100%",
         // padding: "1rem",
+        // backgroundColor: "teal",
+        // border: "1px solid rgba(255,255,255,0.3)",
         // paddingLeft: "2rem",
         // paddingRight: "2rem",
         opacity: 0,
@@ -61,7 +59,7 @@ const IntersectionComponent = ({ intl }) => {
             gsap.fromTo(
                 event.target,
                 {
-                    x: -20,
+                    x: -120,
                     ease: Power4,
                     scale: 0.9,
                 },
@@ -92,7 +90,7 @@ const IntersectionComponent = ({ intl }) => {
             gsap.fromTo(
                 event.target,
                 {
-                    x: 20,
+                    x: 120,
                     ease: Power4,
                     scale: 0.9,
                 },
@@ -109,22 +107,16 @@ const IntersectionComponent = ({ intl }) => {
 
     const data = useStaticQuery(graphql`
         query SectionIntro {
-            allMarkdownRemark(
-                filter: { frontmatter: { templateKey: { eq: "index-page" } } }
-            ) {
-                edges {
-                    node {
-                        frontmatter {
-                            indexSectionIntro {
-                                introBlock {
-                                    imagePosition
-                                    introBlockImage {
-                                        publicURL
-                                        childImageSharp {
-                                            fluid(maxWidth: 800, quality: 100) {
-                                                ...GatsbyImageSharpFluid_withWebp
-                                            }
-                                        }
+            markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+                frontmatter {
+                    indexSectionIntro {
+                        introBlock {
+                            imagePosition
+                            introBlockImage {
+                                publicURL
+                                childImageSharp {
+                                    fluid(maxWidth: 800, quality: 100) {
+                                        ...GatsbyImageSharpFluid_withWebp
                                     }
                                 }
                             }
@@ -134,207 +126,113 @@ const IntersectionComponent = ({ intl }) => {
             }
         }
     `)
-    // const image = data.markdownRemark.frontmatter.indexSectionHero.heroImage
     const image =
-        data.allMarkdownRemark.edges[0].node.frontmatter.indexSectionIntro
-            .introBlock[0].introBlockImage.childImageSharp.fluid
-
+        data.markdownRemark.frontmatter.indexSectionIntro.introBlock[0]
+            .introBlockImage.childImageSharp.fluid
+    const {
+        introBlock: blocks,
+    } = data.markdownRemark.frontmatter.indexSectionIntro
+    const smallerThanXSViewport = useMediaQuery(theme.breakpoints.down("xs"))
     return (
         <Container
             maxWidth={theme.siteContainer.maxWidth}
             style={{ marginTop: "2rem", marginBottom: "16px" }}
         >
             {/* <pre style={{ color: "white" }}>
-                {JSON.stringify(theme, null, 4)}
+                {JSON.stringify(blocks, null, 4)}
             </pre> */}
             <Grid container spacing={4}>
-                <Grid item container spacing={4}>
-                    <Grid
-                        item
-                        container
-                        xs={12}
-                        sm={6}
-                        className={classes.violet}
-                    >
-                        <Observer
-                            onChange={handleShiftFromLeft}
-                            threshold="0.7"
-                            // threshold={thresholds}
-                        >
-                            <div className={classes.div4ik}>
-                                {/* <SvgCompatibleBackgroundImage
-                                    image={image}
-                                    className={classes.hero}
-                                > */}
-                                {/* <img src={image} /> */}
-                                {/* </SvgCompatibleBackgroundImage> */}
-                                <Img fluid={image} />
-                            </div>
-                        </Observer>
-                    </Grid>
-                    <Grid
-                        item
-                        container
-                        xs={12}
-                        sm={6}
-                        className={classes.tomato}
-                    >
-                        <Observer
-                            onChange={handleShiftFromRight}
-                            threshold="0.3"
-                            // threshold={thresholds}
-                        >
-                            <div className={classes.div4ik}>
-                                <h3>Header</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur,
-                                    adipisicing elit. Est debitis mollitia
-                                    voluptatum ratione eos eveniet nemo esse
-                                    distinctio maxime? Voluptates quaerat
-                                    nostrum repellat repellendus. Laborum
-                                    maiores quibusdam alias beatae error.
-                                </p>
-                            </div>
-                        </Observer>
-                    </Grid>
-                </Grid>
-                <Grid item container spacing={4}>
-                    <Grid
-                        item
-                        container
-                        xs={12}
-                        sm={6}
-                        className={classes.tomato}
-                    >
-                        <Observer
-                            onChange={handleShiftFromLeft}
-                            threshold="0.3"
-                            // threshold={thresholds}
-                        >
-                            <div className={classes.div4ik}>
-                                <h3>Header</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur,
-                                    adipisicing elit. Est debitis mollitia
-                                    voluptatum ratione eos eveniet nemo esse
-                                    distinctio maxime? Voluptates quaerat
-                                    nostrum repellat repellendus. Laborum
-                                    maiores quibusdam alias beatae error.
-                                </p>
-                            </div>
-                        </Observer>
-                    </Grid>
-                    <Grid
-                        item
-                        container
-                        xs={12}
-                        sm={6}
-                        className={classes.violet}
-                    >
-                        {" "}
-                        <Observer
-                            onChange={handleShiftFromRight}
-                            threshold="0.7"
-                            // threshold={thresholds}
-                        >
-                            <div className={classes.div4ik}>
-                                <Img fluid={image} />
-                            </div>
-                        </Observer>
-                    </Grid>
-                </Grid>
-
-                <Grid item container spacing={4}>
-                    <Grid
-                        item
-                        container
-                        xs={12}
-                        sm={6}
-                        className={classes.violet}
-                    >
-                        <Observer
-                            onChange={handleShiftFromLeft}
-                            threshold="0.7"
-                            // threshold={thresholds}
-                        >
-                            <div className={classes.div4ik}>
-                                <Img fluid={image} />
-                            </div>
-                        </Observer>
-                    </Grid>
-                    <Grid
-                        item
-                        container
-                        xs={12}
-                        sm={6}
-                        className={classes.tomato}
-                    >
-                        <Observer
-                            onChange={handleShiftFromRight}
-                            threshold="0.3"
-                            // threshold={thresholds}
-                        >
-                            <div className={classes.div4ik}>
-                                <h3>Header</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur,
-                                    adipisicing elit. Est debitis mollitia
-                                    voluptatum ratione eos eveniet nemo esse
-                                    distinctio maxime? Voluptates quaerat
-                                    nostrum repellat repellendus. Laborum
-                                    maiores quibusdam alias beatae error.
-                                </p>
-                            </div>
-                        </Observer>
-                    </Grid>
-                </Grid>
-                <Grid item container spacing={4}>
-                    <Grid
-                        item
-                        container
-                        xs={12}
-                        sm={6}
-                        className={classes.tomato}
-                    >
-                        <Observer
-                            onChange={handleShiftFromLeft}
-                            threshold="0.3"
-                            // threshold={thresholds}
-                        >
-                            <div className={classes.div4ik}>
-                                <h3>Header</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur,
-                                    adipisicing elit. Est debitis mollitia
-                                    voluptatum ratione eos eveniet nemo esse
-                                    distinctio maxime? Voluptates quaerat
-                                    nostrum repellat repellendus. Laborum
-                                    maiores quibusdam alias beatae error.
-                                </p>
-                            </div>
-                        </Observer>
-                    </Grid>
-                    <Grid
-                        item
-                        container
-                        xs={12}
-                        sm={6}
-                        className={classes.violet}
-                    >
-                        {" "}
-                        <Observer
-                            onChange={handleShiftFromRight}
-                            threshold="0.7"
-                            // threshold={thresholds}
-                        >
-                            <div className={classes.div4ik}>
-                                <div>
-                                    <Img fluid={image} />
-                                </div>
-                            </div>
-                        </Observer>
-                    </Grid>
-                </Grid>
+                {blocks &&
+                    blocks.map((block, index) => {
+                        if (
+                            block.imagePosition === "left" ||
+                            smallerThanXSViewport
+                        ) {
+                            return (
+                                <Grid item container spacing={4}>
+                                    <Grid item container xs={12} sm={6}>
+                                        <Observer
+                                            onChange={handleShiftFromLeft}
+                                            threshold="0.7"
+                                            // threshold={thresholds}
+                                        >
+                                            <div
+                                                className={
+                                                    classes.observableImage
+                                                }
+                                            >
+                                                <Img
+                                                    fluid={
+                                                        block.introBlockImage
+                                                            .childImageSharp
+                                                            .fluid
+                                                    }
+                                                />
+                                            </div>
+                                        </Observer>
+                                    </Grid>
+                                    <Grid item container xs={12} sm={6}>
+                                        <Observer
+                                            onChange={handleShiftFromRight}
+                                            threshold="0.3"
+                                            // threshold={thresholds}
+                                        >
+                                            <div
+                                                className={classes.htmlContent}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: intl.formatMessage({
+                                                        id: `indexSectionIntro.text.${index}`,
+                                                    }),
+                                                }}
+                                            ></div>
+                                        </Observer>
+                                    </Grid>
+                                </Grid>
+                            )
+                        } else {
+                            return (
+                                <Grid item container spacing={4}>
+                                    <Grid item container xs={12} sm={6}>
+                                        <Observer
+                                            onChange={handleShiftFromLeft}
+                                            threshold="0.3"
+                                            // threshold={thresholds}
+                                        >
+                                            <div
+                                                className={classes.htmlContent}
+                                                dangerouslySetInnerHTML={{
+                                                    __html: intl.formatMessage({
+                                                        id: `indexSectionIntro.text.${index}`,
+                                                    }),
+                                                }}
+                                            ></div>
+                                        </Observer>
+                                    </Grid>
+                                    <Grid item container xs={12} sm={6}>
+                                        <Observer
+                                            onChange={handleShiftFromRight}
+                                            threshold="0.7"
+                                            // threshold={thresholds}
+                                        >
+                                            <div
+                                                className={
+                                                    classes.observableImage
+                                                }
+                                            >
+                                                <Img
+                                                    fluid={
+                                                        block.introBlockImage
+                                                            .childImageSharp
+                                                            .fluid
+                                                    }
+                                                />
+                                            </div>
+                                        </Observer>
+                                    </Grid>
+                                </Grid>
+                            )
+                        }
+                    })}
             </Grid>
         </Container>
     )

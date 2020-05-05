@@ -7,6 +7,7 @@ const SvgCompatibleImage = props => {
         width: "100%",
         height: "100%",
     }
+    const alt = props.alt ? props.alt : "meanless image"
     //   const imageStyle = { borderRadius: '5px' }
     // const { childImageSharp, image } = imageInfo
     // const { alt = "", childImageSharp, image } = imageInfo
@@ -16,7 +17,7 @@ const SvgCompatibleImage = props => {
             <Img
                 style={imageStyle}
                 fluid={props.image.childImageSharp.fluid}
-                alt={props.alt}
+                alt={alt}
             />
         )
     }
@@ -26,20 +27,14 @@ const SvgCompatibleImage = props => {
             <Img
                 style={imageStyle}
                 fluid={props.childImageSharp.fluid}
-                alt={props.alt}
+                alt={alt}
             />
             // <Img style={imageStyle} fluid={childImageSharp.fluid} alt={alt} />
         )
     }
 
     if (!!props.image && typeof props.image.publicURL === "string")
-        return (
-            <img
-                style={imageStyle}
-                src={props.image.publicURL}
-                alt={props.alt}
-            />
-        )
+        return <img style={imageStyle} src={props.image.publicURL} alt={alt} />
     // return <img style={imageStyle} src={image} alt={alt} />
 
     return null

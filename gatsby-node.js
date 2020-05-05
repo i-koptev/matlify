@@ -340,10 +340,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         if (edge.node.frontmatter.indexSectionIntro) {
             edge.node.frontmatter.indexSectionIntro.introBlock.map(
                 (item, index) => {
-                    ru[`${index}indexSectionIntro.text`] = converter.makeHtml(
+                    ru[`indexSectionIntro.text.${index}`] = converter.makeHtml(
                         item.introBlockText.ru
                     )
-                    en[`${index}indexSectionIntro.text`] = converter.makeHtml(
+                    en[`indexSectionIntro.text.${index}`] = converter.makeHtml(
                         item.introBlockText.en
                     )
                 }

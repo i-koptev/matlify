@@ -6,7 +6,7 @@ indexSectionHero:
     feature1:
       feature1detaileddescription:
         en: >-
-          ### FEATURE #1. DETAILED DESCRIPTION
+          ### Design creation
 
 
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ullam
@@ -21,7 +21,7 @@ indexSectionHero:
           distinctio quo dolores doloribus maiores voluptatum ducimus neque, at
           reprehenderit atque voluptate cum numquam placeat dolor? Impedit, nam?
         ru: >-
-          ### ПРЕИМУЩЕСТВО #1. РАЗВЁРНУТОЕ ОПИСАНИЕ
+          ### Разработка дизайна
 
 
           Повседневная практика показывает, что реализация намеченных плановых
@@ -38,12 +38,12 @@ indexSectionHero:
           определения и уточнения позиций, занимаемых участниками в отношении
           поставленных задач.
       feature1shortdescription:
-        en: design creaton
+        en: design creation
         ru: разработка дизайна
     feature2:
       feature2detaileddescription:
         en: >-
-          ### FEATURE #2. DETAILED DESCRIPTION
+          ### Structure development
 
 
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ullam
@@ -58,7 +58,7 @@ indexSectionHero:
           distinctio quo dolores doloribus maiores voluptatum ducimus neque, at
           reprehenderit atque voluptate cum numquam placeat dolor? Impedit, nam?
         ru: >-
-          ### ПРЕИМУЩЕСТВО #2. РАЗВЁРНУТОЕ ОПИСАНИЕ
+          ### Проектирование структуры
 
 
           Повседневная практика показывает, что реализация намеченных плановых
@@ -80,7 +80,7 @@ indexSectionHero:
     feature3:
       feature3detaileddescription:
         en: >-
-          ### FEATURE #3. DETAILED DESCRIPTION
+          ### Design and programming
 
 
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ullam
@@ -95,7 +95,7 @@ indexSectionHero:
           distinctio quo dolores doloribus maiores voluptatum ducimus neque, at
           reprehenderit atque voluptate cum numquam placeat dolor? Impedit, nam?
         ru: >-
-          ### ПРЕИМУЩЕСТВО #3. РАЗВЁРНУТОЕ ОПИСАНИЕ
+          ### Дизайн и программирование
 
 
           Повседневная практика показывает, что реализация намеченных плановых
@@ -116,8 +116,8 @@ indexSectionHero:
         ru: дизайн и программирование
     feature4:
       feature4detaileddescription:
-        en: >
-          ### FEATURE #4. DETAILED DESCRIPTION
+        en: >-
+          ### Deployment to production
 
 
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ullam
@@ -132,7 +132,7 @@ indexSectionHero:
           distinctio quo dolores doloribus maiores voluptatum ducimus neque, at
           reprehenderit atque voluptate cum numquam placeat dolor? Impedit, nam?
         ru: >-
-          ### ПРЕИМУЩЕСТВО #4. РАЗВЁРНУТОЕ ОПИСАНИЕ
+          ### Размещение в Интернете
 
 
           Повседневная практика показывает, что реализация намеченных плановых

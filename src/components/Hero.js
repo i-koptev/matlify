@@ -13,6 +13,11 @@ import Grid from "@material-ui/core/Grid"
 import Lottie from "react-lottie"
 import * as animation from "../animations/hero/data"
 
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import "../slick-theme-customized.css"
+
 import Button from "../components/ButtonYellow"
 import SvgCompatibleBackgroundImage from "../components/SvgCompatibleBackgroundImage"
 
@@ -29,6 +34,9 @@ const useStyles = makeStyles(theme => ({
         minHeight: "calc(80vh - 64px)",
         // height: "calc(100vh - 64px)",
         // minHeight: "400px",
+        [theme.breakpoints.up("md")]: {
+            paddingBottom: "3rem",
+        },
 
         // backgroundImage: `url(${wavybg})`,
         backgroundRepeat: "no-repeat",
@@ -177,6 +185,32 @@ const useStyles = makeStyles(theme => ({
             textIndent: "3%",
         }, //переопределение!!!
     },
+    slider: {
+        "& .slick-prev:hover:before, .slick-prev:focus:before, .slick-next:hover:before, .slick-next:focus:before": {
+            opacity: 1,
+            // color: "green",
+            // стрелки по наведению и фокусу
+        },
+        "& .slick-prev:before, .slick-next:before ": {
+            color: "#ffbf55",
+            fontSize: "30px",
+            opacity: 0.75,
+        },
+        "& .slick-dots li button:hover:before, .slick-dots li button:focus:before": {
+            opacity: 0.75,
+        },
+
+        "& .slick-dots li button:before": {
+            fontSize: "16px" /* размер маркера */,
+            lineHeight: "20px" /* сдвиг вниз */,
+            opacity: "0.25",
+            color: "rgba(252, 252, 252)",
+        },
+        "& .slick-dots li.slick-active button:before": {
+            opacity: "0.75",
+            color: "#ffbf55",
+        },
+    },
 }))
 
 const Hero = ({ intl }) => {
@@ -263,6 +297,20 @@ const Hero = ({ intl }) => {
         }
     `)
     const image = data.markdownRemark.frontmatter.indexSectionHero.heroImage
+
+    const sliderSettings = {
+        autoplay: true,
+        arrows: false,
+        dots: true,
+        fade: true,
+        infinite: true,
+        speed: 2000,
+        autoplaySpeed: 5000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        pauseOnHover: true,
+        // cssEase: "linear",
+    }
 
     return (
         <SvgCompatibleBackgroundImage image={image} className={classes.hero}>
@@ -356,17 +404,46 @@ const Hero = ({ intl }) => {
                                     borderBottom:
                                         "3px solid rgba(128,128,128,0.1)",
                                     paddingTop: "2rem",
-                                    paddingBottom: "2rem",
+                                    paddingBottom: "3rem",
                                 }}
                             >
-                                <div
-                                    className={classes.htmlContent}
-                                    dangerouslySetInnerHTML={{
-                                        __html: intl.formatMessage({
-                                            id: `indexSectionHero.features.feature1.feature1detaileddescription`,
-                                        }),
-                                    }}
-                                ></div>
+                                <Slider
+                                    {...sliderSettings}
+                                    className={classes.slider}
+                                >
+                                    <div
+                                        className={classes.htmlContent}
+                                        dangerouslySetInnerHTML={{
+                                            __html: intl.formatMessage({
+                                                id: `indexSectionHero.features.feature1.feature1detaileddescription`,
+                                            }),
+                                        }}
+                                    ></div>
+                                    <div
+                                        className={classes.htmlContent}
+                                        dangerouslySetInnerHTML={{
+                                            __html: intl.formatMessage({
+                                                id: `indexSectionHero.features.feature2.feature2detaileddescription`,
+                                            }),
+                                        }}
+                                    ></div>
+                                    <div
+                                        className={classes.htmlContent}
+                                        dangerouslySetInnerHTML={{
+                                            __html: intl.formatMessage({
+                                                id: `indexSectionHero.features.feature3.feature3detaileddescription`,
+                                            }),
+                                        }}
+                                    ></div>
+                                    <div
+                                        className={classes.htmlContent}
+                                        dangerouslySetInnerHTML={{
+                                            __html: intl.formatMessage({
+                                                id: `indexSectionHero.features.feature4.feature4detaileddescription`,
+                                            }),
+                                        }}
+                                    ></div>
+                                </Slider>
                             </Grid>
                         </Grid>
                     </Grid>

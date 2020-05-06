@@ -50,10 +50,12 @@
     "react-helmet": "^5.2.1",
     "react-intersection-observer": "^8.26.0",
     "react-lottie": "^1.2.3",
+    "react-slick": "^0.25.2",
     "react-spring": "^8.0.27",
     "react-transition-group": "^4.3.0",
     "react-use": "^13.26.1",
-    "showdown": "^1.9.1"
+    "showdown": "^1.9.1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "prettier": "^1.19.1"

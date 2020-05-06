@@ -163,6 +163,9 @@ indexSectionIntro:
   introBlock:
     - imagePosition: left
       introBlockImage: /img/blog-index.jpg
+      introBlockImageALT:
+        en: Tin of coffee
+        ru: Банка кофе
       introBlockText:
         en: |-
           ### Hello
@@ -174,6 +177,9 @@ indexSectionIntro:
           Тестовый контент
     - imagePosition: right
       introBlockImage: /img/home-jumbotron.jpg
+      introBlockImageALT:
+        en: Lots of coffee
+        ru: Много кофе
       introBlockText:
         en: |-
           ### Hello 2
@@ -185,6 +191,9 @@ indexSectionIntro:
           вываы ываыва ываы
     - imagePosition: left
       introBlockImage: /img/workspace.svg
+      introBlockImageALT:
+        en: Working place
+        ru: Рабочее место
       introBlockText:
         en: |-
           ### Heading

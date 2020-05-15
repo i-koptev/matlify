@@ -42,6 +42,7 @@ const useStyles = makeStyles(theme => ({
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
+        overflow: "hidden",
     },
     overlay: {
         position: "absolute",
@@ -111,6 +112,19 @@ const useStyles = makeStyles(theme => ({
             textAlign: "left",
             fontSize: "calc(2.125rem + 9vmin)",
         },
+
+        // "&::after": {
+        //     content: '""',
+        //     position: "absolute",
+        //     width: "107%",
+        //     height: "150vh",
+        //     margin: "-0.3em auto 0 -0.5em",
+        //     backgroundColor: "rgba(20,46,57)",
+        //     // backgroundColor: "rgba(20,46,57)",
+        //     display: "block",
+        //     zIndex: "-1000",
+        // },
+
         // @include font-size(100px);
         // @include media-breakpoint-up(md) {
         //     text-align: left;
@@ -331,6 +345,16 @@ const Hero = ({ intl }) => {
 
             <Container maxWidth={theme.siteContainer.maxWidth}>
                 <Grid container className={classes.textbox} spacing={0}>
+                    {/* <div
+                        style={{
+                            backgroundColor: "rgba(20,46,57)",
+                            position: "absolute",
+                            bottom: "-48px",
+                            // left: 0,
+                            width: "100%",
+                            height: "75%",
+                        }}
+                    ></div> */}
                     <Grid className={classes.line} item xs={12}>
                         <animated.h2
                             style={propsSlogan}

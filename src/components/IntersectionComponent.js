@@ -113,6 +113,7 @@ const IntersectionComponent = ({ intl }) => {
                         introBlock {
                             imagePosition
                             introBlockImage {
+                                id
                                 publicURL
                                 childImageSharp {
                                     fluid(maxWidth: 800, quality: 100) {
@@ -165,7 +166,9 @@ const IntersectionComponent = ({ intl }) => {
                                                     image={
                                                         block.introBlockImage
                                                     }
-                                                    alt="testALT"
+                                                    alt={intl.formatMessage({
+                                                        id: `${block.introBlockImage.id}.indexSectionIntro.imageAlt`,
+                                                    })}
                                                 />
                                                 {/* <Img
                                                     fluid={
@@ -229,7 +232,9 @@ const IntersectionComponent = ({ intl }) => {
                                                     image={
                                                         block.introBlockImage
                                                     }
-                                                    alt="testALT"
+                                                    alt={intl.formatMessage({
+                                                        id: `${block.introBlockImage.id}.indexSectionIntro.imageAlt`,
+                                                    })}
                                                 />
                                                 {/* <Img
                                                     fluid={

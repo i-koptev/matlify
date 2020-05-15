@@ -331,8 +331,18 @@ collections:
                       [
                         {
                           label: "Изображение блока / Block Image",
-                          name: introBlockImage,
-                          widget: image,
+                          name: "introBlockImage",
+                          widget: "image",
+                        },
+                        {
+                          label: "Текст ALT изображения / Image ALT Text",
+                          name: "introBlockImageALT",
+                          widget: "object",
+                          fields:
+                            [
+                              { label: "RU", name: "ru", widget: "string" },
+                              { label: "EN", name: "en", widget: "string" },
+                            ],
                         },
                         {
                           label: "Расположение изображения / Image Position",

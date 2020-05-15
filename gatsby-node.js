@@ -104,6 +104,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                             }
                             indexSectionIntro {
                                 introBlock {
+                                    introBlockImage {
+                                        id
+                                    }
+                                    introBlockImageALT {
+                                        en
+                                        ru
+                                    }
                                     introBlockText {
                                         en
                                         ru
@@ -346,6 +353,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                     en[`indexSectionIntro.text.${index}`] = converter.makeHtml(
                         item.introBlockText.en
                     )
+
+                    ru[
+                        `${item.introBlockImage.id}.indexSectionIntro.imageAlt`
+                    ] = item.introBlockImageALT.ru
+                    en[
+                        `${item.introBlockImage.id}.indexSectionIntro.imageAlt`
+                    ] = item.introBlockImageALT.en
                 }
             )
         }

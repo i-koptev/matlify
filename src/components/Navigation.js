@@ -194,7 +194,15 @@ const Navigation = ({ intl }) => {
                             variant="h6"
                             className={classes.mainNaviationBrand}
                         >
-                            KOPTEFF IV
+                            <Link
+                                to="/"
+                                style={{
+                                    textDecoration: "none",
+                                    color: "inherit",
+                                }}
+                            >
+                                KOPTEFF IV
+                            </Link>
                         </Typography>
                         <Hidden mdUp>
                             <IconButton
@@ -263,7 +271,7 @@ const Navigation = ({ intl }) => {
                                                     classes.mainNavigationMobileLink
                                                 }
                                                 activeClassName="active"
-                                                to="/works"
+                                                to="/grid"
                                             >
                                                 {intl.formatMessage({
                                                     id: "navigation.works",
@@ -339,7 +347,7 @@ const Navigation = ({ intl }) => {
                             <Link
                                 className={classes.mainNavigationLink}
                                 activeClassName="active"
-                                to="/works"
+                                to="/grid"
                             >
                                 {intl.formatMessage({
                                     id: "navigation.works",

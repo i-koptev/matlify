@@ -71,3 +71,5 @@ yarn-error.log
 matlify_journal.md
 ./src/intl/en.json
 ./src/intl/ru.json
+# Local Netlify folder
+.netlify

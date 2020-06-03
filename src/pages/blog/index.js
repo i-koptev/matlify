@@ -42,7 +42,7 @@ const BlogIndexPage = ({ intl }) => {
                     })}
                 </h1>
 
-                <Grid container spacing={8}>
+                <Grid container spacing={10}>
                     <Grid component="section" item xs={12} md={8}>
                         <BlogRoll />
                     </Grid>

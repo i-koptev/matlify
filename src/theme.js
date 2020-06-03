@@ -80,7 +80,7 @@ let theme = createMuiTheme({
             sm: 600,
             md: 784,
             lg: 1120,
-            xl: 1404,
+            xl: 1472,
         },
     },
     overrides: {
@@ -123,7 +123,7 @@ let theme = createMuiTheme({
         root: {
             color: "tomato",
         },
-        fontSize: 15,
+        fontSize: 14,
         // htmlFontSize: 16,
         h1: {
             fontFamily: headingsFontFamily,
@@ -233,6 +233,12 @@ let theme = createMuiTheme({
         background: {
             default: "transparent",
             //   default: 'rgba(222, 228, 231, 0.9)',
+        },
+    },
+    sections: {
+        blogRoll: {
+            postCardBackground: "rgba(0, 41, 63, 0.9)",
+            postCardTextColor: "rgba(255, 255, 255, 0.7)",
         },
     },
 })

@@ -123,7 +123,7 @@ let theme = createMuiTheme({
         root: {
             color: "tomato",
         },
-        fontSize: 14,
+        fontSize: 15,
         // htmlFontSize: 16,
         h1: {
             fontFamily: headingsFontFamily,
@@ -237,7 +237,7 @@ let theme = createMuiTheme({
     },
     sections: {
         blogRoll: {
-            postCardBackground: "rgba(0, 41, 63, 0.9)",
+            postCardBackground: "rgba(0, 41, 63, 0.7)",
             postCardTextColor: "rgba(255, 255, 255, 0.7)",
         },
     },

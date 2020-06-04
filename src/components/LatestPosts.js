@@ -6,12 +6,13 @@ import Typography from "@material-ui/core/Typography"
 
 const useStyles = makeStyles(theme => ({
     link: {
-        color: "tomato",
+        color: "#E0DEDE",
         textDecoration: "none",
         "& span": {
-            color: "#eee7",
+            color: "rgba(170, 166, 166, 1)",
             fontWeight: "normal",
-            fontSize: "1rem",
+            fontSize: "0.9rem",
+            letterSpacing: "0.08em",
         },
     },
 }))
@@ -50,33 +51,50 @@ const LatestPosts = ({ intl }) => {
 
     return (
         <div>
-            <h3>
+            <h2
+                style={{
+                    fontFamily: "PT Sans",
+                    fontWeight: "bold",
+                    fontSize: "1.25rem",
+                    textTransform: "uppercase",
+                    color: theme.typography.h2.color,
+                    marginTop: "3rem",
+                    letterSpacing: "0.15em",
+                }}
+            >
                 {intl.formatMessage({
                     id: `latestposts`,
                 })}
-            </h3>
+            </h2>
             {posts &&
                 posts.map(({ node: post }) => (
                     <div key={post.id}>
-                        <Link to={post.fields.slug} className={classes.link}>
-                            <h3>
+                        <Link
+                            to={post.fields.slug}
+                            className={classes.link}
+                            style={{
+                                fontFamily: "PT Sans",
+                                fontWeight: "400",
+                                fontSize: "1.1rem",
+                                letterSpacing: "0.1em",
+                            }}
+                        >
+                            {intl.formatMessage({
+                                id: `${post.id}.postTitle`,
+                            })}{" "}
+                            <span>
+                                ({" "}
+                                {`${intl
+                                    .formatMessage({
+                                        id: "category",
+                                    })
+                                    .toLowerCase()}: `}
+                                :{" "}
                                 {intl.formatMessage({
-                                    id: `${post.id}.postTitle`,
+                                    id: `${post.frontmatter.postCategory}`,
                                 })}{" "}
-                                <span>
-                                    ({" "}
-                                    {`${intl
-                                        .formatMessage({
-                                            id: "category",
-                                        })
-                                        .toLowerCase()}: `}
-                                    :{" "}
-                                    {intl.formatMessage({
-                                        id: `${post.frontmatter.postCategory}`,
-                                    })}{" "}
-                                    )
-                                </span>
-                            </h3>
+                                )
+                            </span>
                         </Link>
                     </div>
                 ))}

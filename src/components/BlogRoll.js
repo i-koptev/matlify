@@ -101,6 +101,7 @@ const useStyles = makeStyles(theme => ({
         fontWeight: "700",
         textTransform: "uppercase",
         marginBottom: "1.7rem",
+        letterSpacing: "0.2rem",
     },
     textBoxHeaderLink: { textDecoration: "none" },
     textBoxText: {

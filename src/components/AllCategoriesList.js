@@ -6,19 +6,14 @@ import Typography from "@material-ui/core/Typography"
 
 const useStyles = makeStyles(theme => ({
     link: {
-        color: "tomato",
+        color: "#E0DEDE",
         textDecoration: "none",
         "& span": {
-            color: "#eee7",
+            color: "rgba(170, 166, 166, 1)",
             fontWeight: "normal",
-            fontSize: "1rem",
+            fontSize: "0.9rem",
+            letterSpacing: "0.05em",
         },
-    },
-
-    blurred: {
-        color: "#eee7",
-        fontWeight: "normal",
-        fontSize: "1rem",
     },
 }))
 
@@ -54,22 +49,37 @@ const AllCategoriesList = ({ intl }) => {
 
     return (
         <div>
-            <h3>
+            <h2
+                style={{
+                    fontFamily: "PT Sans",
+                    fontWeight: "bold",
+                    fontSize: "1.25rem",
+                    textTransform: "uppercase",
+                    color: theme.typography.h2.color,
+                    marginTop: "1.5rem",
+                    letterSpacing: "0.15em",
+                }}
+            >
                 {intl.formatMessage({
                     id: `allcategories`,
                 })}{" "}
                 <Link to="/blog/categories/" className={classes.link}>
-                    <span className={classes.blurred}>
-                        ( {qdata.allMarkdownRemark.totalCount} )
-                    </span>
+                    <span>( {qdata.allMarkdownRemark.totalCount} )</span>
                 </Link>
-            </h3>
+            </h2>
             {categories &&
                 categories.map(({ node: category }) => (
                     <div key={category.id}>
                         <Link
                             to={category.fields.slug}
                             className={classes.link}
+                            style={{
+                                fontFamily: "PT Sans",
+                                fontWeight: "400",
+                                fontSize: "1.1rem",
+                                letterSpacing: "0.1em",
+                                marginTop: 0,
+                            }}
                         >
                             {intl.formatMessage({
                                 id: `${category.frontmatter.categoryId}`,

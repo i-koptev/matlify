@@ -26,6 +26,12 @@ const BlogIndexPage = ({ intl }) => {
     const large = useMediaQuery(theme.breakpoints.down("lg"))
     const adaptiveSpacing = medium ? 4 : large ? 8 : 10
 
+    const [categories, setCategories] = React.useState([
+        "webDesign",
+        "programming",
+    ])
+    const handleSetCategory = cat => setCategories(cat)
+
     return (
         <Layout>
             <Container
@@ -36,7 +42,9 @@ const BlogIndexPage = ({ intl }) => {
             >
                 <h1
                     style={{
-                        // backgroundColor: "rgba(232,232,232,0.05)",
+                        // b          ackgroundColor: "rgba(232,232,232,0.05)",
+                        fontFamily: "PT Sans Narrow",
+                        fontSize: "2.2rem",
                         color: theme.typography.h1.color,
                         padding: "1.5rem 0",
                         marginTop: "0",
@@ -51,7 +59,7 @@ const BlogIndexPage = ({ intl }) => {
 
                 <Grid container spacing={adaptiveSpacing}>
                     <Grid component="section" item xs={12} md={8}>
-                        <BlogRoll />
+                        <BlogRoll categories={categories} />
                     </Grid>
                     <Grid
                         component="section"
@@ -62,8 +70,8 @@ const BlogIndexPage = ({ intl }) => {
                             color: "white",
                         }}
                     >
+                        <AllCategoriesList setCategory={handleSetCategory} />
                         <LatestPosts />
-                        <AllCategoriesList />
                     </Grid>
                 </Grid>
             </Container>

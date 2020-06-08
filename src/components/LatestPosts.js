@@ -53,9 +53,9 @@ const LatestPosts = ({ intl }) => {
         <div>
             <h2
                 style={{
-                    fontFamily: "PT Sans",
+                    fontFamily: "PT Sans Narrow",
                     fontWeight: "bold",
-                    fontSize: "1.25rem",
+                    fontSize: "1.5rem",
                     textTransform: "uppercase",
                     color: theme.typography.h2.color,
                     marginTop: "3rem",
@@ -73,9 +73,9 @@ const LatestPosts = ({ intl }) => {
                             to={post.fields.slug}
                             className={classes.link}
                             style={{
-                                fontFamily: "PT Sans",
+                                fontFamily: "PT Sans Narrow",
                                 fontWeight: "400",
-                                fontSize: "1.1rem",
+                                fontSize: "1.15rem",
                                 letterSpacing: "0.1em",
                             }}
                         >

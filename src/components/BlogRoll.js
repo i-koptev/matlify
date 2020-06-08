@@ -12,6 +12,8 @@ import CardContent from "@material-ui/core/CardContent"
 import CardMedia from "@material-ui/core/CardMedia"
 import Button from "@material-ui/core/Button"
 import ChevronRightRounded from "@material-ui/icons/ChevronRightRounded"
+import { CSSTransitionGroup } from "react-transition-group"
+import "./test.css"
 
 import PreviewCompatibleImage from "./PreviewCompatibleImage"
 import SvgCompatibleBackgroundImage from "../components/SvgCompatibleBackgroundImage"
@@ -20,27 +22,30 @@ const _ = require("lodash")
 
 const useStyles = makeStyles(theme => ({
     root: {
+        boxShadow: "0 0 13px 1px #ffffff25",
+        marginBottom: "2rem",
         // backgroundColor: "rgba(0, 20, 30)",
         // maxWidth: "380px",
         // margin: "0 auto",
         // // border: "7px solid rgba(255,255,255,0.6)",
         // outline: "1px solid #777",
-        // transition: "box-shadow 200ms linear",
-        // "&:hover": {
-        //     boxShadow: "0px 0px 6px 2px #fff2",
-        // },
+        transition: "box-shadow 200ms linear",
+        "&:hover": {
+            boxShadow: "0px 0px 6px 1px #fff2",
+        },
     },
     imageBoxWrapper: {
         overflow: "hidden", // image grow on hover inside the card
     },
     imageBox: {
-        height: 200,
+        minHeight: 200,
+        transform: "scale(1.1)",
         [theme.breakpoints.up("md")]: {
             height: "100%",
         },
         transition: "transform 2000ms linear",
         "&:hover": {
-            transform: "scale(1.05)",
+            transform: "scale(1)",
         },
     },
     textBox: {
@@ -49,6 +54,7 @@ const useStyles = makeStyles(theme => ({
         padding: 40,
         paddingTop: 20,
         paddingBottom: 20,
+        minHeight: 200,
     },
     textBoxMeta: {
         fontFamily: "PT Sans, sans-serif",
@@ -138,7 +144,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-const BlogRoll = ({ intl }) => {
+const BlogRoll = ({ categories, intl }) => {
     const qdata = useStaticQuery(graphql`
         query BlogRollQuery {
             allMarkdownRemark(
@@ -181,197 +187,240 @@ const BlogRoll = ({ intl }) => {
 
     const classes = useStyles()
     const theme = useTheme()
+    // const categories = props.categories
+    // const categories = ["webDesign"]
 
     return (
         <div>
             <Grid
                 container
                 direction="column"
-                spacing={theme.siteSpacing.aboutPage}
+                wrap="nowrap"
+                // spacing={theme.siteSpacing.aboutPage}
             >
-                {posts &&
-                    posts.map(({ node: post }) => (
-                        <Grid item key={post.id} className={classes.root}>
-                            <Grid container>
+                <CSSTransitionGroup
+                    transitionName="example"
+                    transitionAppear={true}
+                    transitionAppearTimeout={300}
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}
+                >
+                    {/* {posts.filter(
+                    post => post.node.frontmatter.postCategory === "webDesign"
+                )} */}
+
+                    {posts &&
+                        posts
+                            .filter(post =>
+                                categories.includes(
+                                    post.node.frontmatter.postCategory
+                                )
+                            )
+                            .map(({ node: post }) => (
                                 <Grid
                                     item
-                                    xs={12}
-                                    lg={5}
-                                    className={classes.imageBoxWrapper}
+                                    key={post.id}
+                                    className={classes.root}
                                 >
-                                    {post.frontmatter.featuredimage ? (
-                                        <Link to={post.fields.slug}>
-                                            <div className={classes.imageBox}>
-                                                <SvgCompatibleImage
-                                                    image={
-                                                        post.frontmatter
-                                                            .featuredimage
-                                                    }
-                                                ></SvgCompatibleImage>
-                                            </div>
-                                        </Link>
-                                    ) : null}
-                                </Grid>
-                                <Grid item xs={12} lg={7}>
-                                    <Grid
-                                        container
-                                        direction="column"
-                                        justify="space-between"
-                                        wrap="nowrap"
-                                        className={classes.textBox}
-                                    >
-                                        <Grid item>
-                                            <Typography
-                                                component="section"
-                                                className={classes.textBoxMeta}
-                                                // variant="subtitle2"
-                                                gutterBottom
-                                            >
-                                                <div
-                                                    className={
-                                                        classes.textBoxMetaCategory
-                                                    }
-                                                >
-                                                    <span
+                                    <Grid container>
+                                        <Grid
+                                            item
+                                            xs={12}
+                                            lg={5}
+                                            className={classes.imageBoxWrapper}
+                                        >
+                                            {post.frontmatter.featuredimage ? (
+                                                <Link to={post.fields.slug}>
+                                                    <div
                                                         className={
-                                                            classes.textBoxMetaCategoryText
+                                                            classes.imageBox
+                                                        }
+                                                    >
+                                                        <SvgCompatibleImage
+                                                            image={
+                                                                post.frontmatter
+                                                                    .featuredimage
+                                                            }
+                                                        ></SvgCompatibleImage>
+                                                    </div>
+                                                </Link>
+                                            ) : null}
+                                        </Grid>
+                                        <Grid item xs={12} lg={7}>
+                                            <Grid
+                                                container
+                                                direction="column"
+                                                justify="space-between"
+                                                wrap="nowrap"
+                                                className={classes.textBox}
+                                            >
+                                                <Grid item>
+                                                    <Typography
+                                                        component="section"
+                                                        className={
+                                                            classes.textBoxMeta
+                                                        }
+                                                        // variant="subtitle2"
+                                                        gutterBottom
+                                                    >
+                                                        <div
+                                                            className={
+                                                                classes.textBoxMetaCategory
+                                                            }
+                                                        >
+                                                            <span
+                                                                className={
+                                                                    classes.textBoxMetaCategoryText
+                                                                }
+                                                            >
+                                                                {`${intl.formatMessage(
+                                                                    {
+                                                                        id:
+                                                                            "category",
+                                                                    }
+                                                                )}: `}
+                                                            </span>
+                                                            <Link
+                                                                to={`/blog/categories/${_.toLower(
+                                                                    _.trim(
+                                                                        post
+                                                                            .frontmatter
+                                                                            .postCategory
+                                                                    )
+                                                                )}`}
+                                                                className={
+                                                                    classes.textBoxMetaCategoryDataLink
+                                                                }
+                                                            >
+                                                                {` ${
+                                                                    post
+                                                                        .frontmatter
+                                                                        .postCategory
+                                                                        ? intl.formatMessage(
+                                                                              {
+                                                                                  id:
+                                                                                      post
+                                                                                          .frontmatter
+                                                                                          .postCategory,
+                                                                              }
+                                                                          )
+                                                                        : intl.formatMessage(
+                                                                              {
+                                                                                  id:
+                                                                                      "nocategory",
+                                                                              }
+                                                                          )
+                                                                }`}
+                                                            </Link>
+                                                        </div>
+                                                        {/* дата публикации */}
+                                                        <span
+                                                            className={
+                                                                classes.textBoxMetaDateText
+                                                            }
+                                                        >
+                                                            {`${intl.formatMessage(
+                                                                {
+                                                                    id:
+                                                                        "posted",
+                                                                }
+                                                            )} :`}
+                                                        </span>
+                                                        <span
+                                                            className={
+                                                                classes.textBoxMetaDateData
+                                                            }
+                                                        >
+                                                            {
+                                                                post.frontmatter
+                                                                    .date
+                                                            }
+                                                        </span>
+                                                    </Typography>
+                                                </Grid>
+                                                <Grid item>
+                                                    <Link
+                                                        className={
+                                                            classes.textBoxHeaderLink
+                                                        }
+                                                        to={post.fields.slug}
+                                                    >
+                                                        <Typography
+                                                            className={
+                                                                classes.textBoxHeader
+                                                            }
+                                                            variant="h5"
+                                                            component="h2"
+                                                            // gutterBottom
+                                                        >
+                                                            {intl.formatMessage(
+                                                                {
+                                                                    id: `${post.id}.postTitle`,
+                                                                }
+                                                            )}
+                                                        </Typography>
+                                                    </Link>
+                                                    <Typography
+                                                        variant="body2"
+                                                        // color="textSecondary"
+                                                        component="p"
+                                                        className={
+                                                            classes.textBoxText
                                                         }
                                                     >
                                                         {`${intl.formatMessage({
-                                                            id: "category",
-                                                        })}: `}
-                                                    </span>
+                                                            id: `${post.id}.postDescription`,
+                                                        })} `}
+                                                        Lorem ipsum dolor sit
+                                                        amet consectetur
+                                                        adipisicing elit.
+                                                        Exercitationem a non
+                                                        dolorem nam illum,
+                                                        soluta quidem id nemo,
+                                                        totam hic voluptate
+                                                        debitis similique, magni
+                                                        praesentium, magni
+                                                        adipisci laboriosam.
+                                                    </Typography>
+                                                </Grid>
+                                                <Grid
+                                                    item
+                                                    container
+                                                    justify="flex-end"
+                                                    alignItems="flex-end"
+                                                >
                                                     <Link
-                                                        to={`/blog/categories/${_.toLower(
-                                                            _.trim(
-                                                                post.frontmatter
-                                                                    .postCategory
-                                                            )
-                                                        )}`}
                                                         className={
-                                                            classes.textBoxMetaCategoryDataLink
+                                                            classes.textBoxHeaderLink
                                                         }
+                                                        to={post.fields.slug}
                                                     >
-                                                        {` ${
-                                                            post.frontmatter
-                                                                .postCategory
-                                                                ? intl.formatMessage(
-                                                                      {
-                                                                          id:
-                                                                              post
-                                                                                  .frontmatter
-                                                                                  .postCategory,
-                                                                      }
-                                                                  )
-                                                                : intl.formatMessage(
-                                                                      {
-                                                                          id:
-                                                                              "nocategory",
-                                                                      }
-                                                                  )
-                                                        }`}
+                                                        <Button
+                                                            variant="outlined"
+                                                            className={
+                                                                classes.textBoxButton
+                                                            }
+                                                        >
+                                                            Читать статью{" "}
+                                                            <ChevronRightRounded
+                                                                className={
+                                                                    classes.leftArrow
+                                                                }
+                                                            />
+                                                            <ChevronRightRounded
+                                                                className={
+                                                                    classes.rightArrow
+                                                                }
+                                                            />
+                                                        </Button>
                                                     </Link>
-                                                </div>
-                                                {/* дата публикации */}
-                                                <span
-                                                    className={
-                                                        classes.textBoxMetaDateText
-                                                    }
-                                                >
-                                                    {`${intl.formatMessage({
-                                                        id: "posted",
-                                                    })} :`}
-                                                </span>
-                                                <span
-                                                    className={
-                                                        classes.textBoxMetaDateData
-                                                    }
-                                                >
-                                                    {post.frontmatter.date}
-                                                </span>
-                                            </Typography>
-                                        </Grid>
-                                        <Grid item>
-                                            <Link
-                                                className={
-                                                    classes.textBoxHeaderLink
-                                                }
-                                                to={post.fields.slug}
-                                            >
-                                                <Typography
-                                                    className={
-                                                        classes.textBoxHeader
-                                                    }
-                                                    variant="h5"
-                                                    component="h2"
-                                                    // gutterBottom
-                                                >
-                                                    {intl.formatMessage({
-                                                        id: `${post.id}.postTitle`,
-                                                    })}
-                                                </Typography>
-                                            </Link>
-                                            <Typography
-                                                variant="body2"
-                                                // color="textSecondary"
-                                                component="p"
-                                                className={classes.textBoxText}
-                                            >
-                                                {`${intl.formatMessage({
-                                                    id: `${post.id}.postDescription`,
-                                                })} `}{" "}
-                                                Повседневная практика
-                                                показывает, что реализация
-                                                намеченных плановых заданий в
-                                                значительной степени
-                                                обуславливает создание
-                                                соответствующий условий
-                                                активизации. Повседневная
-                                                практика показывает, что
-                                                реализация намеченных плановых
-                                                заданий в значительной степени
-                                                обуславливает создание
-                                                соответствующий условий
-                                                активизации.
-                                            </Typography>
-                                        </Grid>
-                                        <Grid
-                                            item
-                                            container
-                                            justify="flex-end"
-                                            alignItems="flex-end"
-                                        >
-                                            <Link
-                                                className={
-                                                    classes.textBoxHeaderLink
-                                                }
-                                                to={post.fields.slug}
-                                            >
-                                                <Button
-                                                    variant="outlined"
-                                                    className={
-                                                        classes.textBoxButton
-                                                    }
-                                                >
-                                                    Читать статью{" "}
-                                                    <ChevronRightRounded
-                                                        className={
-                                                            classes.leftArrow
-                                                        }
-                                                    />
-                                                    <ChevronRightRounded
-                                                        className={
-                                                            classes.rightArrow
-                                                        }
-                                                    />
-                                                </Button>
-                                            </Link>
+                                                </Grid>
+                                            </Grid>
                                         </Grid>
                                     </Grid>
                                 </Grid>
-                            </Grid>
-                        </Grid>
-                    ))}
+                            ))}
+                </CSSTransitionGroup>
             </Grid>
         </div>
     )

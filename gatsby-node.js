@@ -147,6 +147,32 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                     }
                 }
             }
+            searchPosts: allMarkdownRemark(
+                limit: 1000
+                filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+            ) {
+                edges {
+                    node {
+                        id
+                        fields {
+                            slug
+                        }
+                        frontmatter {
+                            postBody {
+                                postSection {
+                                    en
+                                    ru
+                                }
+                            }
+                            postCategory
+                            postTitle {
+                                en
+                                ru
+                            }
+                        }
+                    }
+                }
+            }
         }
     `)
 
@@ -391,6 +417,68 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         "utf8"
     )
     // ----------------------------
+    var enSearchBlog = { posts: [] }
+    var ruSearchBlog = { posts: [] }
+
+    const searchPosts = result.data.searchPosts.edges
+
+    searchPosts.forEach(edge => {
+        var tempRu = {}
+        var tempEn = {}
+        if (
+            edge.node.fields.slug &&
+            edge.node.frontmatter.postTitle.ru &&
+            edge.node.frontmatter.postTitle.en &&
+            edge.node.frontmatter.postBody &&
+            edge.node.frontmatter.postBody &&
+            edge.node.frontmatter.postCategory
+        ) {
+            tempRu.slug = edge.node.fields.slug
+            tempEn.slug = edge.node.fields.slug
+            tempRu.category = edge.node.frontmatter.postCategory
+            tempEn.category = edge.node.frontmatter.postCategory
+            tempRu.title = edge.node.frontmatter.postTitle.ru
+            tempEn.title = edge.node.frontmatter.postTitle.en
+            tempRu.content = " "
+            tempEn.content = " "
+
+            edge.node.frontmatter.postBody.map(item => {
+                /* tempRu.content.concat(
+                    "",
+                    converter.makeHtml(item.postSection.ru)
+                )
+                tempEn.content.concat(
+                    "",
+                    converter.makeHtml(item.postSection.en)
+                ) */
+
+                tempRu.content += converter
+                    .makeHtml(item.postSection.ru)
+                    .replace(/(<([^>]+)>|\r\n|\n|\r)/gi, "")
+                    .trim()
+                tempEn.content += converter
+                    .makeHtml(item.postSection.en)
+                    .replace(/(<([^>]+)>|\r\n|\n|\r)/gi, "")
+                    .trim()
+
+                // tempRu.content += "test"
+                // tempEn.content += "test"
+            })
+
+            ruSearchBlog.posts.push(tempRu)
+            enSearchBlog.posts.push(tempEn)
+        }
+    })
+    await fs.writeFile(
+        path.join(__dirname, "./src/searchIndex/ruSearchIndexBlog.json"),
+        JSON.stringify(ruSearchBlog, null, 4),
+        "utf8"
+    )
+    await fs.writeFile(
+        path.join(__dirname, "./src/searchIndex/enSearchIndexBlog.json"),
+        JSON.stringify(enSearchBlog, null, 4),
+        "utf8"
+    )
 
     const posts = result.data.pages.edges
 

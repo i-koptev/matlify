@@ -56,6 +56,7 @@ class Search extends Component {
 
         dataToSearch.addIndex("title") // sets the index attribute for the data
         dataToSearch.addIndex("author") // sets the index attribute for the data
+        // dataToSearch.addIndex("isbn") // sets the index attribute for the data
 
         dataToSearch.addDocuments(bookList) // adds the data to be searched
         this.setState({ search: dataToSearch, isLoading: false })

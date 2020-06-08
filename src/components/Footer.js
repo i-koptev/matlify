@@ -5,6 +5,7 @@ import { withStyles, makeStyles, useTheme } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
 import TextField from "@material-ui/core/TextField"
 import Slider from "@material-ui/core/Slider"
+import Search from "../components/SearchContainer"
 
 const useStyles = makeStyles(theme => ({
     textField: {
@@ -54,7 +55,7 @@ const Footer = () => {
                 color: "white",
                 // padding: "3rem",
                 fontSize: "1.2rem",
-                height: 300,
+                height: 1300,
             }}
         >
             <Container
@@ -79,6 +80,7 @@ const Footer = () => {
                         className={classes.textField}
                         // fullWidth="true"
                     />
+                    <Search />
                 </div>
             </Container>
         </footer>

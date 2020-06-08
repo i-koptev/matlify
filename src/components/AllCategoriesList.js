@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
-const AllCategoriesList = ({ intl }) => {
+const AllCategoriesList = ({ intl, setCategory }) => {
     const qdata = useStaticQuery(graphql`
         query AllCategoriesListQuery {
             allMarkdownRemark(
@@ -47,18 +47,23 @@ const AllCategoriesList = ({ intl }) => {
     const classes = useStyles()
     const theme = useTheme()
 
+    const allCategories = []
+    categories.map(item => allCategories.push(item.node.frontmatter.categoryId))
+
     return (
         <div>
             <h2
                 style={{
-                    fontFamily: "PT Sans",
+                    fontFamily: "PT Sans Narrow",
                     fontWeight: "bold",
-                    fontSize: "1.25rem",
+                    fontSize: "1.5rem",
                     textTransform: "uppercase",
                     color: theme.typography.h2.color,
                     marginTop: "1.5rem",
                     letterSpacing: "0.15em",
+                    cursor: "pointer",
                 }}
+                onClick={() => setCategory(allCategories)}
             >
                 {intl.formatMessage({
                     id: `allcategories`,
@@ -69,8 +74,21 @@ const AllCategoriesList = ({ intl }) => {
             </h2>
             {categories &&
                 categories.map(({ node: category }) => (
-                    <div key={category.id}>
-                        <Link
+                    <div
+                        key={category.id}
+                        style={{
+                            fontFamily: "PT Sans Narrow",
+                            fontWeight: "400",
+                            fontSize: "1.15rem",
+                            letterSpacing: "0.1em",
+                            marginTop: 0,
+                            cursor: "pointer",
+                        }}
+                        onClick={() =>
+                            setCategory([category.frontmatter.categoryId])
+                        }
+                    >
+                        {/* <Link
                             to={category.fields.slug}
                             className={classes.link}
                             style={{
@@ -80,11 +98,11 @@ const AllCategoriesList = ({ intl }) => {
                                 letterSpacing: "0.1em",
                                 marginTop: 0,
                             }}
-                        >
-                            {intl.formatMessage({
-                                id: `${category.frontmatter.categoryId}`,
-                            })}
-                        </Link>
+                        > */}
+                        {intl.formatMessage({
+                            id: `${category.frontmatter.categoryId}`,
+                        })}
+                        {/* </Link> */}
                     </div>
                 ))}
         </div>

@@ -2,6 +2,52 @@ import React, { Component } from "react"
 import Axios from "axios"
 import * as JsSearch from "js-search"
 
+import {
+    changeLocale,
+    injectIntl,
+    Link,
+    FormattedMessage,
+} from "gatsby-plugin-intl"
+
+import { withStyles } from "@material-ui/core/styles"
+import { ThemeProvider, withTheme } from "@material-ui/styles"
+
+import { makeStyles } from "@material-ui/core/styles"
+import Paper from "@material-ui/core/Paper"
+import InputBase from "@material-ui/core/InputBase"
+import Divider from "@material-ui/core/Divider"
+import IconButton from "@material-ui/core/IconButton"
+import MenuIcon from "@material-ui/icons/Menu"
+import SearchIcon from "@material-ui/icons/Search"
+import DirectionsIcon from "@material-ui/icons/Directions"
+
+import { CSSTransitionGroup } from "react-transition-group"
+import "./test.css"
+
+const styles = theme => ({
+    root: {
+        padding: "2px 4px",
+        display: "flex",
+        alignItems: "center",
+        width: "100%",
+        backgroundColor: "rgba(255, 255, 255, 0.2)",
+        "&:hover": {
+            backgroundColor: "rgba(255, 255, 255, 0.25)",
+        },
+        // boxShadow: "none",
+    },
+    input: {
+        marginLeft: theme.spacing(2),
+        flex: 1,
+        color: "rgba(255, 255, 255, 0.9)",
+    },
+    searchIcon: {
+        paddingLeft: 10,
+        color: "rgba(255, 255, 255, 0.9)",
+        fontSize: "2rem",
+    },
+})
+
 class Search extends Component {
     state = {
         bookList: [],
@@ -10,15 +56,30 @@ class Search extends Component {
         isLoading: true,
         isError: false,
         searchQuery: "",
+        inputFocused: false,
+        searchResultsMouseOvered: false,
     }
     /**
      * React lifecycle method to fetch the data
      */
     async componentDidMount() {
-        Axios.get("https://i-koptev.github.io/matlify/src/test.json")
+        // Axios.get("https://i-koptev.github.io/matlify/src/test.json")
+        let source = ""
+        switch (this.props.intl.locale) {
+            case "ru":
+                source =
+                    "https://i-koptev.github.io/matlify/src/searchIndex/ruSearchIndexBlog.json"
+                break
+            case "en":
+                source =
+                    "https://i-koptev.github.io/matlify/src/searchIndex/enSearchIndexBlog.json"
+                break
+        }
+        Axios.get(source)
             .then(result => {
                 const bookData = result.data
-                this.setState({ bookList: bookData.books })
+                // this.setState({ bookList: bookData.books })
+                this.setState({ bookList: bookData.posts })
                 this.rebuildIndex()
             })
             .catch(err => {
@@ -36,7 +97,8 @@ class Search extends Component {
      */
     rebuildIndex = () => {
         const { bookList } = this.state
-        const dataToSearch = new JsSearch.Search("isbn")
+        // const dataToSearch = new JsSearch.Search("isbn")
+        const dataToSearch = new JsSearch.Search("slug")
         /**
          *  defines a indexing strategy for the data
          * more about it in here https://github.com/bvaughn/js-search#configuring-the-index-strategy
@@ -52,11 +114,14 @@ class Search extends Component {
          * defines the search index
          * read more in here https://github.com/bvaughn/js-search#configuring-the-search-index
          */
-        dataToSearch.searchIndex = new JsSearch.TfIdfSearchIndex("isbn")
+        // dataToSearch.searchIndex = new JsSearch.TfIdfSearchIndex("isbn")
+        dataToSearch.searchIndex = new JsSearch.TfIdfSearchIndex("slug")
 
-        dataToSearch.addIndex("title") // sets the index attribute for the data
-        dataToSearch.addIndex("author") // sets the index attribute for the data
+        // dataToSearch.addIndex("title") // sets the index attribute for the data
+        // dataToSearch.addIndex("author") // sets the index attribute for the data
         // dataToSearch.addIndex("isbn") // sets the index attribute for the data
+        dataToSearch.addIndex("title") // sets the index attribute for the data
+        dataToSearch.addIndex("content") // sets the index attribute for the data
 
         dataToSearch.addDocuments(bookList) // adds the data to be searched
         this.setState({ search: dataToSearch, isLoading: false })
@@ -78,13 +143,45 @@ class Search extends Component {
         e.preventDefault()
     }
 
+    handleInputFocus = () => this.setState({ inputFocused: true })
+    handleInputBlur = () => this.setState({ inputFocused: false })
+
+    handleSearchResultsMouseEnter = () => {
+        this.setState({ searchResultsMouseOvered: true })
+    }
+    handleSearchResultsMouseLeave = () => {
+        this.setState({ searchResultsMouseOvered: false })
+    }
+
     render() {
+        const { classes, theme } = this.props
         const { bookList, searchResults, searchQuery } = this.state
         const queryResults = searchQuery === "" ? bookList : searchResults
         return (
             <div>
-                <div style={{ margin: "0 auto" }}>
-                    <form onSubmit={this.handleSubmit}>
+                <Paper
+                    component="form"
+                    className={classes.root}
+                    onSubmit={this.handleSubmit}
+                    autocomplete="off"
+                >
+                    {/* <IconButton className={classes.iconButton} aria-label="search"> */}
+                    <SearchIcon className={classes.searchIcon} />
+                    {/* </IconButton> */}
+                    <InputBase
+                        className={classes.input}
+                        placeholder="Поиск по блогу"
+                        inputProps={{ "aria-label": "search the blog" }}
+                        onChange={this.searchData}
+                        onFocus={this.handleInputFocus}
+                        onBlur={this.handleInputBlur}
+                        value={searchQuery}
+                        id="Search"
+                    />
+                </Paper>
+
+                <div style={{ margin: "0 auto", position: "relative" }}>
+                    {/* <form onSubmit={this.handleSubmit}>
                         <div style={{ margin: "0 auto" }}>
                             <label
                                 htmlFor="Search"
@@ -100,95 +197,58 @@ class Search extends Component {
                                 style={{ margin: "0 auto", width: "400px" }}
                             />
                         </div>
-                    </form>
-                    <div>
-                        Number of items:
-                        {queryResults.length}
-                        <table
-                            style={{
-                                width: "100%",
-                                borderCollapse: "collapse",
-                                borderRadius: "4px",
-                                border: "1px solid #d3d3d3",
-                            }}
+                    </form> */}
+                    {/* {searchQuery.length > 2 && queryResults.length ? ( */}
+                    {(searchQuery && this.state.inputFocused) ||
+                    (searchQuery && this.state.searchResultsMouseOvered) ? (
+                        <CSSTransitionGroup
+                            transitionName="example"
+                            transitionAppear={true}
+                            transitionAppearTimeout={300}
+                            transitionEnterTimeout={500}
+                            transitionLeaveTimeout={300}
                         >
-                            <thead style={{ border: "1px solid #808080" }}>
-                                <tr>
-                                    <th
-                                        style={{
-                                            textAlign: "left",
-                                            padding: "5px",
-                                            fontSize: "14px",
-                                            fontWeight: 600,
-                                            borderBottom: "2px solid #d3d3d3",
-                                            cursor: "pointer",
-                                        }}
-                                    >
-                                        Book ISBN
-                                    </th>
-                                    <th
-                                        style={{
-                                            textAlign: "left",
-                                            padding: "5px",
-                                            fontSize: "14px",
-                                            fontWeight: 600,
-                                            borderBottom: "2px solid #d3d3d3",
-                                            cursor: "pointer",
-                                        }}
-                                    >
-                                        Book Title
-                                    </th>
-                                    <th
-                                        style={{
-                                            textAlign: "left",
-                                            padding: "5px",
-                                            fontSize: "14px",
-                                            fontWeight: 600,
-                                            borderBottom: "2px solid #d3d3d3",
-                                            cursor: "pointer",
-                                        }}
-                                    >
-                                        Book Author
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                            <div
+                                onMouseEnter={
+                                    this.handleSearchResultsMouseEnter
+                                }
+                                onMouseLeave={
+                                    this.handleSearchResultsMouseLeave
+                                }
+                                style={{
+                                    padding: "1rem 2rem",
+                                    width: "100%",
+                                    backgroundColor: "rgba(0, 41, 63, 1)",
+                                    border:
+                                        "1px solid rgba(255, 255, 255 ,0.3)",
+                                    borderRadius: "4px",
+                                    position: "absolute",
+                                    top: "1rem",
+                                    boxShadow: "0 0 13px 1px #ffffff25",
+                                }}
+                            >
+                                {" "}
+                                Найдено совпадений: {queryResults.length}
                                 {queryResults.map(item => {
                                     return (
-                                        <tr key={`row_${item.isbn}`}>
-                                            <td
-                                                style={{
-                                                    fontSize: "14px",
-                                                    border: "1px solid #d3d3d3",
-                                                }}
-                                            >
-                                                {item.isbn}
-                                            </td>
-                                            <td
-                                                style={{
-                                                    fontSize: "14px",
-                                                    border: "1px solid #d3d3d3",
-                                                }}
-                                            >
-                                                {item.title}
-                                            </td>
-                                            <td
-                                                style={{
-                                                    fontSize: "14px",
-                                                    border: "1px solid #d3d3d3",
-                                                }}
-                                            >
-                                                {item.author}
-                                            </td>
-                                        </tr>
+                                        <div key={`row_${item.slug}`}>
+                                            <Link to={item.slug}>
+                                                <h2>{item.title}</h2>
+                                            </Link>
+
+                                            {item.content.substr(0, 100)}
+                                        </div>
                                     )
                                 })}
-                            </tbody>
-                        </table>
-                    </div>
+                            </div>
+                        </CSSTransitionGroup>
+                    ) : (
+                        ""
+                    )}
                 </div>
             </div>
         )
     }
 }
-export default Search
+// export default Search
+export default injectIntl(withTheme(withStyles(styles)(Search)))

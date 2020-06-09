@@ -5,7 +5,6 @@ import { withStyles, makeStyles, useTheme } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
 import TextField from "@material-ui/core/TextField"
 import Slider from "@material-ui/core/Slider"
-import Search from "../components/SearchContainer"
 
 const useStyles = makeStyles(theme => ({
     textField: {
@@ -72,15 +71,14 @@ const Footer = () => {
                         onChange={handleChange}
                         valueLabelFormat={x => x.toFixed(0)}
                     /> */}
-                    <MyTextField
+                    {/*  <MyTextField
                         id="outlined-basic"
                         label="Your EMail"
                         variant="outlined"
                         // InputProps={InputProps}
                         className={classes.textField}
                         // fullWidth="true"
-                    />
-                    <Search />
+                    /> */}
                 </div>
             </Container>
         </footer>

@@ -13,6 +13,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery"
 
 import Layout from "../../components/Layout"
 import BlogRoll from "../../components/BlogRoll"
+import Search from "../../components/SearchContainer"
 import LatestPosts from "../../components/LatestPosts"
 import AllCategoriesList from "../../components/AllCategoriesList"
 
@@ -70,6 +71,7 @@ const BlogIndexPage = ({ intl }) => {
                             color: "white",
                         }}
                     >
+                        <Search />
                         <AllCategoriesList setCategory={handleSetCategory} />
                         <LatestPosts />
                     </Grid>

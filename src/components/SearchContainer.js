@@ -68,11 +68,11 @@ class Search extends Component {
         switch (this.props.intl.locale) {
             case "ru":
                 source =
-                    "https://i-koptev.github.io/matlify/src/searchIndex/ruSearchIndexBlog.json"
+                    "https://matlify.netlify.app/searchIndex/ruSearchIndexBlog.json"
                 break
             case "en":
                 source =
-                    "https://i-koptev.github.io/matlify/src/searchIndex/enSearchIndexBlog.json"
+                    "https://matlify.netlify.app/searchIndex/enSearchIndexBlog.json"
                 break
         }
         Axios.get(source)

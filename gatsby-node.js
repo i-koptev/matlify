@@ -470,12 +470,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
     })
     await fs.writeFile(
-        path.join(__dirname, "./src/searchIndex/ruSearchIndexBlog.json"),
+        path.join(__dirname, "./static/searchIndex/ruSearchIndexBlog.json"),
         JSON.stringify(ruSearchBlog, null, 4),
         "utf8"
     )
     await fs.writeFile(
-        path.join(__dirname, "./src/searchIndex/enSearchIndexBlog.json"),
+        path.join(__dirname, "./static/searchIndex/enSearchIndexBlog.json"),
         JSON.stringify(enSearchBlog, null, 4),
         "utf8"
     )

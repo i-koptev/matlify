@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 
 import { injectIntl, Link } from "gatsby-plugin-intl"
 

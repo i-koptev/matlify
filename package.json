@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "x": "gatsby clean && gatsby develop",
+    "x": "gatsby clean && gatsby develop -o",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
@@ -22,6 +22,7 @@
     "babel-plugin-prismjs": "^2.0.1",
     "babel-preset-gatsby": "^0.4.0",
     "classnames": "^2.2.6",
+    "formik": "^2.1.4",
     "gatsby": "^2.18.12",
     "gatsby-background-image": "^0.9.12",
     "gatsby-image": "^2.2.37",
@@ -57,7 +58,8 @@
     "react-transition-group": "^1.2.1",
     "react-use": "^13.26.1",
     "showdown": "^1.9.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "yup": "^0.29.1"
   },
   "devDependencies": {
     "prettier": "^1.19.1"

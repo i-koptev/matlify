@@ -14,5 +14,9 @@
     "nocategory": "Без категории",
     "posted": "Дата публикации",
     "latestposts": "Последние публикации",
-    "allcategories": "Все категории"
+    "allcategories": "Все категории",
+    "contactFormErrorFieldIsRequired": "Это поле является обязательным!",
+    "contactFormErrorEnterEmailAddressPlease": "Введите, пожалуйста, адрес электронной почты.",
+    "contactFormErrorWeNeedYourEmailAddressToContactYou": "Действующий адрес электронной почты просто необходим для обратной связи!",
+    "contactFormErrorMessageMustBeAtLeast8": "Должно быть минимум 8 символов!"
 }

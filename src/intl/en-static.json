@@ -14,5 +14,9 @@
     "nocategory": "Uncategorized",
     "posted": "Posted",
     "latestposts": "Latest Posts",
-    "allcategories": "All Categories"
+    "allcategories": "All Categories",
+    "contactFormErrorFieldIsRequired": "This Field is Required!",
+    "contactFormErrorEnterEmailAddressPlease": "Enter Your Email address, please!",
+    "contactFormErrorWeNeedYourEmailAddressToContactYou": "I need a valid Email address to contact You!",
+    "contactFormErrorMessageMustBeAtLeast8": "Message must be at least 8 symbols!"
 }
